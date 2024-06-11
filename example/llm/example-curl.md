@@ -8,5 +8,6 @@ curl -i --location $ENDPOINT \
                "messages": [{
                    "role": "user",
                    "content": "Tell me about Rome in a concise manner"
-               }]
+               }],
+               "stream": "True"
              }'
