@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-docs
+    ports:
+      - "8080:8080"
+    environment:
+      SWAGGER_JSON: /mnt/regolo-api.json
+      LAYOUT: "BaseLayout"
+    volumes:
+      - ./regolo-api.json:/mnt/regolo-api.json
