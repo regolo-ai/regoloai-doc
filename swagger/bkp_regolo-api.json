@@ -1,20 +1,10 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Regolo.ai API",
-    "description": "Regolo.ai endpoints",
+    "title": "Regolo.AI API",
+    "description": "Regolo.AI endpoints",
     "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://api.regolo.ai",
-      "description": "Regolo API server"
-    },
-    {
-      "url": "https://dev3.api.regolo.ai",
-      "description": "Regolo dev API server"
-    }
-  ],
   "paths": {
     "/models": {
       "get": {
@@ -148,7 +138,7 @@
           "chat/completions"
         ],
         "summary": "Chat Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST http://localhost:4000/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
         "operationId": "chat_completion_openai_deployments__model__chat_completions_post",
         "security": [
           {
@@ -191,8 +181,28 @@
               }
             }
           },
+          "400": {
+            "description": "ContentPolicyViolationError",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
           "401": {
             "description": "AuthenticationError",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "PermissionDeniedError",
             "content": {
               "application/json": {
                 "schema": {
@@ -211,26 +221,6 @@
               }
             }
           },
-          "400": {
-            "description": "ContentPolicyViolationError",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "UnprocessableEntityError",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
           "408": {
             "description": "Timeout",
             "content": {
@@ -241,8 +231,8 @@
               }
             }
           },
-          "403": {
-            "description": "PermissionDeniedError",
+          "422": {
+            "description": "UnprocessableEntityError",
             "content": {
               "application/json": {
                 "schema": {
@@ -290,7 +280,7 @@
           "chat/completions"
         ],
         "summary": "Chat Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST http://localhost:4000/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
         "operationId": "chat_completion_engines__model__chat_completions_post",
         "security": [
           {
@@ -352,7 +342,7 @@
           "chat/completions"
         ],
         "summary": "Chat Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST http://localhost:4000/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
         "operationId": "chat_completion_chat_completions_post",
         "security": [
           {
@@ -414,7 +404,7 @@
           "chat/completions"
         ],
         "summary": "Chat Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Chat API https://platform.openai.com/docs/api-reference/chat`\n\n```bash\ncurl -X POST http://localhost:4000/v1/chat/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello!\"\n        }\n    ]\n}'\n```",
         "operationId": "chat_completion_v1_chat_completions_post",
         "security": [
           {
@@ -476,7 +466,7 @@
           "completions"
         ],
         "summary": "Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST http://localhost:4000/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
         "operationId": "completion_openai_deployments__model__completions_post",
         "security": [
           {
@@ -538,7 +528,7 @@
           "completions"
         ],
         "summary": "Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST http://localhost:4000/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
         "operationId": "completion_engines__model__completions_post",
         "security": [
           {
@@ -600,7 +590,7 @@
           "completions"
         ],
         "summary": "Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST http://localhost:4000/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
         "operationId": "completion_completions_post",
         "security": [
           {
@@ -662,7 +652,7 @@
           "completions"
         ],
         "summary": "Completion",
-        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Completions API https://platform.openai.com/docs/api-reference/completions`\n\n```bash\ncurl -X POST http://localhost:4000/v1/completions \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"gpt-3.5-turbo-instruct\",\n    \"prompt\": \"Once upon a time\",\n    \"max_tokens\": 50,\n    \"temperature\": 0.7\n}'\n```",
         "operationId": "completion_v1_completions_post",
         "security": [
           {
@@ -724,7 +714,7 @@
           "embeddings"
         ],
         "summary": "Embeddings",
-        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST http://localhost:4000/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
         "operationId": "embeddings_openai_deployments__model__embeddings_post",
         "security": [
           {
@@ -786,7 +776,7 @@
           "embeddings"
         ],
         "summary": "Embeddings",
-        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST http://localhost:4000/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
         "operationId": "embeddings_engines__model__embeddings_post",
         "security": [
           {
@@ -848,7 +838,7 @@
           "embeddings"
         ],
         "summary": "Embeddings",
-        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST http://localhost:4000/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
         "operationId": "embeddings_embeddings_post",
         "security": [
           {
@@ -910,7 +900,7 @@
           "embeddings"
         ],
         "summary": "Embeddings",
-        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST https://api.regolo.ai/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
+        "description": "Follows the exact same API spec as `OpenAI's Embeddings API https://platform.openai.com/docs/api-reference/embeddings`\n\n```bash\ncurl -X POST http://localhost:4000/v1/embeddings \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"input\": \"The quick brown fox jumps over the lazy dog\"\n}'\n```",
         "operationId": "embeddings_v1_embeddings_post",
         "security": [
           {
@@ -972,6 +962,7 @@
           "images"
         ],
         "summary": "Image Generation",
+        "description": "Follows the exact same API spec as `OpenAI's Images API https://platform.openai.com/docs/api-reference/images/create`\n\n```bash\ncurl -X POST http://localhost:4000/v1//images/generations \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"prompt\": \"A cute baby sea otter\",\n \"n\": 1,\n    \"size\": \"1024x1024\"}'\n```",
         "operationId": "image_generation_images_generations_post",
         "responses": {
           "200": {
@@ -1005,6 +996,7 @@
           "images"
         ],
         "summary": "Image Generation",
+        "description": "Follows the exact same API spec as `OpenAI's Images API https://platform.openai.com/docs/api-reference/images/create`\n\n```bash\ncurl -X POST http://localhost:4000/v1//images/generations \n-H \"Content-Type: application/json\" \n-H \"Authorization: Bearer sk-1234\" \n-d '{\n    \"model\": \"text-embedding-ada-002\",\n    \"prompt\": \"A cute baby sea otter\",\n \"n\": 1,\n    \"size\": \"1024x1024\"}'\n```",
         "operationId": "image_generation_v1_images_generations_post",
         "responses": {
           "200": {
@@ -1960,7 +1952,7 @@
           "moderations"
         ],
         "summary": "Moderations",
-        "description": "The moderations endpoint is a tool you can use to check whether content complies with an LLM Providers policies.\n\nQuick Start\n```\ncurl --location 'https://api.regolo.ai/moderations'     --header 'Content-Type: application/json'     --header 'Authorization: Bearer sk-1234'     --data '{\"input\": \"Sample text goes here\", \"model\": \"text-moderation-stable\"}'\n```",
+        "description": "The moderations endpoint is a tool you can use to check whether content complies with an LLM Providers policies.\n\nQuick Start\n```\ncurl --location 'http://0.0.0.0:4000/moderations'     --header 'Content-Type: application/json'     --header 'Authorization: Bearer sk-1234'     --data '{\"input\": \"Sample text goes here\", \"model\": \"text-moderation-stable\"}'\n```",
         "operationId": "moderations_moderations_post",
         "responses": {
           "200": {
@@ -2022,231 +2014,13 @@
         ]
       }
     },
-    "/utils/token_counter": {
-      "post": {
-        "tags": [
-          "llm utils"
-        ],
-        "summary": "Token Counter",
-        "operationId": "token_counter_utils_token_counter_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TokenCountRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenCountResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
-    "/utils/supported_openai_params": {
-      "get": {
-        "tags": [
-          "llm utils"
-        ],
-        "summary": "Supported Openai Params",
-        "description": "Returns supported openai params for a given litellm model name \n\ne.g. `gpt-4` vs `gpt-3.5-turbo` \n\nExample curl: \n```\ncurl -X GET --location 'https://api.regolo.ai/utils/supported_openai_params?model=gpt-3.5-turbo-16k'         --header 'Authorization: Bearer sk-1234'\n```",
-        "operationId": "supported_openai_params_utils_supported_openai_params_get",
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "model",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Model"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/model/new": {
-      "post": {
-        "tags": [
-          "model management"
-        ],
-        "summary": "Add New Model",
-        "description": "Allows adding new models to the model list in the config.yaml",
-        "operationId": "add_new_model_model_new_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Deployment"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
-    "/model/update": {
-      "post": {
-        "tags": [
-          "model management"
-        ],
-        "summary": "Update Model",
-        "description": "Edit existing model params",
-        "operationId": "update_model_model_update_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/updateDeployment"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
     "/v1/model/info": {
       "get": {
         "tags": [
           "model management"
         ],
         "summary": "Model Info V1",
-        "description": "Provides more info about each model in /models, including config.yaml descriptions (except api key and api base)\n\nParameters:\n    regolo_model_id: Optional[str] = None (this is the value of `x-litellm-model-id` returned in response headers)\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"litellm_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
+        "description": "Provides more info about each model in /models, including config.yaml descriptions (except api key and api base)\n\nParameters:\n    regolo_model_id: Optional[str] = None \n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
         "operationId": "model_info_v1_v1_model_info_get",
         "security": [
           {
@@ -2276,7 +2050,7 @@
                   "type": "null"
                 }
               ],
-              "title": "Litellm Model Id"
+              "title": "Regolo Model Id"
             }
           }
         ],
@@ -2308,7 +2082,7 @@
           "model management"
         ],
         "summary": "Model Info V1",
-        "description": "Provides more info about each model in /models, including config.yaml descriptions (except api key and api base)\n\nParameters:\n    regolo_model_id: Optional[str] = None (this is the value of `x-litellm-model-id` returned in response headers)\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"litellm_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
+        "description": "Provides more info about each model in /models, including config.yaml descriptions (except api key and api base)\n\nParameters:\n    regolo_model_id: Optional[str] = None\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
         "operationId": "model_info_v1_model_info_get",
         "security": [
           {
@@ -2338,7 +2112,7 @@
                   "type": "null"
                 }
               ],
-              "title": "Litellm Model Id"
+              "title": "Regolo Model Id"
             }
           }
         ],
@@ -2362,183 +2136,6 @@
             }
           }
         }
-      }
-    },
-    "/model_group/info": {
-      "get": {
-        "tags": [
-          "model management"
-        ],
-        "summary": "Model Group Info",
-        "description": "Get information about all the deployments on litellm proxy, including config.yaml descriptions (except api key and api base)\n\n- /model_group/info returns all model groups. End users of proxy should use /model_group/info since those models will be used for /chat/completions, /embeddings, etc.\n- /model_group/info?model_group=rerank-english-v3.0 returns all model groups for a specific model group (`model_name` in config.yaml)\n\n\n\nExample Request (All Models):\n```shell\ncurl -X 'GET'     'https://api.regolo.ai/model_group/info'     -H 'accept: application/json'     -H 'x-api-key: sk-1234'\n```\n\nExample Request (Specific Model Group):\n```shell\ncurl -X 'GET'     'https://api.regolo.ai/model_group/info?model_group=rerank-english-v3.0'     -H 'accept: application/json'     -H 'Authorization: Bearer sk-1234'\n```\n\nExample Request (Specific Wildcard Model Group): (e.g. `model_name: openai/*` on config.yaml) \n```shell\ncurl -X 'GET'     'https://api.regolo.ai/model_group/info?model_group=openai/tts-1' \n-H 'accept: application/json'     -H 'Authorization: Bearersk-1234'\n```\n\nLearn how to use and set wildcard models [here](https://docs.litellm.ai/docs/wildcard_routing)\n\nExample Response:\n```json\n    {\n        \"data\": [\n            {\n            \"model_group\": \"rerank-english-v3.0\",\n            \"providers\": [\n                \"cohere\"\n            ],\n            \"max_input_tokens\": null,\n            \"max_output_tokens\": null,\n            \"input_cost_per_token\": 0.0,\n            \"output_cost_per_token\": 0.0,\n            \"mode\": null,\n            \"tpm\": null,\n            \"rpm\": null,\n            \"supports_parallel_function_calling\": false,\n            \"supports_vision\": false,\n            \"supports_function_calling\": false,\n            \"supported_openai_params\": [\n                \"stream\",\n                \"temperature\",\n                \"max_tokens\",\n                \"logit_bias\",\n                \"top_p\",\n                \"frequency_penalty\",\n                \"presence_penalty\",\n                \"stop\",\n                \"n\",\n                \"extra_headers\"\n            ]\n            },\n            {\n            \"model_group\": \"gpt-3.5-turbo\",\n            \"providers\": [\n                \"openai\"\n            ],\n            \"max_input_tokens\": 16385.0,\n            \"max_output_tokens\": 4096.0,\n            \"input_cost_per_token\": 1.5e-06,\n            \"output_cost_per_token\": 2e-06,\n            \"mode\": \"chat\",\n            \"tpm\": null,\n            \"rpm\": null,\n            \"supports_parallel_function_calling\": false,\n            \"supports_vision\": false,\n            \"supports_function_calling\": true,\n            \"supported_openai_params\": [\n                \"frequency_penalty\",\n                \"logit_bias\",\n                \"logprobs\",\n                \"top_logprobs\",\n                \"max_tokens\",\n                \"max_completion_tokens\",\n                \"n\",\n                \"presence_penalty\",\n                \"seed\",\n                \"stop\",\n                \"stream\",\n                \"stream_options\",\n                \"temperature\",\n                \"top_p\",\n                \"tools\",\n                \"tool_choice\",\n                \"function_call\",\n                \"functions\",\n                \"max_retries\",\n                \"extra_headers\",\n                \"parallel_tool_calls\",\n                \"response_format\"\n            ]\n            },\n            {\n            \"model_group\": \"llava-hf\",\n            \"providers\": [\n                \"openai\"\n            ],\n            \"max_input_tokens\": null,\n            \"max_output_tokens\": null,\n            \"input_cost_per_token\": 0.0,\n            \"output_cost_per_token\": 0.0,\n            \"mode\": null,\n            \"tpm\": null,\n            \"rpm\": null,\n            \"supports_parallel_function_calling\": false,\n            \"supports_vision\": true,\n            \"supports_function_calling\": false,\n            \"supported_openai_params\": [\n                \"frequency_penalty\",\n                \"logit_bias\",\n                \"logprobs\",\n                \"top_logprobs\",\n                \"max_tokens\",\n                \"max_completion_tokens\",\n                \"n\",\n                \"presence_penalty\",\n                \"seed\",\n                \"stop\",\n                \"stream\",\n                \"stream_options\",\n                \"temperature\",\n                \"top_p\",\n                \"tools\",\n                \"tool_choice\",\n                \"function_call\",\n                \"functions\",\n                \"max_retries\",\n                \"extra_headers\",\n                \"parallel_tool_calls\",\n                \"response_format\"\n            ]\n            }\n        ]\n        }\n```",
-        "operationId": "model_group_info_model_group_info_get",
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "model_group",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Model Group"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/model/delete": {
-      "post": {
-        "tags": [
-          "model management"
-        ],
-        "summary": "Delete Model",
-        "description": "Allows deleting models in the model list in the config.yaml",
-        "operationId": "delete_model_model_delete_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ModelInfoDelete"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
-    "/": {
-      "get": {
-        "summary": "Home",
-        "operationId": "home__get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
-      }
-    },
-    "/routes": {
-      "get": {
-        "summary": "Get Routes",
-        "description": "Get a list of available routes in the FastAPI application.",
-        "operationId": "get_routes_routes_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ]
       }
     },
     "/batches": {
@@ -2547,7 +2144,7 @@
           "batch"
         ],
         "summary": "Create Batch",
-        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
+        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
         "operationId": "create_batch_batches_post",
         "security": [
           {
@@ -2607,7 +2204,7 @@
           "batch"
         ],
         "summary": "List Batches",
-        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "list_batches_batches_get",
         "security": [
           {
@@ -2701,7 +2298,7 @@
           "batch"
         ],
         "summary": "Create Batch",
-        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
+        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
         "operationId": "create_batch_v1_batches_post",
         "security": [
           {
@@ -2761,7 +2358,7 @@
           "batch"
         ],
         "summary": "List Batches",
-        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "list_batches_v1_batches_get",
         "security": [
           {
@@ -2855,7 +2452,7 @@
           "batch"
         ],
         "summary": "Create Batch",
-        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
+        "description": "Create large batches of API requests for asynchronous processing.\nThis is the equivalent of POST https://api.openai.com/v1/batch\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -d '{\n        \"input_file_id\": \"file-abc123\",\n        \"endpoint\": \"/v1/chat/completions\",\n        \"completion_window\": \"24h\"\n}'\n```",
         "operationId": "create_batch__provider__v1_batches_post",
         "security": [
           {
@@ -2915,7 +2512,7 @@
           "batch"
         ],
         "summary": "List Batches",
-        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Lists \nThis is the equivalent of GET https://api.openai.com/v1/batches/\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches?limit=2     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "list_batches__provider__v1_batches_get",
         "security": [
           {
@@ -3009,7 +2606,7 @@
           "batch"
         ],
         "summary": "Retrieve Batch",
-        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "retrieve_batch_batches__batch_id__get",
         "security": [
           {
@@ -3082,7 +2679,7 @@
           "batch"
         ],
         "summary": "Retrieve Batch",
-        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "retrieve_batch_v1_batches__batch_id__get",
         "security": [
           {
@@ -3155,7 +2752,7 @@
           "batch"
         ],
         "summary": "Retrieve Batch",
-        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
+        "description": "Retrieves a batch.\nThis is the equivalent of GET https://api.openai.com/v1/batches/{batch_id}\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123     -H \"Authorization: Bearer sk-1234\"     -H \"Content-Type: application/json\" \n```",
         "operationId": "retrieve_batch__provider__v1_batches__batch_id__get",
         "security": [
           {
@@ -3228,7 +2825,7 @@
           "batch"
         ],
         "summary": "Cancel Batch",
-        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
+        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
         "operationId": "cancel_batch_batches__batch_id__cancel_post",
         "security": [
           {
@@ -3299,7 +2896,7 @@
           "batch"
         ],
         "summary": "Cancel Batch",
-        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
+        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
         "operationId": "cancel_batch_v1_batches__batch_id__cancel_post",
         "security": [
           {
@@ -3370,7 +2967,7 @@
           "batch"
         ],
         "summary": "Cancel Batch",
-        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl https://api.regolo.ai/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
+        "description": "Cancel a batch.\nThis is the equivalent of POST https://api.openai.com/v1/batches/{batch_id}/cancel\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/batch/cancel\n\nExample Curl\n```\ncurl http://localhost:4000/v1/batches/batch_abc123/cancel         -H \"Authorization: Bearer sk-1234\"         -H \"Content-Type: application/json\"         -X POST\n\n```",
         "operationId": "cancel_batch__provider__v1_batches__batch_id__cancel_post",
         "security": [
           {
@@ -3501,11 +3098,14 @@
         ]
       }
     },
-    "/config/pass_through_endpoint": {
-      "get": {
-        "summary": "Get Pass Through Endpoints",
-        "description": "GET configured pass through endpoint.\n\nIf no endpoint_id given, return all configured endpoints.",
-        "operationId": "get_pass_through_endpoints_config_pass_through_endpoint_get",
+    "/files": {
+      "post": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Create File",
+        "description": "Upload a file that can be used across - Assistants API, Batch API \nThis is the equivalent of POST https://api.openai.com/v1/files\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/create\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files         -H \"Authorization: Bearer sk-1234\"         -F purpose=\"batch\"         -F file=\"@mydata.jsonl\"\n\n```",
+        "operationId": "create_file_files_post",
         "security": [
           {
             "APIKeyHeader": []
@@ -3522,7 +3122,7 @@
         ],
         "parameters": [
           {
-            "name": "endpoint_id",
+            "name": "provider",
             "in": "query",
             "required": false,
             "schema": {
@@ -3534,18 +3134,26 @@
                   "type": "null"
                 }
               ],
-              "title": "Endpoint Id"
+              "title": "Provider"
             }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_file_files_post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PassThroughEndpointResponse"
-                }
+                "schema": {}
               }
             }
           },
@@ -3561,10 +3169,13 @@
           }
         }
       },
-      "post": {
-        "summary": "Create Pass Through Endpoints",
-        "description": "Create new pass-through endpoint",
-        "operationId": "create_pass_through_endpoints_config_pass_through_endpoint_post",
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "List Files",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files        -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "list_files_files_get",
         "security": [
           {
             "APIKeyHeader": []
@@ -3579,16 +3190,620 @@
             "APIKeyHeader": []
           }
         ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          },
+          {
+            "name": "purpose",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Purpose"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files": {
+      "post": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Create File",
+        "description": "Upload a file that can be used across - Assistants API, Batch API \nThis is the equivalent of POST https://api.openai.com/v1/files\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/create\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files         -H \"Authorization: Bearer sk-1234\"         -F purpose=\"batch\"         -F file=\"@mydata.jsonl\"\n\n```",
+        "operationId": "create_file_v1_files_post",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/PassThroughGenericEndpoint"
+                "$ref": "#/components/schemas/Body_create_file_v1_files_post"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "List Files",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files        -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "list_files_v1_files_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          },
+          {
+            "name": "purpose",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Purpose"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{provider}/v1/files": {
+      "post": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Create File",
+        "description": "Upload a file that can be used across - Assistants API, Batch API \nThis is the equivalent of POST https://api.openai.com/v1/files\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/create\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files         -H \"Authorization: Bearer sk-1234\"         -F purpose=\"batch\"         -F file=\"@mydata.jsonl\"\n\n```",
+        "operationId": "create_file__provider__v1_files_post",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_file__provider__v1_files_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "List Files",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/list\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files        -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "list_files__provider__v1_files_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          },
+          {
+            "name": "purpose",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Purpose"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/files/{file_id}/content": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Get File Content",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}/content\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve-contents\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123/content         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file_content_files__file_id__content_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files/{file_id}/content": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Get File Content",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}/content\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve-contents\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123/content         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file_content_v1_files__file_id__content_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{provider}/v1/files/{file_id}/content": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Get File Content",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}/content\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve-contents\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123/content         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file_content__provider__v1_files__file_id__content_get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/files/{file_id}": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Get File",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file_files__file_id__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -3611,9 +3826,12 @@
         }
       },
       "delete": {
-        "summary": "Delete Pass Through Endpoints",
-        "description": "Delete a pass-through endpoint\n\nReturns - the deleted endpoint",
-        "operationId": "delete_pass_through_endpoints_config_pass_through_endpoint_delete",
+        "tags": [
+          "files"
+        ],
+        "summary": "Delete File",
+        "description": "Deletes a specified file. that can be used across - Assistants API, Batch API \nThis is the equivalent of DELETE https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/delete\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123     -X DELETE     -H \"Authorization: Bearer $OPENAI_API_KEY\"\n\n```",
+        "operationId": "delete_file_files__file_id__delete",
         "security": [
           {
             "APIKeyHeader": []
@@ -3630,66 +3848,28 @@
         ],
         "parameters": [
           {
-            "name": "endpoint_id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Endpoint Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PassThroughEndpointResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/config/pass_through_endpoint/{endpoint_id}": {
-      "post": {
-        "summary": "Update Pass Through Endpoints",
-        "description": "Update a pass-through endpoint",
-        "operationId": "update_pass_through_endpoints_config_pass_through_endpoint__endpoint_id__post",
-        "security": [
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          },
-          {
-            "APIKeyHeader": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "endpoint_id",
+            "name": "file_id",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Endpoint Id"
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
             }
           }
         ],
@@ -3715,14 +3895,14 @@
         }
       }
     },
-    "/model/{model_id}/update": {
-      "patch": {
+    "/v1/files/{file_id}": {
+      "get": {
         "tags": [
-          "model management"
+          "files"
         ],
-        "summary": "Patch Model",
-        "description": "PATCH Endpoint for partial model updates.\n\nOnly updates the fields specified in the request while preserving other existing values.\nFollows proper PATCH semantics by only modifying provided fields.\n\nArgs:\n    model_id: The ID of the model to update\n    patch_data: The fields to update and their new values\n    user_api_key_dict: User authentication information\n\nReturns:\n    Updated model information\n\nRaises:\n    ProxyException: For various error conditions including authentication and database errors",
-        "operationId": "patch_model_model__model_id__update_patch",
+        "summary": "Get File",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file_v1_files__file_id__get",
         "security": [
           {
             "APIKeyHeader": []
@@ -3739,25 +3919,240 @@
         ],
         "parameters": [
           {
-            "name": "model_id",
+            "name": "file_id",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
-              "title": "Model Id"
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
             }
           }
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/updateDeployment"
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
               }
             }
           }
-        },
+        }
+      },
+      "delete": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Delete File",
+        "description": "Deletes a specified file. that can be used across - Assistants API, Batch API \nThis is the equivalent of DELETE https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/delete\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123     -X DELETE     -H \"Authorization: Bearer $OPENAI_API_KEY\"\n\n```",
+        "operationId": "delete_file_v1_files__file_id__delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{provider}/v1/files/{file_id}": {
+      "get": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Get File",
+        "description": "Returns information about a specific file. that can be used across - Assistants API, Batch API \nThis is the equivalent of GET https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/retrieve\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123         -H \"Authorization: Bearer sk-1234\"\n\n```",
+        "operationId": "get_file__provider__v1_files__file_id__get",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "files"
+        ],
+        "summary": "Delete File",
+        "description": "Deletes a specified file. that can be used across - Assistants API, Batch API \nThis is the equivalent of DELETE https://api.openai.com/v1/files/{file_id}\n\nSupports Identical Params as: https://platform.openai.com/docs/api-reference/files/delete\n\nExample Curl\n```\ncurl http://localhost:4000/v1/files/file-abc123     -X DELETE     -H \"Authorization: Bearer $OPENAI_API_KEY\"\n\n```",
+        "operationId": "delete_file__provider__v1_files__file_id__delete",
+        "security": [
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          },
+          {
+            "APIKeyHeader": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Provider"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -3783,6 +4178,106 @@
   },
   "components": {
     "schemas": {
+      "Body_audio_transcriptions_audio_transcriptions_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_audio_transcriptions_audio_transcriptions_post"
+      },
+      "Body_audio_transcriptions_v1_audio_transcriptions_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_audio_transcriptions_v1_audio_transcriptions_post"
+      },
+      "Body_create_file__provider__v1_files_post": {
+        "properties": {
+          "purpose": {
+            "type": "string",
+            "title": "Purpose"
+          },
+          "custom_llm_provider": {
+            "type": "string",
+            "title": "Custom Llm Provider",
+            "default": "openai"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "purpose",
+          "file"
+        ],
+        "title": "Body_create_file__provider__v1_files_post"
+      },
+      "Body_create_file_files_post": {
+        "properties": {
+          "purpose": {
+            "type": "string",
+            "title": "Purpose"
+          },
+          "custom_llm_provider": {
+            "type": "string",
+            "title": "Custom Llm Provider",
+            "default": "openai"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "purpose",
+          "file"
+        ],
+        "title": "Body_create_file_files_post"
+      },
+      "Body_create_file_v1_files_post": {
+        "properties": {
+          "purpose": {
+            "type": "string",
+            "title": "Purpose"
+          },
+          "custom_llm_provider": {
+            "type": "string",
+            "title": "Custom Llm Provider",
+            "default": "openai"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "purpose",
+          "file"
+        ],
+        "title": "Body_create_file_v1_files_post"
+      },
       "ErrorResponse": {
         "properties": {
           "detail": {
@@ -3816,6 +4311,89 @@
         },
         "type": "object",
         "title": "HTTPValidationError"
+      },
+      "Hyperparameters": {
+        "properties": {
+          "batch_size": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch Size"
+          },
+          "learning_rate_multiplier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Learning Rate Multiplier"
+          },
+          "n_epochs": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "N Epochs"
+          }
+        },
+        "type": "object",
+        "title": "Hyperparameters"
+      },
+        "type": "object",
+        "title": "KeyHealthResponse"
+      },
+      "LoggingCallbackStatus": {
+        "properties": {
+          "callbacks": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Callbacks"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "healthy",
+              "unhealthy"
+            ],
+            "title": "Status"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "title": "LoggingCallbackStatus"
       },
       "ModelInfo": {
         "properties": {
@@ -3926,72 +4504,6 @@
         ],
         "title": "ModelInfo"
       },
-      "TokenCountRequest": {
-        "properties": {
-          "model": {
-            "type": "string",
-            "title": "Model"
-          },
-          "prompt": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Prompt"
-          },
-          "messages": {
-            "anyOf": [
-              {
-                "items": {
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Messages"
-          }
-        },
-        "type": "object",
-        "required": [
-          "model"
-        ],
-        "title": "TokenCountRequest"
-      },
-      "TokenCountResponse": {
-        "properties": {
-          "total_tokens": {
-            "type": "integer",
-            "title": "Total Tokens"
-          },
-          "request_model": {
-            "type": "string",
-            "title": "Request Model"
-          },
-          "model_used": {
-            "type": "string",
-            "title": "Model Used"
-          },
-          "tokenizer_type": {
-            "type": "string",
-            "title": "Tokenizer Type"
-          }
-        },
-        "type": "object",
-        "required": [
-          "total_tokens",
-          "request_model",
-          "model_used",
-          "tokenizer_type"
-        ],
-        "title": "TokenCountResponse"
-      },
       "ValidationError": {
         "properties": {
           "loc": {
@@ -4024,14 +4536,6 @@
           "type"
         ],
         "title": "ValidationError"
-      }
-    },
-    "securitySchemes": {
-      "APIKeyHeader": {
-        "type": "apiKey",
-        "description": "If google ai studio client used.",
-        "in": "header",
-        "name": "x-goog-api-key"
       }
     }
   }
