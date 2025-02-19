@@ -11,3 +11,5 @@ services:
       LAYOUT: "BaseLayout"
     volumes:
       - ./regolo-api.json:/mnt/regolo-api.json
+      - ./favicon-32x32.png:/usr/share/nginx/html/favicon-32x32.png
+      - ./favicon-16x16.png:/usr/share/nginx/html/favicon-16x16.png
