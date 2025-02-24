@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Regolo.ai API",
-    "description": "Regolo.ai endpoints",
+    "description": "Regolo.ai - A green, full-stack AI platform [https://regolo.ai](https://regolo.ai)",
     "version": "1.0"
   },
   "servers": [
