@@ -1,0 +1,44 @@
+site_name: "Documentation"
+theme:
+  name: material
+  logo: assets/light-logo.png
+  palette:
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Roboto Slab
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search 
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/regolo-ai
+      name: Regolo.ai on GitHub
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/myuuVFcfJw
+      name: Regolo.ai Discord Server
+  generator: false
+
+extra_css:
+  - styles/extra.css
