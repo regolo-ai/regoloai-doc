@@ -1,4 +1,7 @@
 site_name: "Documentation"
+repo_url: "https://github.com/regolo-ai/regoloai-doc"
+site_url: "https://docs.regolo.ai"
+
 theme:
   name: material
   logo: assets/light-logo.png
