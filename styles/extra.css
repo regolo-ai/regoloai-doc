@@ -50,3 +50,7 @@
   --md-typeset-a-color: #59e389!important;
   --md-accent-fg-color: #59e389!important;
 }
+
+.md-typeset h1, .md-typeset h2 {
+  font-weight: 700;
+}
