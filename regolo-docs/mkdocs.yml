@@ -2,6 +2,10 @@ site_name: "Documentation"
 repo_url: "https://github.com/regolo-ai/regoloai-doc"
 site_url: "https://docs.regolo.ai"
 
+nav:
+  - Getting started: index.md
+  - API Documentation: https://docs.api.regolo.ai
+
 theme:
   name: material
   logo: assets/light-logo.png
@@ -31,7 +35,14 @@ theme:
     - search.highlight
 
 plugins:
-  - search 
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra:
   social:
