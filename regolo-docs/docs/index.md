@@ -12,8 +12,6 @@ To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](h
 
 Once logged in, navigate to the **Virtual Keys** section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.
 
-![image](assets/images/regoloai-dashboard.png)
-
 ## Choose your client
 
 Regolo.ai is fully compatible with the OpenAI API, so you can use either:
