@@ -969,6 +969,35 @@
         ],
         "summary": "Image Generation",
         "operationId": "image_generation_images_generations_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "example": "a white siamese cat"
+                  },
+                  "n": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "model": {
+                    "type": "string",
+                    "example": "FLUX.1-dev"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "1024x1024"
+                  }
+                },
+                "required": ["prompt", "n", "model", "size"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1002,6 +1031,35 @@
         ],
         "summary": "Image Generation",
         "operationId": "image_generation_v1_images_generations_post",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "example": "a white siamese cat"
+                  },
+                  "n": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "model": {
+                    "type": "string",
+                    "example": "FLUX.1-dev"
+                  },
+                  "size": {
+                    "type": "string",
+                    "example": "1024x1024"
+                  }
+                },
+                "required": ["prompt", "n", "model", "size"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
