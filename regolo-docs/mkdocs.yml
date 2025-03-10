@@ -1,4 +1,4 @@
-site_name: "Documentation"
+site_name: "Regolo Docs"
 repo_url: "https://github.com/regolo-ai/regoloai-doc"
 site_url: "https://docs.regolo.ai"
 
@@ -45,6 +45,7 @@ markdown_extensions:
       alternate_style: true
 
 extra:
+  homepage: https://regolo.ai
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/regolo-ai
