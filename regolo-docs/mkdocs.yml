@@ -3,8 +3,9 @@ repo_url: "https://github.com/regolo-ai/regoloai-doc"
 site_url: "https://docs.regolo.ai"
 
 nav:
-  - Getting started: index.md
+  - Getting Started: index.md
   - Completions and Chat: completions.md
+  - Images Generation: images.md
   - Regolo Client: https://pypi.org/project/regolo/
   - API Docs: https://docs.api.regolo.ai
 
