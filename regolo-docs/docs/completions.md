@@ -148,6 +148,4 @@ The streaming response is structured as JSON objects sent line by line. Each lin
             print(line.decode('utf-8'))
     ```
 
-!!! tip
-
-    For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).

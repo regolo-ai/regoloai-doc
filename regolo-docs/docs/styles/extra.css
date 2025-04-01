@@ -59,3 +59,8 @@
   .md-nav--primary .md-nav__title {
     display: none;
   }
+
+  .md-nav__source {
+    background-color: #000;
+  }
+}
