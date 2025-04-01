@@ -1,1 +1,2 @@
 mkdocs-material
+mkdocs-open-in-new-tab
