@@ -4,7 +4,7 @@ site_url: "https://docs.regolo.ai"
 
 nav:
   - Getting started: index.md
-  - Completions and Chat: chat.md
+  - Completions and Chat: completions.md
   - Regolo Client: https://pypi.org/project/regolo/
   - API Docs: https://docs.api.regolo.ai
 
