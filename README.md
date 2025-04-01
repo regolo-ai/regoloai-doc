@@ -128,4 +128,4 @@ To include images and other media files in your documentation:
 
    Replace `your-image-file.png` with the actual file name.
 
-By following these instructions, you can easily expand and enhance your documentation with new content and media. If you have any questions or encounter issues, feel free to reach out via the repository's issue tracker.
+If you have any questions or encounter issues, feel free to reach out via the repository's issue tracker.
