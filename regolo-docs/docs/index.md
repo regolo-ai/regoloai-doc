@@ -20,7 +20,7 @@ Regolo.ai is fully compatible with the OpenAI API, so you can use either:
 
 ## Chat Example
 
-Below is an example of how to create a simple chat endpoint using regolo client.
+Below is an example of how to create a simple chat application in python using regolo client.
 
 === "Using Regolo Client"
 

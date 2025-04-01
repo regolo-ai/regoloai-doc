@@ -4,7 +4,9 @@ site_url: "https://docs.regolo.ai"
 
 nav:
   - Getting started: index.md
-  - API Documentation: https://docs.api.regolo.ai
+  - Completions and Chat: chat.md
+  - Regolo Client: https://pypi.org/project/regolo/
+  - API Docs: https://docs.api.regolo.ai
 
 theme:
   name: material
@@ -26,7 +28,6 @@ theme:
     - navigation.tracking
     - navigation.sections
     - navigation.expand
-    - toc.integrate
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
@@ -36,6 +37,8 @@ theme:
 
 plugins:
   - search
+  - open-in-new-tab:
+      add_icon: true
 
 markdown_extensions:
   - admonition
