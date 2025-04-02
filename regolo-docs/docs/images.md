@@ -32,6 +32,7 @@ Larger images take longer to generate, so consider using smaller sizes for quick
     ```
 
 === "Python"
+
     ```python
     import requests
     import json
