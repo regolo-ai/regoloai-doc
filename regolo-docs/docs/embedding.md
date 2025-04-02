@@ -4,7 +4,7 @@ The embedding API allows you to get a vector representation of the input to be u
 
 ## API Call Parameters
 
-* `input`: A string describing the sentece, such as "A white cat resting in Rome."
+* `input`: A string describing the sentence, such as "A white cat resting in Rome."
 * `model`: The identifier for the model used in image generation, e.g., "gte-Qwen2."
 
 === "Using Regolo Client"
