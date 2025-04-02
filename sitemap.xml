@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.regolo.ai/</loc>
-         <lastmod>2025-04-01</lastmod>
+         <lastmod>2025-04-02</lastmod>
     </url>
     <url>
          <loc>https://docs.regolo.ai/completions/</loc>
-         <lastmod>2025-04-01</lastmod>
+         <lastmod>2025-04-02</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.regolo.ai/embedding/</loc>
+         <lastmod>2025-04-02</lastmod>
     </url>
     <url>
          <loc>https://docs.regolo.ai/images/</loc>
-         <lastmod>2025-04-01</lastmod>
+         <lastmod>2025-04-02</lastmod>
     </url>
 </urlset>
