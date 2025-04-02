@@ -6,6 +6,7 @@ nav:
   - Getting Started: index.md
   - Completions and Chat: completions.md
   - Images Generation: images.md
+  - Embeddings: embedding.md
   - Regolo Client: https://pypi.org/project/regolo/
   - API Docs: https://docs.api.regolo.ai
 
