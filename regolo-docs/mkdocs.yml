@@ -5,6 +5,7 @@ site_url: "https://docs.regolo.ai"
 nav:
   - Getting Started: index.md
   - Completions and Chat: completions.md
+  - Vision models: vision.md
   - Images Generation: images.md
   - Embeddings: embedding.md
   - Regolo Client: https://pypi.org/project/regolo/
