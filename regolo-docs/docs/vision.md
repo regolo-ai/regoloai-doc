@@ -9,6 +9,29 @@ You can provide images in two ways:
 * **Remote URL**: Supply a publicly accessible URL pointing to the image.
 * **Base64 Encoding**: Encode the image in base64 format and pass it in the `image_url` field.
 
+=== "Using Regolo Client"
+    ```python
+    import regolo
+
+    regolo.default_key = "YOUR_REGOLO_KEY"
+    regolo.default_model = "Qwen2.5-VL-32B-Instruct"
+
+    print(regolo.static_chat_completions(messages=[{
+        "role": "user",
+        "content": [
+            {
+                "type": "text",
+                "text": "What’s in this image?"
+            },
+            {
+                "type": "image_url",
+                "image_url": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/960px-Colosseo_2020.jpg"},
+                "format": "image/jpeg"
+            }
+        ]
+    }]))
+    ```
+
 === "Python"
     ```python
     import requests
