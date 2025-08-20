@@ -7,6 +7,7 @@ nav:
   - Completions and Chat: completions.md
   - Vision models: vision.md
   - Images Generation: images.md
+  - STT: stt.md
   - Embeddings: embedding.md
   - Regolo Client: https://pypi.org/project/regolo/
   - API Docs: https://docs.api.regolo.ai
