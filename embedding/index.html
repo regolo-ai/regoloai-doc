@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.regolo.ai/embedding/">
       
       
-        <link rel="prev" href="../images/">
+        <link rel="prev" href="../stt/">
       
       
       
@@ -336,6 +336,27 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../stt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    STT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -545,9 +566,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/embeddings<span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/embeddings
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span>
 -d<span class="w"> </span><span class="s1">&#39;{</span>
 <span class="s1">    &quot;model&quot;: &quot;gte-Qwen2&quot;,</span>
 <span class="s1">    &quot;input&quot;: &quot;The quick brown fox jumps over the lazy dog&quot;</span>
