@@ -1,14 +1,17 @@
 # Speech To Text
 
-The image generation API allows you to create images based on textual descriptions, leveraging models like `FLUX.1-dev`.
+The Speech to Text (STT) API enables you to extract and transcribe text from audio files using models such as `faster-whisper-large-v3`.
 
 ## API Call Parameters
 
-* `file`: A binary file in ogg format.
-* `model`: The identifier for the model used in image generation, e.g., "faster-whisper-large-v3".
-* `language`: A string defining the language, like `english`, `italian` etc.
+- `file`: A binary audio file in OGG format.
+- `model`: The identifier for the model used for transcription, e.g., `faster-whisper-large-v3`.
+- `language`: A string specifying the language of the audio, such as `english`, `italian`, etc.
 
-Consider that this models have a timeout so is better to split the audio in little sequences, like five minutes.
+### Important Note
+The models have a timeout limit. It is recommended to split audio files into smaller segments, such as five-minute clips, to ensure optimal performance.
+
+## Example CURL Request
 
 === "CURL"
 
@@ -23,5 +26,9 @@ Consider that this models have a timeout so is better to split the audio in litt
     }
 
     ```
+
+### Example Implementation
+
+For a practical example of how to use this API, you can refer to the [Telegram Transcriber GitHub Repository](https://github.com/regolo-ai/TelegramTranscriber/). This repository provides a complete implementation for transcribing audio messages from Telegram using the Speech to Text API.
 
 For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
