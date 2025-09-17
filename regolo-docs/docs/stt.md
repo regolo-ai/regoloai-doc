@@ -1,6 +1,6 @@
 # Speech To Text
 
-The Speech to Text (STT) API enables you to extract and transcribe text from audio files using models such as `faster-whisper-large-v3`.
+The Speech to Text (STT) API enables you to extract and transcribe text from audio files using models such as `faster-whisper-large-v3`.  
 **We recommend using audio chunks of less than 2 minutes to prevent hallucinations and duplicate transcriptions.**
 
 ## API Call Parameters
