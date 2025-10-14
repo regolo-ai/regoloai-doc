@@ -64,6 +64,77 @@ You can provide images in two ways:
     response = requests.post(url, json=payload, headers=headers)
     print(response.json())
     ```
+    ```
+    #!/usr/bin/env python3
+
+    """
+    Example: Sending an image in Base64 format to the Regolo AI API.
+
+    This script demonstrates how to encode a local image as Base64 and send it
+    to a multimodal model (text + image) for analysis.
+
+    Replace 'YOUR-API-KEY' with your actual API key before running.
+    """
+
+    import base64
+    import json
+    import requests
+    from pathlib import Path
+
+    API_URL = "https://api.regolo.ai/v1/chat/completions"
+    API_KEY = "YOUR-API-KEY"
+    MODEL = "gemma-3-27b-it"
+
+    IMAGE_PATH = Path("colosseo.jpg")
+
+    if not IMAGE_PATH.exists():
+        raise FileNotFoundError(f"Image not found: {IMAGE_PATH.resolve()}")
+
+    with open(IMAGE_PATH, "rb") as f:
+        image_bytes = f.read()
+    
+    image_b64 = base64.b64encode(image_bytes).decode("utf-8")
+    
+    payload = {
+        "model": MODEL,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "What’s in this image?"},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{image_b64}",
+                            "format": "image/jpeg"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {API_KEY}"
+    }
+    
+    print("📤 Sending request to Regolo AI API...")
+    response = requests.post(API_URL, headers=headers, data=json.dumps(payload))
+    
+    if response.status_code != 200:
+        print(f"❌ Error {response.status_code}:")
+        print(response.text)
+    else:
+        result = response.json()
+        try:
+            content = result["choices"][0]["message"]["content"]
+            print("✅ Model response:")
+            print(content)
+        except Exception:
+            print("⚠️ Unexpected response format:")
+            print(response.text)
+
 
 === "CURL"
     ```bash
