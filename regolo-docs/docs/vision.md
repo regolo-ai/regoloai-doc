@@ -6,8 +6,10 @@ Vision completions enable the processing of images alongside text, allowing for 
 
 You can provide images in two ways:
 
-* **Remote URL**: Supply a publicly accessible URL pointing to the image.
-* **Base64 Encoding**: Encode the image in base64 format and pass it in the `image_url` field.
+* [**Remote URL**](#remote-image-url): Supply a publicly accessible URL pointing to the image.
+* [**Base64 Encoding**](#base64-encoding): Encode the image in base64 format and pass it in the `image_url` field.
+
+### Remote Image URL
 
 === "Using Regolo Client"
     ```python
@@ -64,17 +66,42 @@ You can provide images in two ways:
     response = requests.post(url, json=payload, headers=headers)
     print(response.json())
     ```
+
+
+=== "CURL"
+    ```bash
+    curl -X POST https://api.regolo.ai/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer YOUR_REGOLO_KEY" \
+    -d '{
+        "model": "Qwen2.5-VL-32B-Instruct",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "What’s in this image?"
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/960px-Colosseo_2020.jpg"},
+                        "format": "image/jpeg"
+                    }
+                ]
+            }
+        ]
+    }'
+    ```
+
+### Base64 Encoding
+
+This script demonstrates how to encode a local image as Base64 and send it to a multimodal model (text + image) for analysis.
+
+Replace 'YOUR-API-KEY' with your actual API key before running.
+
+=== "Python"
     ```python
-
-    """
-    Example: Sending an image in Base64 format to the Regolo AI API.
-
-    This script demonstrates how to encode a local image as Base64 and send it
-    to a multimodal model (text + image) for analysis.
-
-    Replace 'YOUR-API-KEY' with your actual API key before running.
-    """
-
     import base64
     import json
     import requests
@@ -118,47 +145,19 @@ You can provide images in two ways:
         "Authorization": f"Bearer {API_KEY}"
     }
     
-    print("📤 Sending request to Regolo AI API...")
+    print("Sending request to Regolo AI API...")
     response = requests.post(API_URL, headers=headers, data=json.dumps(payload))
     
     if response.status_code != 200:
-        print(f"❌ Error {response.status_code}:")
+        print(f"Error {response.status_code}:")
         print(response.text)
     else:
         result = response.json()
         try:
             content = result["choices"][0]["message"]["content"]
-            print("✅ Model response:")
+            print("Model response:")
             print(content)
         except Exception:
-            print("⚠️ Unexpected response format:")
+            print("Unexpected response format:")
             print(response.text)
     ```
-
-
-=== "CURL"
-    ```bash
-    curl -X POST https://api.regolo.ai/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -H "Authorization: Bearer YOUR_REGOLO_KEY" \
-    -d '{
-        "model": "Qwen2.5-VL-32B-Instruct",
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": "What’s in this image?"
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/960px-Colosseo_2020.jpg"},
-                        "format": "image/jpeg"
-                    }
-                ]
-            }
-        ]
-    }'
-    ```
-
