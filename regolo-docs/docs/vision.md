@@ -64,8 +64,7 @@ You can provide images in two ways:
     response = requests.post(url, json=payload, headers=headers)
     print(response.json())
     ```
-    ```
-    #!/usr/bin/env python3
+    ```python
 
     """
     Example: Sending an image in Base64 format to the Regolo AI API.
@@ -134,6 +133,7 @@ You can provide images in two ways:
         except Exception:
             print("⚠️ Unexpected response format:")
             print(response.text)
+    ```
 
 
 === "CURL"
