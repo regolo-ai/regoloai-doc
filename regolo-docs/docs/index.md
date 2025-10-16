@@ -29,7 +29,7 @@ Below is an example of how to create a simple chat application in python using r
         import regolo
         
         regolo.default_key = "YOUR-API-KEY-HERE"
-        regolo.default_model = "Llama-3.3-70B-Instruct"
+        regolo.default_chat_model = "Llama-3.3-70B-Instruct"
         
         client = regolo.RegoloClient()
         
