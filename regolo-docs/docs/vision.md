@@ -16,7 +16,7 @@ You can provide images in two ways:
     import regolo
 
     regolo.default_key = "YOUR_REGOLO_KEY"
-    regolo.default_model = "Qwen2.5-VL-32B-Instruct"
+    regolo.default_chat_model = "Qwen2.5-VL-32B-Instruct"
 
     print(regolo.static_chat_completions(messages=[{
         "role": "user",
