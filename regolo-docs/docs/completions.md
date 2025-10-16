@@ -10,7 +10,7 @@ Static completions allow you to generate text responses based on a given prompt 
     import regolo
 
     regolo.default_key = "<YOUR_REGOLO_KEY>"
-    regolo.default_model = "Llama-3.3-70B-Instruct"
+    regolo.default_chat_model = "Llama-3.3-70B-Instruct"
 
     print(regolo.static_completions(prompt="Tell me something about Rome."))
     ```
@@ -57,7 +57,7 @@ Static chat completions enable a more interactive session by providing conversat
     import regolo
 
     regolo.default_key = "<YOUR_REGOLO_KEY>"
-    regolo.default_model = "Llama-3.3-70B-Instruct"
+    regolo.default_chat_model = "Llama-3.3-70B-Instruct"
 
     print(regolo.static_chat_completions(messages=[{"role": "user", "content": "Tell me something about rome"}]))
     ```
@@ -111,7 +111,7 @@ The streaming response is structured as JSON objects sent line by line. Each lin
     import regolo
 
     regolo.default_key = "<YOUR_REGOLO_KEY>"
-    regolo.default_model = "Llama-3.3-70B-Instruct"
+    regolo.default_chat_model = "Llama-3.3-70B-Instruct"
 
     client = regolo.RegoloClient()
     response = client.run_chat(user_prompt="Tell me something about Rome.", full_output=True, stream=True)
