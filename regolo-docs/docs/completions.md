@@ -1,52 +1,5 @@
 # Completions and Chat
 
-## Static Completions
-
-Static completions allow you to generate text responses based on a given prompt using the Regolo API.
-
-=== "Using Regolo Client"
-
-    ```python
-    import regolo
-
-    regolo.default_key = "<YOUR_REGOLO_KEY>"
-    regolo.default_chat_model = "Llama-3.3-70B-Instruct"
-
-    print(regolo.static_completions(prompt="Tell me something about Rome."))
-    ```
-
-=== "Python"
-    ```python
-    import requests
-
-    api_url = "https://api.regolo.ai/v1/completions"
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_REGOLO_KEY"
-    }
-    data = {
-        "model": "Llama-3.3-70B-Instruct",
-        "prompt": "Tell me something about Rome.",
-        "temperature": 0.7
-    }
-
-    response = requests.post(api_url, headers=headers, json=data)
-    print(response.json())
-    ```
-
-=== "CURL"
-
-    ```bash
-    curl -X POST https://api.regolo.ai/v1/completions 
-    -H "Content-Type: application/json" 
-    -H "Authorization: Bearer YOUR_REGOLO_KEY" 
-    -d '{
-        "model": "Llama-3.3-70B-Instruct",
-        "prompt": "Tell me something about Rome.",
-        "temperature": 0.7
-    }'
-    ```
-
 ## Static Chat Completions
 
 Static chat completions enable a more interactive session by providing conversation-like exchanges, you can send a series of messages. Each message has a role, such as `user`, `assistant` or `system`. The model processes these to continue the conversation naturally. This is useful for applications requiring a back-and-forth dialogue.
@@ -147,5 +100,58 @@ The streaming response is structured as JSON objects sent line by line. Each lin
         if line:
             print(line.decode('utf-8'))
     ```
+
+
+## Text Static Completions (Deprecated)
+
+!!! warning
+    The static text completions are currently deprecated, and Regolo no longer provides any model that supports them natively. They are still listed among the available endpoints only for backward compatibility and internal use, but no public model currently supports them. Use the chat completions instead.
+
+Static completions allow you to generate text responses based on a given prompt using the Regolo API.
+
+=== "Using Regolo Client"
+
+    ```python
+    import regolo
+
+    regolo.default_key = "<YOUR_REGOLO_KEY>"
+    regolo.default_chat_model = "Llama-3.3-70B-Instruct"
+
+    print(regolo.static_completions(prompt="Tell me something about Rome."))
+    ```
+
+=== "Python"
+    ```python
+    import requests
+
+    api_url = "https://api.regolo.ai/v1/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer YOUR_REGOLO_KEY"
+    }
+    data = {
+        "model": "Llama-3.3-70B-Instruct",
+        "prompt": "Tell me something about Rome.",
+        "temperature": 0.7
+    }
+
+    response = requests.post(api_url, headers=headers, json=data)
+    print(response.json())
+    ```
+
+=== "CURL"
+
+    ```bash
+    curl -X POST https://api.regolo.ai/v1/completions 
+    -H "Content-Type: application/json" 
+    -H "Authorization: Bearer YOUR_REGOLO_KEY" 
+    -d '{
+        "model": "Llama-3.3-70B-Instruct",
+        "prompt": "Tell me something about Rome.",
+        "temperature": 0.7
+    }'
+    ```
+
+
 
 For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
