@@ -332,15 +332,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#static-completions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Static Completions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#static-chat-completions" class="md-nav__link">
     <span class="md-ellipsis">
       Static Chat Completions
@@ -353,6 +344,15 @@
   <a href="#stream-chat-completions" class="md-nav__link">
     <span class="md-ellipsis">
       Stream Chat Completions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-static-completions-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Static Completions (Deprecated)
     </span>
   </a>
   
@@ -547,15 +547,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#static-completions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Static Completions
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#static-chat-completions" class="md-nav__link">
     <span class="md-ellipsis">
       Static Chat Completions
@@ -568,6 +559,15 @@
   <a href="#stream-chat-completions" class="md-nav__link">
     <span class="md-ellipsis">
       Stream Chat Completions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-static-completions-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Static Completions (Deprecated)
     </span>
   </a>
   
@@ -593,53 +593,9 @@
 
 
 <h1 id="completions-and-chat">Completions and Chat</h1>
-<h2 id="static-completions">Static Completions</h2>
-<p>Static completions allow you to generate text responses based on a given prompt using the Regolo API.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">CURL</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
-
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_completions</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">))</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/completions&quot;</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
-<span class="p">}</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.7</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/completions<span class="w"> </span>
--H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>
--H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span>
--d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
-<span class="s1">    &quot;prompt&quot;: &quot;Tell me something about Rome.&quot;,</span>
-<span class="s1">    &quot;temperature&quot;: 0.7</span>
-<span class="s1">}&#39;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
 <h2 id="static-chat-completions">Static Chat Completions</h2>
 <p>Static chat completions enable a more interactive session by providing conversation-like exchanges, you can send a series of messages. Each message has a role, such as <code>user</code>, <code>assistant</code> or <code>system</code>. The model processes these to continue the conversation naturally. This is useful for applications requiring a back-and-forth dialogue.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Using Regolo Client</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">CURL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">CURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
@@ -689,7 +645,7 @@
 <h2 id="stream-chat-completions">Stream Chat Completions</h2>
 <p>Stream chat completions provide real-time, incremental responses from the model, enabling dynamic interactions and reducing latency. This feature is beneficial for applications that require immediate feedback and continuous conversation flow.</p>
 <p>The streaming response is structured as JSON objects sent line by line. Each line typically contains metadata, including fields like <code>id</code>, <code>created</code>, <code>model</code>, and <code>object</code>, along with the <code>choices</code> array. Within <code>choices</code>, there is a <code>delta</code> object, which holds the <code>content</code> field representing the actual text response from the model. This structure allows applications to parse and process the conversational content as it arrives, ensuring efficient and timely updates to the user interface.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Using Regolo Client</label><label for="__tabbed_3_2">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Using Regolo Client</label><label for="__tabbed_2_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
@@ -729,6 +685,54 @@
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="text-static-completions-deprecated">Text Static Completions (Deprecated)</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The static text completions are currently deprecated, and Regolo no longer provides any model that supports them natively. They are still listed among the available endpoints only for backward compatibility and internal use, but no public model currently supports them. Use the chat completions instead.</p>
+</div>
+<p>Static completions allow you to generate text responses based on a given prompt using the Regolo API.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Using Regolo Client</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">CURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
+
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_completions</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/completions&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.7</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/completions<span class="w"> </span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">    &quot;prompt&quot;: &quot;Tell me something about Rome.&quot;,</span>
+<span class="s1">    &quot;temperature&quot;: 0.7</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
