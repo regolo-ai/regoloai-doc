@@ -4,14 +4,28 @@ site_url: "https://docs.regolo.ai"
 
 nav:
   - Getting Started: index.md
-  - Completions and Chat: completions.md
-  - Vision models: vision.md
-  - Images Generation: images.md
-  - STT: stt.md
-  - Embeddings: embedding.md
-  - Rerank: rerank.md
+  - Endpoints Docs: https://docs.api.regolo.ai
+  - Models:
+    - Families:
+      - Completions and Chat: models/families/completions.md
+      - Vision models: models/families/vision.md
+      - Images Generation: models/families/images.md
+      - STT: models/families/stt.md
+      - Embeddings: models/families/embedding.md
+      - Rerank: models/families/rerank.md
+    - Features:
+      - Thinking: models/features/thinking.md
+      - Function Calling: models/features/function-calling.md
+      - Response Parameters: models/features/response-parameters.md
+
+  - Status:
+    - Observability: https://obs.regolo.ai/
+    - Regolo Catalog: catalog.md
+
+  - Use Regolo:
+      - Awesome Regolo: awesome-regolo.md
+
   - Regolo Client: https://pypi.org/project/regolo/
-  - API Docs: https://docs.api.regolo.ai
 
 theme:
   name: material
@@ -28,7 +42,7 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
   font:
-    text: Roboto Slab
+    text: Space Grotesk
   features:
     - navigation.instant
     - navigation.tracking

@@ -9,6 +9,9 @@
   /* Background color */
   --md-background-primary: #FFFFFF;
   background-color: #FFFFFF;
+
+  /* Code block background */
+  --md-code-bg-color: #f5f5f5;
 }
 
 [data-md-color-scheme="custom"] .md-nav--secondary .md-nav__title,
@@ -26,12 +29,12 @@
 }
 
 [data-md-color-scheme="custom"] .md-header {
-  color: white;
+  background-color: #000000;
 }
 
 /* Buttons */
 [data-md-color-scheme="custom"] .md-button {
-  color: #666;
+  color: #333;
 }
 [data-md-color-scheme="custom"] .md-button-grid,
 [data-md-color-scheme="slate"] .md-button-grid {
@@ -46,13 +49,90 @@
 }
 
 [data-md-color-scheme="slate"] {
+  /* Background color */
+  --md-background-primary: #0e0e0e;
+  background-color: #0e0e0e;
+  
   /* Normal font color */
+  --md-typeset-color: #ffffff;
   --md-typeset-a-color: #59e389!important;
   --md-accent-fg-color: #59e389!important;
+
+  /* Code block background */
+  --md-code-bg-color: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #000000;
 }
 
 .md-typeset h1, .md-typeset h2 {
   font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #ffffff;
+}
+
+[data-md-color-scheme="custom"] .md-typeset h1 {
+  color: #0e0e0e;
+}
+
+/* Remove fade effect from sidebar - comprehensive approach */
+.md-sidebar__inner {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  overflow: visible !important;
+}
+
+.md-sidebar__inner::before,
+.md-sidebar__inner::after {
+  display: none !important;
+  content: none !important;
+}
+
+.md-sidebar {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  overflow: visible !important;
+}
+
+.md-sidebar::before,
+.md-sidebar::after {
+  display: none !important;
+  content: none !important;
+}
+
+.md-nav__inner {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  overflow: visible !important;
+}
+
+.md-nav__inner::before,
+.md-nav__inner::after {
+  display: none !important;
+  content: none !important;
+}
+
+.md-nav__scrollwrap {
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  overflow: visible !important;
+}
+
+.md-nav__scrollwrap::before,
+.md-nav__scrollwrap::after {
+  display: none !important;
+  content: none !important;
 }
 
 @media screen and (max-width: 76.2344em) {
