@@ -135,6 +135,11 @@
   content: none !important;
 }
 
+.md-nav .md-nav__title {
+  box-shadow: none;
+  background: transparent;
+}
+
 @media screen and (max-width: 76.2344em) {
   .md-nav--primary .md-nav__title {
     display: none;
