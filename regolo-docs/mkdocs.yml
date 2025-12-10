@@ -15,7 +15,6 @@ nav:
       - Rerank: models/families/rerank.md
     - Features:
       - Thinking: models/features/thinking.md
-      - Function Calling: models/features/function-calling.md
       - Response Parameters: models/features/response-parameters.md
 
   - Status:
