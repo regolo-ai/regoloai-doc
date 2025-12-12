@@ -1,11 +1,5 @@
 # Getting Started with Regolo.ai
 
-!!! tip
-
-    For API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
-
-## Create an Account
-
 To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](https://dashboard.regolo.ai).
 
 ## Generate an API Key
