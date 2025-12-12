@@ -2,9 +2,9 @@
 [data-md-color-scheme="custom"] {
   /* Normal font color */
   --md-primary-fg-color: #000000;
-  --md-typeset-a-color: #59e389;
-  --md-accent-fg-color: #59e389;
-  --md-primary-bg-color: #59e389;
+  --md-typeset-a-color: #4EC879;
+  --md-accent-fg-color: #4EC879;
+  --md-primary-bg-color: #4EC879;
 
   /* Background color */
   --md-background-primary: #FFFFFF;
@@ -133,6 +133,11 @@
 .md-nav__scrollwrap::after {
   display: none !important;
   content: none !important;
+}
+
+.md-nav .md-nav__title {
+  box-shadow: none;
+  background: transparent;
 }
 
 @media screen and (max-width: 76.2344em) {

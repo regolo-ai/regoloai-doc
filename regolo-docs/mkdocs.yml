@@ -22,7 +22,7 @@ nav:
     - Regolo Catalog: catalog.md
 
   - Use Regolo:
-      - Awesome Regolo: awesome-regolo.md
+      - Awesome Regolo: https://github.com/regolo-ai/awesome-regolo-ai
 
   - Regolo Client: https://pypi.org/project/regolo/
 

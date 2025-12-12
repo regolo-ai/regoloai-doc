@@ -199,3 +199,7 @@ print(result["choices"][0]["message"]["content"])
 - **To reduce repetition**: Use `frequency_penalty` (0.3-0.7) and `presence_penalty` (0.4-0.6)
 - **For consistency**: Use `seed` when you need reproducible outputs
 
+
+
+
+
