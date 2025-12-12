@@ -61,3 +61,4 @@ The embedding API allows you to get a vector representation of the input to be u
     ```
 
 For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+
