@@ -42,8 +42,7 @@ using the `/models` endpoint:
 === "CURL"
 
     ```bash
-    curl -X GET https://api.regolo.ai/models \
-        -H "Authorization: Bearer YOUR_REGOLO_KEY"
+    curl -X GET https://api.regolo.ai/models
     ```
 
 ## Request a Model
