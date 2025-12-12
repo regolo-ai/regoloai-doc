@@ -2,30 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.regolo.ai/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/completions/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/catalog/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/embedding/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/models/families/completions/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/images/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/models/families/embedding/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/rerank/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/models/families/images/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/stt/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/models/families/rerank/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
     <url>
-         <loc>https://docs.regolo.ai/vision/</loc>
-         <lastmod>2025-11-11</lastmod>
+         <loc>https://docs.regolo.ai/models/families/stt/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.regolo.ai/models/families/vision/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.regolo.ai/models/features/response-parameters/</loc>
+         <lastmod>2025-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.regolo.ai/models/features/thinking/</loc>
+         <lastmod>2025-12-12</lastmod>
     </url>
 </urlset>
