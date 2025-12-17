@@ -83,21 +83,30 @@ It is powered by models such as **`Qwen3‑Reranker‑4B`** and returns the top�
 
 ```json
 {
-  "model": "Qwen3-Reranker-4B",
-  "query": "What is the capital of the United States?",
+  "id": "rerank-906c2c4ec189b5fe",
   "results": [
     {
-      "document": "Washington, D.C. is the capital of the United States.",
-      "score": 0.9876
+      "index": 2,
+      "relevance_score": 0.9892732501029968,
+      "document": {
+        "text": "Washington, D.C. is the capital of the United States."
+      }
     },
     {
-      "document": "Carson City is the capital city of the American state of Nevada.",
-      "score": 0.4123
+      "index": 3,
+      "relevance_score": 0.425626623916626,
+      "document": {
+        "text": "Capital punishment has existed in the United States since before it was a country."
+      }
     },
     {
-      "document": "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-      "score": 0.2541
+      "index": 0,
+      "relevance_score": 0.4123265105247498,
+      "document": {
+        "text": "Carson City is the capital city of the American state of Nevada."
+      }
     }
-  ]
+  ],
+  "meta": null
 }
 ```
