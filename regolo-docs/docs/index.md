@@ -2,7 +2,7 @@
 
 Regolo lets you run AI models with a cloud API, without having to understand machine learning or manage your own infrastructure.
 
-You can use [chat completions](models/families/completions.md), [vision models](models/families/vision.md), [image generation](models/families/images.md), and more.
+You can use [chat completions](core-features/inference-api/completions-and-chat.md), [vision models](core-features/inference-api/vision-analysis.md), [image generation](core-features/inference-api/image-generation.md), and more.
 
 ## Get started
 
@@ -52,7 +52,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Text generation and conversational AI models.
 
-    [:octicons-arrow-right-24: Learn more](models/families/completions.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/completions-and-chat.md)
 
 -   :material-eye:{ .lg .middle } **Vision**
 
@@ -60,7 +60,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Image understanding and analysis.
 
-    [:octicons-arrow-right-24: Learn more](models/families/vision.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/vision-analysis.md)
 
 -   :material-image:{ .lg .middle } **Image Generation**
 
@@ -68,7 +68,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Create images from text prompts.
 
-    [:octicons-arrow-right-24: Learn more](models/families/images.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/image-generation.md)
 
 -   :material-microphone:{ .lg .middle } **Speech to Text**
 
@@ -76,7 +76,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Transcribe audio to text.
 
-    [:octicons-arrow-right-24: Learn more](models/families/stt.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/speech-to-text.md)
 
 -   :material-vector-combine:{ .lg .middle } **Embeddings**
 
@@ -84,7 +84,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Convert text to vector representations.
 
-    [:octicons-arrow-right-24: Learn more](models/families/embedding.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/embedding.md)
 
 -   :material-sort-variant:{ .lg .middle } **Rerank**
 
@@ -92,7 +92,29 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Reorder search results by relevance.
 
-    [:octicons-arrow-right-24: Learn more](models/families/rerank.md)
+    [:octicons-arrow-right-24: Learn more](core-features/inference-api/rerank.md)
+
+</div>
+
+## Custom Models
+
+<div class="grid cards" markdown>
+
+-   :material-plus:{ .lg .middle } **Deploy Hugging Face Models**
+
+    ---
+
+    Add any model from Hugging Face and deploy it with your choice of GPU instance.
+
+    [:octicons-arrow-right-24: Get Started](core-features/model-management/custom-endpoints.md)
+
+-   :material-folder-open:{ .lg .middle } **Model Management**
+
+    ---
+
+    Organize, version, and manage your models with fine-tuning and custom endpoints.
+
+    [:octicons-arrow-right-24: Learn more](core-features/model-management/overview.md)
 
 </div>
 
@@ -106,7 +128,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Enable reasoning capabilities in models.
 
-    [:octicons-arrow-right-24: Learn more](models/features/thinking.md)
+    [:octicons-arrow-right-24: Learn more](core-features/advanced/thinking.md)
 
 -   :material-tune:{ .lg .middle } **Response Parameters**
 
@@ -114,7 +136,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Control model output with parameters.
 
-    [:octicons-arrow-right-24: Learn more](models/features/response-parameters.md)
+    [:octicons-arrow-right-24: Learn more](core-features/advanced/response-parameters.md)
 
 </div>
 

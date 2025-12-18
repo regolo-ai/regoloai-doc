@@ -67,6 +67,6 @@ Sign up at [dashboard.regolo.ai](https://dashboard.regolo.ai) and create a new A
 
 ## Next Steps
 
-- Explore [available models](../models/families/completions.md)
-- Learn about [response parameters](../models/features/response-parameters.md)
+- Explore [available models](../core-features/inference-api/completions-and-chat.md)
+- Learn about [response parameters](../core-features/advanced/response-parameters.md)
 - Check the [API documentation](https://docs.api.regolo.ai)

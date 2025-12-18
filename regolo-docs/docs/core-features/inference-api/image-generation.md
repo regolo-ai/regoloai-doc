@@ -1,4 +1,4 @@
-# Images Generation
+# Image Generation
 
 The image generation API allows you to create images based on textual descriptions, leveraging models like `Qwen-Image`.
 

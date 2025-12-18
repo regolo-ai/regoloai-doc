@@ -1,4 +1,4 @@
-# Vision models
+# Vision Analysis
 
 Vision completions enable the processing of images alongside text, allowing for a wide range of applications such as image description, object recognition, and data extraction from visual content. By sending a combination of text prompts and image URLs, the model can provide insightful responses based on the visual input.
 
