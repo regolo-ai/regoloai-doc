@@ -3,7 +3,14 @@ repo_url: "https://github.com/regolo-ai/regoloai-doc"
 site_url: "https://docs.regolo.ai"
 
 nav:
-  - Getting Started: index.md
+  - Home: index.md
+  - Getting Started:
+    - Welcome to Regolo: getting-started/welcome.md
+    - Quick Start (< 5 min): getting-started/quick-start.md
+    - Sign Up & API Keys: getting-started/sign-up.md
+    - Your First API Call: getting-started/first-api-call.md
+    - Choose Your Language (Python | Node.js | cURL): getting-started/choose-language.md
+    - Sandbox & Playground: getting-started/sandbox.md
   - Endpoints Docs: https://docs.api.regolo.ai
   - Models:
     - Families:
@@ -30,6 +37,9 @@ theme:
   name: material
   logo: assets/light-logo.png
   favicon: assets/favicon.png
+  icon:
+    admonition:
+      note: octicons/tag-16
   palette:
     - scheme: slate
       primary: black
@@ -65,6 +75,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
   homepage: https://regolo.ai

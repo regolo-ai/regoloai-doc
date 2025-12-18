@@ -1,58 +1,157 @@
-# Getting Started with Regolo.ai
+# Documentation
 
-To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](https://dashboard.regolo.ai).
+Regolo lets you run AI models with a cloud API, without having to understand machine learning or manage your own infrastructure.
 
-## Generate an API Key
+You can use [chat completions](models/families/completions.md), [vision models](models/families/vision.md), [image generation](models/families/images.md), and more.
 
-Once logged in, navigate to the **Virtual Keys** section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.
+## Get started
 
-## Choose your client
+<div class="grid cards" markdown>
 
-Regolo.ai is fully compatible with the OpenAI API, so you can use either:
+-   :material-language-python:{ .lg .middle } **Run a model from Python**
 
-[**Regolo Python Library**](https://pypi.org/project/regolo/) or [**OpenAI Python Library**](https://pypi.org/project/openai/)
+    ---
 
-## Chat Example
+    The language of the machine learning world.
 
-Below is an example of how to create a simple chat application in python using regolo client.
+    [:octicons-arrow-right-24: Quick Start](getting-started/quick-start.md)
 
-=== "Using Regolo Client"
+-   :material-language-javascript:{ .lg .middle } **Run a model from Node.js**
 
-    ```python
-        import streamlit as st
-        import regolo
-        
-        regolo.default_key = "YOUR-API-KEY-HERE"
-        regolo.default_chat_model = "Llama-3.3-70B-Instruct"
-        
-        client = regolo.RegoloClient()
-        
-        st.title("Regolo.ai Chat")
-        
-        if "messages" not in st.session_state:
-            st.session_state.messages = []
-        
-        for msg in st.session_state.messages:
-            with st.chat_message(msg["role"]):
-                st.markdown(msg["content"])
-        
-        user_input = st.chat_input("Write a message...")
-        if user_input:
-            st.session_state.messages.append({"role": "user", "content": user_input})
-            
-            with st.chat_message("user"):
-                st.markdown(user_input)
-            
-            client.add_prompt_to_chat(role="user", prompt=user_input)
-            for msg in st.session_state.messages:
-                client.add_prompt_to_chat(role=msg["role"], prompt=msg["content"])
-            
-            response = client.run_chat()
-        
-            role, content = response
-            
-            st.session_state.messages.append({"role": role, "content": content})
-            
-            with st.chat_message(role):
-                st.markdown(content)
-    ```
+    ---
+
+    Get started with a few lines of JavaScript.
+
+    [:octicons-arrow-right-24: Choose Language](getting-started/choose-language.md)
+
+-   :material-console:{ .lg .middle } **Run a model from cURL**
+
+    ---
+
+    Test the API directly from your terminal.
+
+    [:octicons-arrow-right-24: First API Call](getting-started/first-api-call.md)
+
+-   :material-key:{ .lg .middle } **Get your API Key**
+
+    ---
+
+    Sign up and create your first API key.
+
+    [:octicons-arrow-right-24: Sign Up](getting-started/sign-up.md)
+
+</div>
+
+## Models
+
+<div class="grid cards" markdown>
+
+-   :material-chat:{ .lg .middle } **Completions & Chat**
+
+    ---
+
+    Text generation and conversational AI models.
+
+    [:octicons-arrow-right-24: Learn more](models/families/completions.md)
+
+-   :material-eye:{ .lg .middle } **Vision**
+
+    ---
+
+    Image understanding and analysis.
+
+    [:octicons-arrow-right-24: Learn more](models/families/vision.md)
+
+-   :material-image:{ .lg .middle } **Image Generation**
+
+    ---
+
+    Create images from text prompts.
+
+    [:octicons-arrow-right-24: Learn more](models/families/images.md)
+
+-   :material-microphone:{ .lg .middle } **Speech to Text**
+
+    ---
+
+    Transcribe audio to text.
+
+    [:octicons-arrow-right-24: Learn more](models/families/stt.md)
+
+-   :material-vector-combine:{ .lg .middle } **Embeddings**
+
+    ---
+
+    Convert text to vector representations.
+
+    [:octicons-arrow-right-24: Learn more](models/families/embedding.md)
+
+-   :material-sort-variant:{ .lg .middle } **Rerank**
+
+    ---
+
+    Reorder search results by relevance.
+
+    [:octicons-arrow-right-24: Learn more](models/families/rerank.md)
+
+</div>
+
+## Features
+
+<div class="grid cards" markdown>
+
+-   :material-brain:{ .lg .middle } **Thinking**
+
+    ---
+
+    Enable reasoning capabilities in models.
+
+    [:octicons-arrow-right-24: Learn more](models/features/thinking.md)
+
+-   :material-tune:{ .lg .middle } **Response Parameters**
+
+    ---
+
+    Control model output with parameters.
+
+    [:octicons-arrow-right-24: Learn more](models/features/response-parameters.md)
+
+</div>
+
+## Resources
+
+<div class="grid cards" markdown>
+
+-   :material-api:{ .lg .middle } **API Reference**
+
+    ---
+
+    Complete API documentation with Swagger UI.
+
+    [:octicons-arrow-right-24: API Docs](https://docs.api.regolo.ai)
+
+-   :material-view-list:{ .lg .middle } **Model Catalog**
+
+    ---
+
+    Browse all available models.
+
+    [:octicons-arrow-right-24: Catalog](catalog.md)
+
+-   :material-chart-line:{ .lg .middle } **Observability**
+
+    ---
+
+    Monitor your API usage and performance.
+
+    [:octicons-arrow-right-24: Status](https://obs.regolo.ai/)
+
+-   :material-flask:{ .lg .middle } **Playground**
+
+    ---
+
+    Test models interactively in the browser.
+
+    [:octicons-arrow-right-24: Try it](getting-started/sandbox.md)
+
+</div>
