@@ -2,6 +2,17 @@
 
 **Function calling** enables the language model to invoke external functions during a conversation, allowing it to retrieve real-time information or perform operations.
 
+## Supported Models
+
+The following models support function calling:
+
+- `deepseek-r1-70b`
+- `gpt-oss-120b`
+- `Llama-3.3-70B-Instruct`
+- `mistral-small3.2`
+- `qwen3-30b`
+- `qwen3-coder-30b`
+
 ## Web Search Example
 
 Here's a complete example using DuckDuckGo web search with the Regolo API:
