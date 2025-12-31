@@ -16,6 +16,7 @@ nav:
     - Features:
       - Thinking: models/features/thinking.md
       - Response Parameters: models/features/response-parameters.md
+      - Function Calling: models/features/function-calling.md
 
   - Status:
     - Observability: https://obs.regolo.ai/
