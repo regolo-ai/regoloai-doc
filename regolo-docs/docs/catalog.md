@@ -29,11 +29,8 @@ using the `/models` endpoint:
     import requests
 
     url = "https://api.regolo.ai/models"
-    headers = {
-        "Authorization": "Bearer YOUR_REGOLO_KEY"
-    }
 
-    response = requests.get(url, headers=headers)
+    response = requests.get(url)
     if response.status_code == 200:
         models = response.json()
         print(models)
@@ -45,8 +42,7 @@ using the `/models` endpoint:
 === "CURL"
 
     ```bash
-    curl -X GET https://api.regolo.ai/models \
-        -H "Authorization: Bearer YOUR_REGOLO_KEY"
+    curl -X GET https://api.regolo.ai/models
     ```
 
 ## Request a Model

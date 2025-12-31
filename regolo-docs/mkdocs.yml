@@ -43,6 +43,7 @@ theme:
         name: Switch to dark mode
   font:
     text: Space Grotesk
+    text: Space Grotesk
   features:
     - navigation.instant
     - navigation.tracking
