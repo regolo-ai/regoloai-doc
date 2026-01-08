@@ -10,6 +10,7 @@ nav:
       - Completions and Chat: models/families/completions.md
       - Vision models: models/families/vision.md
       - Images Generation: models/families/images.md
+      - OCR: models/families/ocr.md
       - STT: models/families/stt.md
       - Embeddings: models/families/embedding.md
       - Rerank: models/families/rerank.md
@@ -42,7 +43,6 @@ theme:
         icon: material/brightness-7
         name: Switch to dark mode
   font:
-    text: Space Grotesk
     text: Space Grotesk
   features:
     - navigation.instant
