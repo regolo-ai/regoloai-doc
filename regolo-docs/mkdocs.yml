@@ -10,6 +10,7 @@ nav:
       - Completions and Chat: models/families/completions.md
       - Vision models: models/families/vision.md
       - Images Generation: models/families/images.md
+      - OCR: models/families/ocr.md
       - STT: models/families/stt.md
       - Embeddings: models/families/embedding.md
       - Rerank: models/families/rerank.md
