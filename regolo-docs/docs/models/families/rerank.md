@@ -25,85 +25,66 @@ It is powered by models such as **`Qwen3‑Reranker‑4B`** and returns the top�
 === "CURL"
 
     ```bash
-    curl --request POST \
-      --url https://api.regolo.ai/rerank \
-      --header 'Authorization: Bearer REGOLO-API-KEY' \
-      --header 'Content-Type: application/json' \
-      --data '{
-        "model": "Qwen3-Reranker-4B",
-        "query": "What is the capital of the United States?",
-        "documents": [
-          "Carson City is the capital city of the American state of Nevada.",
-          "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-          "Washington, D.C. is the capital of the United States.",
-          "Capital punishment has existed in the United States since before it was a country."
-        ],
-        "top_n": 3
-    }'
+      curl --request POST \
+        --url https://api.regolo.ai/rerank \
+        --header 'Authorization: Bearer REGOLO_API_KEY' \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "model": "Qwen3-Reranker-4B",
+          "query": "Given a web search query, retrieve relevant passages that answer the query\n<Query>: What is the capital of China?",
+          "documents": [
+            "<Document>: The capital of China is Beijing.",
+            "<Document>: Gravity is a force that attracts two bodies towards each other..."
+          ]
+        }'
     ```
 
 === "Python"
 
     ```python
-    import json
-    import requests
-
-    API_KEY = "REGOLO-API-KEY"
-    ENDPOINT = "https://api.regolo.ai/rerank"
-
-    payload = {
-        "model": "Qwen3-Reranker-4B",
-        "query": "What is the capital of the United States?",
-        "documents": [
-            "Carson City is the capital city of the American state of Nevada.",
-            "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-            "Washington, D.C. is the capital of the United States.",
-            "Capital punishment has existed in the United States since before it was a country."
-        ],
-        "top_n": 3
-    }
-
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-
-    response = requests.post(ENDPOINT, headers=headers, data=json.dumps(payload))
-
-    if response.ok:
-        results = response.json()
-        print("Top documents:")
-        for doc in results.get("results", []):
-            print(f"- score: {doc['score']:.4f}  →  {doc['document']}")
-    else:
-        print("Error:", response.status_code, response.text)
+      import requests
+      
+      api_key = "REGOLO_API_KEY"
+      url = "https://api.regolo.ai/rerank"
+      
+      task = 'Given a web search query, retrieve relevant passages that answer the query'
+      queries = ["What is the capital of China?"]
+      documents = [
+          "The capital of China is Beijing.",
+          "Gravity is a force that attracts two bodies towards each other..."
+      ]
+      
+      payload = {
+          "model": "Qwen3-Reranker-4B",
+          "query": f"{task}\n<Query>: {queries[0]}",
+          "documents": [f"{doc}" for doc in documents],
+          "top_n": 5
+      }
+      
+      response = requests.post(url, json=payload, headers={"Authorization": f"Bearer {api_key}"})
+      
+      for res in response.json()['results']:
+         print(f"Score: {res['relevance_score']:.4f} | Text: {res['document']['text']}")
     ```
 
 ## Response
 
 ```json
 {
-  "id": "rerank-906c2c4ec189b5fe",
+  "id": "rerank-8b37844a3beeecb7",
   "results": [
     {
-      "index": 2,
-      "relevance_score": 0.9892732501029968,
-      "document": {
-        "text": "Washington, D.C. is the capital of the United States."
-      }
-    },
-    {
-      "index": 3,
-      "relevance_score": 0.425626623916626,
-      "document": {
-        "text": "Capital punishment has existed in the United States since before it was a country."
-      }
-    },
-    {
       "index": 0,
-      "relevance_score": 0.4123265105247498,
+      "relevance_score": 0.8835278153419495,
       "document": {
-        "text": "Carson City is the capital city of the American state of Nevada."
+        "text": "<Document>: The capital of China is Beijing."
+      }
+    },
+    {
+      "index": 1,
+      "relevance_score": 0.08649543672800064,
+      "document": {
+        "text": "<Document>: Gravity is a force that attracts two bodies towards each other..."
       }
     }
   ],
