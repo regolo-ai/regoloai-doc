@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -660,6 +660,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#technical-explanation-of-prompt-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Explanation of Prompt Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Explanation of Prompt Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-tags-are-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why these tags are necessary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#response" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1108,6 +1136,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#technical-explanation-of-prompt-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Explanation of Prompt Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Explanation of Prompt Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-tags-are-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why these tags are necessary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#response" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1180,86 +1236,107 @@ It is powered by models such as <strong><code>Qwen3‑Reranker‑4B</code></stro
 </tbody>
 </table>
 <hr />
+<h2 id="technical-explanation-of-prompt-tags">Technical Explanation of Prompt Tags</h2>
+<p>To achieve optimal performance with the <strong>Qwen3-Reranker</strong> model, the input strings must follow a specific prompt template. This structure allows the underlying Cross-Encoder to differentiate between instructions, user intent, and the content to be ranked.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tag</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Instruct&gt;</code></td>
+<td style="text-align: left;"><strong>Task Specification</strong></td>
+<td style="text-align: left;">Defines the context of the retrieval (e.g., "retrieve relevant passages"). This guides the model's focus based on the specific use case.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Query&gt;</code></td>
+<td style="text-align: left;"><strong>User Intent</strong></td>
+<td style="text-align: left;">Marks the beginning of the actual question or search term. This helps the model isolate the core information the user is looking for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Document&gt;</code></td>
+<td style="text-align: left;"><strong>Content Boundary</strong></td>
+<td style="text-align: left;">Identifies each candidate passage. By explicitly tagging documents, the model better understands where one passage ends and another begins during the scoring process.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="why-these-tags-are-necessary">Why these tags are necessary</h4>
+<p>Modern LLM-based rerankers are trained using these semantic markers to improve <strong>zero-shot accuracy</strong>. Omitting these tags or using inconsistent formatting between the query and the documents can lead to sub-optimal relevance scores, as the model might fail to distinguish between the instruction and the data.</p>
+<hr />
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CURL</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--url<span class="w"> </span>https://api.regolo.ai/rerank<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer REGOLO-API-KEY&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;model&quot;: &quot;Qwen3-Reranker-4B&quot;,</span>
-<span class="s1">    &quot;query&quot;: &quot;What is the capital of the United States?&quot;,</span>
-<span class="s1">    &quot;documents&quot;: [</span>
-<span class="s1">      &quot;Carson City is the capital city of the American state of Nevada.&quot;,</span>
-<span class="s1">      &quot;The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.&quot;,</span>
-<span class="s1">      &quot;Washington, D.C. is the capital of the United States.&quot;,</span>
-<span class="s1">      &quot;Capital punishment has existed in the United States since before it was a country.&quot;</span>
-<span class="s1">    ],</span>
-<span class="s1">    &quot;top_n&quot;: 3</span>
-<span class="s1">}&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--url<span class="w"> </span>https://api.regolo.ai/rerank<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer REGOLO_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">      &quot;model&quot;: &quot;Qwen3-Reranker-4B&quot;,</span>
+<span class="s1">      &quot;query&quot;: &quot;&lt;Instruct&gt;: Given a web search query, retrieve relevant passages that answer the query\n&lt;Query&gt;: What is the capital of China?&quot;,</span>
+<span class="s1">      &quot;documents&quot;: [</span>
+<span class="s1">        &quot;&lt;Document&gt;: The capital of China is Beijing.&quot;,</span>
+<span class="s1">        &quot;&lt;Document&gt;: Gravity is a force that attracts two bodies towards each other...&quot;</span>
+<span class="s1">      ],</span>
+<span class="s1">      &quot;top_n&quot;: 5</span>
+<span class="s1">    }&#39;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;REGOLO-API-KEY&quot;</span>
-<span class="n">ENDPOINT</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/rerank&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;REGOLO_API_KEY&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/rerank&quot;</span>
+
+<span class="n">task</span> <span class="o">=</span> <span class="s2">&quot;Given a web search query, retrieve relevant passages that answer the query&quot;</span>
+<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&quot;What is the capital of China?&quot;</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;The capital of China is Beijing.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gravity is a force that attracts two bodies towards each other...&quot;</span>
+<span class="p">]</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Qwen3-Reranker-4B&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the capital of the United States?&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;Carson City is the capital city of the American state of Nevada.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Washington, D.C. is the capital of the United States.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Capital punishment has existed in the United States since before it was a country.&quot;</span>
-    <span class="p">],</span>
-    <span class="s2">&quot;top_n&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;&lt;Instruct&gt;: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="se">\n</span><span class="s2">&lt;Query&gt;: </span><span class="si">{</span><span class="n">query_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;&lt;Document&gt;: </span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">],</span>
+    <span class="s2">&quot;top_n&quot;</span><span class="p">:</span> <span class="mi">5</span>
 <span class="p">}</span>
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<span class="p">)</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">ENDPOINT</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
-
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Top documents:&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="p">[]):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- score: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  →  </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;relevance_score&#39;</span><span class="p">]</span>
+    <span class="n">clean_text</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;Document&gt;: &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> | Text: </span><span class="si">{</span><span class="n">clean_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="response">Response</h2>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rerank-906c2c4ec189b5fe&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rerank-8b37844a3beeecb7&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9892732501029968</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Washington, D.C. is the capital of the United States.&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.425626623916626</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capital punishment has existed in the United States since before it was a country.&quot;</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4123265105247498</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8835278153419495</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Carson City is the capital city of the American state of Nevada.&quot;</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Document&gt;: The capital of China is Beijing.&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08649543672800064</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Document&gt;: Gravity is a force that attracts two bodies towards each other...&quot;</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">],</span>
@@ -1333,10 +1410,10 @@ It is powered by models such as <strong><code>Qwen3‑Reranker‑4B</code></stro
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       
