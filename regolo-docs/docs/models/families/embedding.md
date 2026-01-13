@@ -34,7 +34,7 @@ The embedding API allows you to get a vector representation of the input to be u
     }
 
     data = {
-        "prompt": "A white cat resting in Rome",
+        "input": "A white cat resting in Rome",
         "model": "gte-Qwen2",
     }
 
