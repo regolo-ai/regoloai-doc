@@ -75,7 +75,7 @@ With the virtual environment activated and dependencies installed, you can now b
 1. **Serve the Documentation Locally:**
 
    ```bash
-   mkdocs serve
+   mkdocs serve --livereload
    ```
 
    This command will launch a local server at `http://127.0.0.1:8000` where you can view the documentation live. Any changes you make will automatically refresh.
