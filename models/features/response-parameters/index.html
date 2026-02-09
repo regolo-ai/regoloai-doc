@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/features/response-parameters/">
       
       
+        <link rel="prev" href="../thinking/">
       
-        <link rel="next" href="models/families/completions/">
+      
+        <link rel="next" href="../function-calling/">
       
       
-      <link rel="icon" href="assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Regolo Docs</title>
+        <title>Response Parameters - Regolo Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="styles/extra.css">
+      <link rel="stylesheet" href="../../../styles/extra.css">
     
-      <link rel="stylesheet" href="css/open_in_new_tab.css">
+      <link rel="stylesheet" href="../../../css/open_in_new_tab.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-with-regoloai" class="md-skip">
+        <a href="#response-parameters" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-header__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Response Parameters
             
           </span>
         </div>
@@ -228,7 +230,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-nav__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     Regolo Docs
@@ -252,31 +254,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Getting Started
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,53 +267,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API Key
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose your client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Chat Example
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -362,8 +296,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -373,13 +309,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -394,7 +328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Models
@@ -448,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/completions/" class="md-nav__link">
+      <a href="../../families/completions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/vision/" class="md-nav__link">
+      <a href="../../families/vision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/images/" class="md-nav__link">
+      <a href="../../families/images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/ocr/" class="md-nav__link">
+      <a href="../../families/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/stt/" class="md-nav__link">
+      <a href="../../families/stt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/embedding/" class="md-nav__link">
+      <a href="../../families/embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/rerank/" class="md-nav__link">
+      <a href="../../families/rerank/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,6 +541,8 @@
                 
   
   
+    
+  
   
   
     
@@ -615,13 +551,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -636,7 +570,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -650,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/thinking/" class="md-nav__link">
+      <a href="../thinking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,10 +603,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="models/features/response-parameters/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Response Parameters
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -682,6 +637,140 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      temperature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      max_tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      top_p
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      frequency_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presence_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      presence_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      stop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      n
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      seed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -694,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/function-calling/" class="md-nav__link">
+      <a href="../function-calling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/custom-models/" class="md-nav__link">
+      <a href="../../custom-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="catalog/" class="md-nav__link">
+      <a href="../../../catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,27 +1049,114 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate an API Key
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
+  <a href="#standard-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Choose your client
+      Standard Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Standard Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      temperature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      max_tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      top_p
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      frequency_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presence_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      presence_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      stop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      n
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      seed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
+  <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat Example
+      Best Practices
     </span>
   </a>
   
@@ -1005,58 +1181,167 @@
   
 
 
-<h1 id="getting-started-with-regoloai">Getting Started with Regolo.ai</h1>
-<p>To get started with Regolo.ai, sign up for an account at <a href="https://dashboard.regolo.ai">dashboard.regolo.ai</a>.</p>
-<h2 id="generate-an-api-key">Generate an API Key</h2>
-<p>Once logged in, navigate to the <strong>Virtual Keys</strong> section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.</p>
-<h2 id="choose-your-client">Choose your client</h2>
-<p>Regolo.ai is fully compatible with the OpenAI API, so you can use either:</p>
-<p><a href="https://pypi.org/project/regolo/"><strong>Regolo Python Library</strong></a> or <a href="https://pypi.org/project/openai/"><strong>OpenAI Python Library</strong></a></p>
-<h2 id="chat-example">Chat Example</h2>
-<p>Below is an example of how to create a simple chat application in python using regolo client.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
-
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY-HERE&quot;</span>
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
-
-    <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
-
-    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Regolo.ai Chat&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="s2">&quot;messages&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
-
-    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">&quot;Write a message...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">user_input</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
-
-        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
-
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">()</span>
-
-        <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span>
-
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<h1 id="response-parameters">Response Parameters</h1>
+<p>The Regolo API follows the OpenAI Chat Completions API specification and supports standard parameters that control the behavior and quality of model responses.</p>
+<h2 id="overview">Overview</h2>
+<p>These parameters allow you to fine-tune how the model generates responses, controlling aspects like creativity, length, diversity, and repetition.</p>
+<h2 id="standard-parameters">Standard Parameters</h2>
+<h3 id="temperature"><code>temperature</code></h3>
+<p>Controls the randomness of the model's output. </p>
+<ul>
+<li><strong>Type</strong>: <code>float</code></li>
+<li><strong>Range</strong>: 0.0 to 2.0</li>
+<li><strong>Default</strong>: 1.0</li>
+</ul>
+<p>Lower values (e.g., 0.2) make the output more deterministic and focused, while higher values (e.g., 0.8) increase creativity and variability.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me a story&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.7</span>  <span class="c1"># Balanced creativity</span>
+<span class="p">}</span>
 </code></pre></div>
-</div>
-</div>
-</div>
+<h3 id="max_tokens"><code>max_tokens</code></h3>
+<p>Sets the maximum number of tokens that can be generated in the response.</p>
+<ul>
+<li><strong>Type</strong>: <code>integer</code></li>
+<li><strong>Default</strong>: Varies by model</li>
+</ul>
+<p>Higher values allow for longer responses but may increase latency and costs. Lower values provide more concise outputs.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Explain quantum computing&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">1000</span>  <span class="c1"># Limit response length</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="top_p"><code>top_p</code></h3>
+<p>Nucleus sampling parameter that controls the diversity of tokens considered.</p>
+<ul>
+<li><strong>Type</strong>: <code>float</code></li>
+<li><strong>Range</strong>: 0.0 to 1.0</li>
+<li><strong>Default</strong>: 1.0</li>
+</ul>
+<p>Lower values make the model more focused on likely tokens, while higher values allow more diverse choices.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Write a creative poem&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="mf">0.9</span>  <span class="c1"># Allow more diverse word choices</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="frequency_penalty"><code>frequency_penalty</code></h3>
+<p>Reduces the likelihood of the model repeating frequent tokens.</p>
+<ul>
+<li><strong>Type</strong>: <code>float</code></li>
+<li><strong>Range</strong>: -2.0 to 2.0</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<p>Positive values reduce repetition, while negative values increase it. Useful for avoiding repetitive phrases.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;List 10 different ideas&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;frequency_penalty&quot;</span><span class="p">:</span> <span class="mf">0.5</span>  <span class="c1"># Reduce repetition</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="presence_penalty"><code>presence_penalty</code></h3>
+<p>Reduces the likelihood of the model reusing tokens that are already present in the text.</p>
+<ul>
+<li><strong>Type</strong>: <code>float</code></li>
+<li><strong>Range</strong>: -2.0 to 2.0</li>
+<li><strong>Default</strong>: 0</li>
+</ul>
+<p>Positive values encourage the model to use new tokens and explore different approaches.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Generate diverse solutions&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;presence_penalty&quot;</span><span class="p">:</span> <span class="mf">0.6</span>  <span class="c1"># Encourage new approaches</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="stop"><code>stop</code></h3>
+<p>Array of strings that cause the model to stop generating when encountered.</p>
+<ul>
+<li><strong>Type</strong>: <code>array[string]</code> or <code>string</code></li>
+<li><strong>Default</strong>: <code>null</code></li>
+</ul>
+<p>Useful for controlling where the response ends or preventing certain phrases.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Count to 10&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;stop&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;twelve&quot;</span><span class="p">]</span>  <span class="c1"># Stop at these sequences</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="n"><code>n</code></h3>
+<p>Number of completions to generate for each prompt.</p>
+<ul>
+<li><strong>Type</strong>: <code>integer</code></li>
+<li><strong>Default</strong>: 1</li>
+</ul>
+<p>Generates multiple response variations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Suggest a name&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">3</span>  <span class="c1"># Generate 3 different suggestions</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="seed"><code>seed</code></h3>
+<p>Seed for reproducible outputs.</p>
+<ul>
+<li><strong>Type</strong>: <code>integer</code></li>
+<li><strong>Default</strong>: <code>null</code></li>
+</ul>
+<p>When set, the model will produce more deterministic outputs, useful for testing and reproducibility.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Generate a random number&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">42</span>  <span class="c1"># Reproducible output</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="complete-example">Complete Example</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Write a creative story&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="s2">&quot;frequency_penalty&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="s2">&quot;presence_penalty&quot;</span><span class="p">:</span> <span class="mf">0.4</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li><strong>For factual tasks</strong>: Use lower <code>temperature</code> (0.2-0.4) for more deterministic outputs</li>
+<li><strong>For creative tasks</strong>: Use higher <code>temperature</code> (0.7-0.9) for more varied responses</li>
+<li><strong>For long responses</strong>: Set appropriate <code>max_tokens</code> to avoid truncation</li>
+<li><strong>To reduce repetition</strong>: Use <code>frequency_penalty</code> (0.3-0.7) and <code>presence_penalty</code> (0.4-0.6)</li>
+<li><strong>For consistency</strong>: Use <code>seed</code> when you need reproducible outputs</li>
+</ul>
 
 
 
@@ -1120,12 +1405,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="js/open_in_new_tab.js"></script>
+        <script src="../../../js/open_in_new_tab.js"></script>
       
     
   </body>

@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/families/stt/">
       
       
+        <link rel="prev" href="../ocr/">
       
-        <link rel="next" href="models/families/completions/">
+      
+        <link rel="next" href="../embedding/">
       
       
-      <link rel="icon" href="assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Regolo Docs</title>
+        <title>STT - Regolo Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="styles/extra.css">
+      <link rel="stylesheet" href="../../../styles/extra.css">
     
-      <link rel="stylesheet" href="css/open_in_new_tab.css">
+      <link rel="stylesheet" href="../../../css/open_in_new_tab.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-with-regoloai" class="md-skip">
+        <a href="#speech-to-text" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-header__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              STT
             
           </span>
         </div>
@@ -228,7 +230,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-nav__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     Regolo Docs
@@ -252,31 +254,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Getting Started
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,53 +267,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API Key
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose your client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Chat Example
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -362,8 +296,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -373,13 +309,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -394,7 +328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Models
@@ -405,6 +339,8 @@
                 
   
   
+    
+  
   
   
     
@@ -413,13 +349,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -434,7 +368,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Families
@@ -448,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/completions/" class="md-nav__link">
+      <a href="../completions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/vision/" class="md-nav__link">
+      <a href="../vision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/images/" class="md-nav__link">
+      <a href="../images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/ocr/" class="md-nav__link">
+      <a href="../ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,10 +467,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="models/families/stt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    STT
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -546,6 +501,74 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-call-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Call Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Call Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Requests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -558,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/embedding/" class="md-nav__link">
+      <a href="../embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/rerank/" class="md-nav__link">
+      <a href="../rerank/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -650,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/thinking/" class="md-nav__link">
+      <a href="../../features/thinking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/response-parameters/" class="md-nav__link">
+      <a href="../../features/response-parameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/function-calling/" class="md-nav__link">
+      <a href="../../features/function-calling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/custom-models/" class="md-nav__link">
+      <a href="../../custom-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="catalog/" class="md-nav__link">
+      <a href="../../../catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,29 +983,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
+  <a href="#api-call-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate an API Key
+      API Call Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Call Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Note
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose your client
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
+  <a href="#example-requests" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat Example
+      Example Requests
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Example Requests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1005,58 +1049,135 @@
   
 
 
-<h1 id="getting-started-with-regoloai">Getting Started with Regolo.ai</h1>
-<p>To get started with Regolo.ai, sign up for an account at <a href="https://dashboard.regolo.ai">dashboard.regolo.ai</a>.</p>
-<h2 id="generate-an-api-key">Generate an API Key</h2>
-<p>Once logged in, navigate to the <strong>Virtual Keys</strong> section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.</p>
-<h2 id="choose-your-client">Choose your client</h2>
-<p>Regolo.ai is fully compatible with the OpenAI API, so you can use either:</p>
-<p><a href="https://pypi.org/project/regolo/"><strong>Regolo Python Library</strong></a> or <a href="https://pypi.org/project/openai/"><strong>OpenAI Python Library</strong></a></p>
-<h2 id="chat-example">Chat Example</h2>
-<p>Below is an example of how to create a simple chat application in python using regolo client.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label></div>
+<h1 id="speech-to-text">Speech To Text</h1>
+<p>The Speech to Text (STT) API enables you to extract and transcribe text from audio files using models such as <code>faster-whisper-large-v3</code>.<br />
+<strong>We recommend using audio chunks of less than 2 minutes to prevent hallucinations and duplicate transcriptions.</strong></p>
+<h2 id="api-call-parameters">API Call Parameters</h2>
+<ul>
+<li><code>file</code>: A binary audio file in OGG format.</li>
+<li><code>model</code>: The identifier for the model used for transcription, e.g., <code>faster-whisper-large-v3</code>.</li>
+<li><code>language</code>: A two-letter ISO language code specifying the language of the audio, such as <code>en</code> (English), <code>it</code> (Italian), etc.</li>
+</ul>
+<h3 id="important-note">Important Note</h3>
+<p>The models have a timeout limit. It is recommended to split audio files into smaller segments, such as five-minute clips, to ensure optimal performance.</p>
+<h2 id="example-requests">Example Requests</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label><label for="__tabbed_1_2">OpenAI Client</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">CURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY-HERE&quot;</span>
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
+<span class="c1"># Regolo configuration</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_audio_transcription_model</span> <span class="o">=</span> <span class="s2">&quot;faster-whisper-large-v3&quot;</span>
 
-    <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
+<span class="c1"># Audio file to transcribe</span>
+<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio&quot;</span>
+<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/output/transcription.txt&quot;</span>
 
-    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Regolo.ai Chat&quot;</span><span class="p">)</span>
+<span class="c1"># Transcribe the file</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_audio_transcription</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">AUDIO_FILE</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s2">&quot;messages&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Save the transcription</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span>
+<span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
 
-    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">&quot;Write a message...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">user_input</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">openai</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+<span class="c1"># OpenAI client configuration</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/&quot;</span>
 
-        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="c1"># Audio file to transcribe</span>
+<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio&quot;</span>
+<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/output/transcription.txt&quot;</span>
 
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">()</span>
+<span class="c1"># Transcribe the file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUDIO_FILE</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;faster-whisper-large-v3&quot;</span><span class="p">,</span>
+        <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span><span class="p">,</span>
+        <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="n">response_format</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+    <span class="p">)</span>
 
-        <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span>
+<span class="c1"># Save the transcription</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span>
+<span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
 
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/audio/transcriptions&quot;</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+
+    <span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio.ogg&quot;</span>
+
+    <span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">AUDIO_FILE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Audio file does not exist: </span><span class="si">{</span><span class="n">audio_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># Don&#39;t set Content-Type here; requests will set correct multipart boundary</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">with</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">audio_path</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">&quot;application/octet-stream&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;faster-whisper-large-v3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">transcript_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Transcription ===&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">transcript_text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=====================&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed transcription request:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response body:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/audio/transcriptions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_REGOLO_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;file=@/path/to/your/audio&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;model=faster-whisper-large-v3&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="example-implementation">Example Implementation</h3>
+<p>For a practical example of how to use this API, you can refer to the <a href="https://github.com/regolo-ai/TelegramTranscriber/">Telegram Transcriber GitHub Repository</a>. This repository provides a complete implementation for transcribing audio messages from Telegram using the Speech to Text API.</p>
+<p>For the exhaustive API's endpoints documentation visit <a href="https://docs.api.regolo.ai">docs.api.regolo.ai</a>.</p>
 
 
 
@@ -1120,12 +1241,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="js/open_in_new_tab.js"></script>
+        <script src="../../../js/open_in_new_tab.js"></script>
       
     
   </body>

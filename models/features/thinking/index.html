@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/features/thinking/">
       
       
+        <link rel="prev" href="../../families/rerank/">
       
-        <link rel="next" href="models/families/completions/">
+      
+        <link rel="next" href="../response-parameters/">
       
       
-      <link rel="icon" href="assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Regolo Docs</title>
+        <title>Thinking - Regolo Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="styles/extra.css">
+      <link rel="stylesheet" href="../../../styles/extra.css">
     
-      <link rel="stylesheet" href="css/open_in_new_tab.css">
+      <link rel="stylesheet" href="../../../css/open_in_new_tab.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-with-regoloai" class="md-skip">
+        <a href="#thinking" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-header__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Thinking
             
           </span>
         </div>
@@ -228,7 +230,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-nav__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     Regolo Docs
@@ -252,31 +254,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Getting Started
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,53 +267,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API Key
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose your client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Chat Example
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -362,8 +296,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -373,13 +309,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -394,7 +328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Models
@@ -448,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/completions/" class="md-nav__link">
+      <a href="../../families/completions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/vision/" class="md-nav__link">
+      <a href="../../families/vision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/images/" class="md-nav__link">
+      <a href="../../families/images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/ocr/" class="md-nav__link">
+      <a href="../../families/ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/stt/" class="md-nav__link">
+      <a href="../../families/stt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/embedding/" class="md-nav__link">
+      <a href="../../families/embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/rerank/" class="md-nav__link">
+      <a href="../../families/rerank/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,6 +541,8 @@
                 
   
   
+    
+  
   
   
     
@@ -615,13 +551,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -636,7 +570,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -647,10 +581,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="models/features/thinking/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Thinking
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -660,6 +615,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reasoning_effort" class="md-nav__link">
+    <span class="md-ellipsis">
+      reasoning_effort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -672,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/response-parameters/" class="md-nav__link">
+      <a href="../response-parameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/function-calling/" class="md-nav__link">
+      <a href="../function-calling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/custom-models/" class="md-nav__link">
+      <a href="../../custom-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="catalog/" class="md-nav__link">
+      <a href="../../../catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,27 +986,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate an API Key
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Choose your client
+      Usage
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat Example
+      Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reasoning_effort" class="md-nav__link">
+    <span class="md-ellipsis">
+      reasoning_effort
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
     </span>
   </a>
   
@@ -1005,58 +1055,70 @@
   
 
 
-<h1 id="getting-started-with-regoloai">Getting Started with Regolo.ai</h1>
-<p>To get started with Regolo.ai, sign up for an account at <a href="https://dashboard.regolo.ai">dashboard.regolo.ai</a>.</p>
-<h2 id="generate-an-api-key">Generate an API Key</h2>
-<p>Once logged in, navigate to the <strong>Virtual Keys</strong> section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.</p>
-<h2 id="choose-your-client">Choose your client</h2>
-<p>Regolo.ai is fully compatible with the OpenAI API, so you can use either:</p>
-<p><a href="https://pypi.org/project/regolo/"><strong>Regolo Python Library</strong></a> or <a href="https://pypi.org/project/openai/"><strong>OpenAI Python Library</strong></a></p>
-<h2 id="chat-example">Chat Example</h2>
-<p>Below is an example of how to create a simple chat application in python using regolo client.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
+<h1 id="thinking">Thinking</h1>
+<p>Thinking is a feature that allows models to reason through problems step by step, showing their internal thought process before providing a final answer.</p>
+<h2 id="overview">Overview</h2>
+<p>The thinking feature enables models to break down complex problems into smaller steps, making their reasoning process transparent and allowing for better understanding of how they arrive at their conclusions.</p>
+<h2 id="usage">Usage</h2>
+<p>To enable thinking, you can use the <code>thinking</code> parameter in your API requests.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY-HERE&quot;</span>
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What color was Napoleon&#39;s white horse?&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;thinking&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
 
-    <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Regolo.ai Chat&quot;</span><span class="p">)</span>
+<span class="c1"># Extract main content and reasoning</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;choices&quot;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">reasoning</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reasoning_content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s2">&quot;messages&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">if</span> <span class="n">reasoning</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Reasoning ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">reasoning</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Final Answer ===&quot;</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
-
-    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">&quot;Write a message...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">user_input</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
-
-        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
-
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">()</span>
-
-        <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span>
-
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="parameters">Parameters</h2>
+<h3 id="reasoning_effort"><code>reasoning_effort</code></h3>
+<p>Controls the depth and detail of the reasoning process. Available values:</p>
+<ul>
+<li><code>low</code>: Minimal reasoning effort, faster responses with brief reasoning</li>
+<li><code>medium</code>: Balanced reasoning effort (default)</li>
+<li><code>high</code>: Maximum reasoning effort, more detailed and thorough reasoning</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Solve this step by step: What is 15</span><span class="si">% o</span><span class="s2">f 240?&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;thinking&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;reasoning_effort&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span>  <span class="c1"># low, medium, or high</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Standard Parameters</p>
+<p>Standard API parameters like <code>temperature</code>, <code>max_tokens</code>, <code>top_p</code>, <code>frequency_penalty</code>, and <code>presence_penalty</code> can also influence the thinking process. See <a href="../response-parameters/">Response Parameters</a> for detailed documentation.</p>
 </div>
-</div>
-</div>
+<h2 id="benefits">Benefits</h2>
+<ul>
+<li><strong>Transparency</strong>: See how the model reasons through problems</li>
+<li><strong>Debugging</strong>: Understand where the model might make mistakes</li>
+<li><strong>Education</strong>: Learn problem-solving strategies from the model's reasoning</li>
+<li><strong>Quality</strong>: Better results for complex, multi-step problems</li>
+</ul>
 
 
 
@@ -1120,12 +1182,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="js/open_in_new_tab.js"></script>
+        <script src="../../../js/open_in_new_tab.js"></script>
       
     
   </body>

@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/families/rerank/">
       
       
+        <link rel="prev" href="../embedding/">
       
-        <link rel="next" href="models/families/completions/">
+      
+        <link rel="next" href="../../features/thinking/">
       
       
-      <link rel="icon" href="assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Regolo Docs</title>
+        <title>Rerank - Regolo Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="styles/extra.css">
+      <link rel="stylesheet" href="../../../styles/extra.css">
     
-      <link rel="stylesheet" href="css/open_in_new_tab.css">
+      <link rel="stylesheet" href="../../../css/open_in_new_tab.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started-with-regoloai" class="md-skip">
+        <a href="#rerank" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-header__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Rerank
             
           </span>
         </div>
@@ -228,7 +230,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://regolo.ai" title="Regolo Docs" class="md-nav__button md-logo" aria-label="Regolo Docs" data-md-component="logo">
       
-  <img src="assets/light-logo.png" alt="logo">
+  <img src="../../../assets/light-logo.png" alt="logo">
 
     </a>
     Regolo Docs
@@ -252,31 +254,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Getting Started
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -286,53 +267,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      Generate an API Key
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choose your client
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Chat Example
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -362,8 +296,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -373,13 +309,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -394,7 +328,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Models
@@ -405,6 +339,8 @@
                 
   
   
+    
+  
   
   
     
@@ -413,13 +349,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
@@ -434,7 +368,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Families
@@ -448,7 +382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/completions/" class="md-nav__link">
+      <a href="../completions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -470,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/vision/" class="md-nav__link">
+      <a href="../vision/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/images/" class="md-nav__link">
+      <a href="../images/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/ocr/" class="md-nav__link">
+      <a href="../ocr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -536,7 +470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/stt/" class="md-nav__link">
+      <a href="../stt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -558,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/families/embedding/" class="md-nav__link">
+      <a href="../embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -577,10 +511,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="models/families/rerank/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Rerank
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -590,6 +545,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-call-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Call Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-explanation-of-prompt-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Explanation of Prompt Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Explanation of Prompt Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-tags-are-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why these tags are necessary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -650,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/thinking/" class="md-nav__link">
+      <a href="../../features/thinking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/response-parameters/" class="md-nav__link">
+      <a href="../../features/response-parameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/features/function-calling/" class="md-nav__link">
+      <a href="../../features/function-calling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -724,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="models/custom-models/" class="md-nav__link">
+      <a href="../../custom-models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -818,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="catalog/" class="md-nav__link">
+      <a href="../../../catalog/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,27 +977,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-an-api-key" class="md-nav__link">
+  <a href="#api-call-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Generate an API Key
+      API Call Parameters
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#choose-your-client" class="md-nav__link">
+  <a href="#technical-explanation-of-prompt-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Choose your client
+      Technical Explanation of Prompt Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Explanation of Prompt Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-tags-are-necessary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why these tags are necessary
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#chat-example" class="md-nav__link">
+  <a href="#response" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat Example
+      Response
     </span>
   </a>
   
@@ -1005,58 +1037,155 @@
   
 
 
-<h1 id="getting-started-with-regoloai">Getting Started with Regolo.ai</h1>
-<p>To get started with Regolo.ai, sign up for an account at <a href="https://dashboard.regolo.ai">dashboard.regolo.ai</a>.</p>
-<h2 id="generate-an-api-key">Generate an API Key</h2>
-<p>Once logged in, navigate to the <strong>Virtual Keys</strong> section and create a new key. You can choose a specific model or select "All models" to use the key across all available models.</p>
-<h2 id="choose-your-client">Choose your client</h2>
-<p>Regolo.ai is fully compatible with the OpenAI API, so you can use either:</p>
-<p><a href="https://pypi.org/project/regolo/"><strong>Regolo Python Library</strong></a> or <a href="https://pypi.org/project/openai/"><strong>OpenAI Python Library</strong></a></p>
-<h2 id="chat-example">Chat Example</h2>
-<p>Below is an example of how to create a simple chat application in python using regolo client.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label></div>
+<h1 id="rerank">Rerank</h1>
+<p>The <strong>Rerank</strong> API lets you re‑order a list of documents (or passages) according to their relevance to a given query.<br />
+It is powered by models such as <strong><code>Qwen3‑Reranker‑4B</code></strong> and returns the top‑N most relevant documents together with a relevance score.</p>
+<p><strong>When to use it</strong> – After you have retrieved a large set of candidate documents (e.g., with BM25, vector search, or another LLM), feed them to the Rerank endpoint to obtain a concise, high‑quality ranking that can be directly presented to users or passed to a downstream LLM for answer generation.</p>
+<hr />
+<h2 id="api-call-parameters">API Call Parameters</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Important note</strong> – The endpoint expects a <strong>JSON</strong> payload and the total request size (including all documents) must stay lighter as possible. If you have many candidates, consider chunking them and calling the API multiple times.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>model</strong></td>
+<td><code>string</code> (required)</td>
+<td>Identifier of the reranker model, e.g., <code>Qwen3‑Reranker‑4B</code>.</td>
+</tr>
+<tr>
+<td><strong>query</strong></td>
+<td><code>string</code> (required)</td>
+<td>The user’s question or search query.</td>
+</tr>
+<tr>
+<td><strong>documents</strong></td>
+<td><code>array[string]</code> (required)</td>
+<td>List of candidate documents/passages to be reranked.</td>
+</tr>
+<tr>
+<td><strong>top_n</strong></td>
+<td><code>integer</code> (optional)</td>
+<td>Number of highest‑scoring documents to return.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="technical-explanation-of-prompt-tags">Technical Explanation of Prompt Tags</h2>
+<p>To achieve optimal performance with the <strong>Qwen3-Reranker</strong> model, the input strings must follow a specific prompt template. This structure allows the underlying Cross-Encoder to differentiate between instructions, user intent, and the content to be ranked.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tag</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Instruct&gt;</code></td>
+<td style="text-align: left;"><strong>Task Specification</strong></td>
+<td style="text-align: left;">Defines the context of the retrieval (e.g., "retrieve relevant passages"). This guides the model's focus based on the specific use case.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Query&gt;</code></td>
+<td style="text-align: left;"><strong>User Intent</strong></td>
+<td style="text-align: left;">Marks the beginning of the actual question or search term. This helps the model isolate the core information the user is looking for.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code style="white-space:nowrap">&lt;Document&gt;</code></td>
+<td style="text-align: left;"><strong>Content Boundary</strong></td>
+<td style="text-align: left;">Identifies each candidate passage. By explicitly tagging documents, the model better understands where one passage ends and another begins during the scoring process.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="why-these-tags-are-necessary">Why these tags are necessary</h4>
+<p>Modern LLM-based rerankers are trained using these semantic markers to improve <strong>zero-shot accuracy</strong>. Omitting these tags or using inconsistent formatting between the query and the documents can lead to sub-optimal relevance scores, as the model might fail to distinguish between the instruction and the data.</p>
+<hr />
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CURL</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--url<span class="w"> </span>https://api.regolo.ai/rerank<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer REGOLO_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">      &quot;model&quot;: &quot;Qwen3-Reranker-4B&quot;,</span>
+<span class="s1">      &quot;query&quot;: &quot;&lt;Instruct&gt;: Given a web search query, retrieve relevant passages that answer the query\n&lt;Query&gt;: What is the capital of China?&quot;,</span>
+<span class="s1">      &quot;documents&quot;: [</span>
+<span class="s1">        &quot;&lt;Document&gt;: The capital of China is Beijing.&quot;,</span>
+<span class="s1">        &quot;&lt;Document&gt;: Gravity is a force that attracts two bodies towards each other...&quot;</span>
+<span class="s1">      ],</span>
+<span class="s1">      &quot;top_n&quot;: 5</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY-HERE&quot;</span>
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;REGOLO_API_KEY&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/rerank&quot;</span>
 
-    <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
+<span class="n">task</span> <span class="o">=</span> <span class="s2">&quot;Given a web search query, retrieve relevant passages that answer the query&quot;</span>
+<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&quot;What is the capital of China?&quot;</span>
 
-    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Regolo.ai Chat&quot;</span><span class="p">)</span>
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;The capital of China is Beijing.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gravity is a force that attracts two bodies towards each other...&quot;</span>
+<span class="p">]</span>
 
-    <span class="k">if</span> <span class="s2">&quot;messages&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Qwen3-Reranker-4B&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;&lt;Instruct&gt;: </span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="se">\n</span><span class="s2">&lt;Query&gt;: </span><span class="si">{</span><span class="n">query_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;&lt;Document&gt;: </span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">],</span>
+    <span class="s2">&quot;top_n&quot;</span><span class="p">:</span> <span class="mi">5</span>
+<span class="p">}</span>
 
-    <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="n">url</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<span class="p">)</span>
 
-    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">&quot;Write a message...&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">user_input</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
-
-        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
-
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">()</span>
-
-        <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span>
-
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
-
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;results&#39;</span><span class="p">,</span> <span class="p">[])</span>
+<span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;relevance_score&#39;</span><span class="p">]</span>
+    <span class="n">clean_text</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;document&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;Document&gt;: &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> | Text: </span><span class="si">{</span><span class="n">clean_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h2 id="response">Response</h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rerank-8b37844a3beeecb7&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8835278153419495</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Document&gt;: The capital of China is Beijing.&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;relevance_score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08649543672800064</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;document&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;Document&gt;: Gravity is a force that attracts two bodies towards each other...&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -1120,12 +1249,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="js/open_in_new_tab.js"></script>
+        <script src="../../../js/open_in_new_tab.js"></script>
       
     
   </body>
