@@ -31,6 +31,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/light-logo.png
   favicon: assets/favicon.png
   palette:
@@ -80,6 +81,10 @@ extra:
       link: https://discord.gg/myuuVFcfJw
       name: Regolo.ai Discord Server
   generator: false
+  analytics:
+    provider: matomo
+    property: 11
+    url: https://stats.regolo.ai/
 
 extra_css:
   - styles/extra.css
