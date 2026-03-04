@@ -122,6 +122,6 @@ except requests.exceptions.RequestException as e:
 
 ## Next Steps
 
-- Learn about [streaming responses](../models/families/completions.md#stream-chat-completions)
-- Explore [response parameters](../models/features/response-parameters.md)
-- Try [vision models](../models/families/vision.md) for image understanding
+- Learn about [streaming responses](../core-features/inference-api/completions-and-chat.md)
+- Explore [response parameters](../core-features/advanced/response-parameters.md)
+- Try [vision models](../core-features/inference-api/vision-analysis.md) for image understanding
