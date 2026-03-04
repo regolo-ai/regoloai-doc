@@ -3,48 +3,22 @@ repo_url: "https://github.com/regolo-ai/regoloai-doc"
 site_url: "https://docs.regolo.ai"
 
 nav:
-  - Home: index.md
-  - Getting Started:
-    - Welcome to Regolo: getting-started/welcome.md
-    - Quick Start (< 5 min): getting-started/quick-start.md
-    - Sign Up & API Keys: getting-started/sign-up.md
-    - Your First API Call: getting-started/first-api-call.md
-    - Choose Your Language (Python | Node.js | cURL): getting-started/choose-language.md
-    - Sandbox & Playground: getting-started/sandbox.md
-
-  - Core Features:
-    - Inference API:
-      - Endpoints Docs: https://docs.api.regolo.ai
-      - LLM Inference: core-features/inference-api/llm-inference.md
-      - Vision & Image Analysis: core-features/inference-api/vision-analysis.md
-      - Image Generation: core-features/inference-api/image-generation.md
-      - Batch Processing: core-features/inference-api/batch-processing.md
-      - Completions and Chat: core-features/inference-api/completions-and-chat.md
-      - Embeddings: core-features/inference-api/embedding.md
-      - Speech to Text: core-features/inference-api/speech-to-text.md
-      - Rerank: core-features/inference-api/rerank.md
-    - Model Management:
-      - Overview: core-features/model-management/overview.md
-      - Version Control: core-features/model-management/version-control.md
-      - Model Registry: core-features/model-management/model-registry.md
-      - Fine-Tuning Models: core-features/model-management/fine-tuning.md
-      - Custom Endpoints: core-features/model-management/custom-endpoints.md
+  - Getting Started: index.md
+  - Endpoints Docs: https://docs.api.regolo.ai
+  - Models:
+    - Families:
+      - Completions and Chat: models/families/completions.md
+      - Vision models: models/families/vision.md
+      - Images Generation: models/families/images.md
+      - OCR: models/families/ocr.md
+      - STT: models/families/stt.md
+      - Embeddings: models/families/embedding.md
+      - Rerank: models/families/rerank.md
     - Features:
-      - Thinking: core-features/advanced/thinking.md
-      - Response Parameters: core-features/advanced/response-parameters.md
-    - Observability & Monitoring:
-      - Overview: core-features/observability/overview.md
-      - Dashboards: core-features/observability/dashboards.md
-      - Cost Analytics: core-features/observability/cost-analytics.md
-      - Latency & Performance: core-features/observability/latency-performance.md
-      - Token Usage Tracking: core-features/observability/token-tracking.md
-      - Alerts & Notifications: core-features/observability/alerts-notifications.md
-    - Advanced Features:
-      - Overview: core-features/advanced/overview.md
-      - Private Endpoints: core-features/advanced/private-endpoints.md
-      - SLA & Enterprise Support: core-features/advanced/sla-support.md
-      - Webhooks & Events: core-features/advanced/webhooks-events.md
-      - Cache & Optimization: core-features/advanced/cache-optimization.md
+      - Thinking: models/features/thinking.md
+      - Response Parameters: models/features/response-parameters.md
+      - Function Calling: models/features/function-calling.md
+    - Custom Models: models/custom-models.md
 
   - Status:
     - Observability: https://obs.regolo.ai/
@@ -57,11 +31,9 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/light-logo.png
   favicon: assets/favicon.png
-  icon:
-    admonition:
-      note: octicons/tag-16
   palette:
     - scheme: slate
       primary: black
@@ -74,10 +46,12 @@ theme:
         name: Switch to dark mode
   font:
     text: Space Grotesk
+    text: Space Grotesk
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
+    - navigation.expand
     - content.tabs.link
     - content.code.annotate
     - content.code.copy
@@ -96,11 +70,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - attr_list
-  - md_in_html
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
   homepage: https://regolo.ai
@@ -112,6 +81,10 @@ extra:
       link: https://discord.gg/myuuVFcfJw
       name: Regolo.ai Discord Server
   generator: false
+  analytics:
+    provider: matomo
+    property: 11
+    url: https://stats.regolo.ai/
 
 extra_css:
   - styles/extra.css

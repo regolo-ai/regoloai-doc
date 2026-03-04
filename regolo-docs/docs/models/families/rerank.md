@@ -22,82 +22,96 @@ It is powered by models such as **`Qwen3‑Reranker‑4B`** and returns the top�
 
 ---
 
+## Technical Explanation of Prompt Tags
+
+To achieve optimal performance with the **Qwen3-Reranker** model, the input strings must follow a specific prompt template. This structure allows the underlying Cross-Encoder to differentiate between instructions, user intent, and the content to be ranked.
+
+| Tag                                                      | Purpose | Description |
+|:---------------------------------------------------------| :--- | :--- |
+| <code style="white-space:nowrap">&lt;Instruct&gt;</code> | **Task Specification** | Defines the context of the retrieval (e.g., "retrieve relevant passages"). This guides the model's focus based on the specific use case. |
+| <code style="white-space:nowrap">&lt;Query&gt;</code>    | **User Intent** | Marks the beginning of the actual question or search term. This helps the model isolate the core information the user is looking for. |
+| <code style="white-space:nowrap">&lt;Document&gt;</code> | **Content Boundary** | Identifies each candidate passage. By explicitly tagging documents, the model better understands where one passage ends and another begins during the scoring process. |
+
+#### Why these tags are necessary
+Modern LLM-based rerankers are trained using these semantic markers to improve **zero-shot accuracy**. Omitting these tags or using inconsistent formatting between the query and the documents can lead to sub-optimal relevance scores, as the model might fail to distinguish between the instruction and the data.
+
+---
+
 === "CURL"
 
     ```bash
-    curl --request POST \
-      --url https://api.regolo.ai/rerank \
-      --header 'Authorization: Bearer REGOLO-API-KEY' \
-      --header 'Content-Type: application/json' \
-      --data '{
-        "model": "Qwen3-Reranker-4B",
-        "query": "What is the capital of the United States?",
-        "documents": [
-          "Carson City is the capital city of the American state of Nevada.",
-          "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-          "Washington, D.C. is the capital of the United States.",
-          "Capital punishment has existed in the United States since before it was a country."
-        ],
-        "top_n": 3
-    }'
+      curl --request POST \
+        --url https://api.regolo.ai/rerank \
+        --header 'Authorization: Bearer REGOLO_API_KEY' \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "model": "Qwen3-Reranker-4B",
+          "query": "<Instruct>: Given a web search query, retrieve relevant passages that answer the query\n<Query>: What is the capital of China?",
+          "documents": [
+            "<Document>: The capital of China is Beijing.",
+            "<Document>: Gravity is a force that attracts two bodies towards each other..."
+          ],
+          "top_n": 5
+        }'
     ```
 
 === "Python"
 
     ```python
-    import json
     import requests
-
-    API_KEY = "REGOLO-API-KEY"
-    ENDPOINT = "https://api.regolo.ai/rerank"
-
+    
+    api_key = "REGOLO_API_KEY"
+    url = "https://api.regolo.ai/rerank"
+    
+    task = "Given a web search query, retrieve relevant passages that answer the query"
+    query_text = "What is the capital of China?"
+    
+    documents = [
+        "The capital of China is Beijing.",
+        "Gravity is a force that attracts two bodies towards each other..."
+    ]
+    
     payload = {
         "model": "Qwen3-Reranker-4B",
-        "query": "What is the capital of the United States?",
-        "documents": [
-            "Carson City is the capital city of the American state of Nevada.",
-            "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-            "Washington, D.C. is the capital of the United States.",
-            "Capital punishment has existed in the United States since before it was a country."
-        ],
-        "top_n": 3
+        "query": f"<Instruct>: {task}\n<Query>: {query_text}",
+        "documents": [f"<Document>: {doc}" for doc in documents],
+        "top_n": 5
     }
-
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-
-    response = requests.post(ENDPOINT, headers=headers, data=json.dumps(payload))
-
-    if response.ok:
-        results = response.json()
-        print("Top documents:")
-        for doc in results.get("results", []):
-            print(f"- score: {doc['score']:.4f}  →  {doc['document']}")
-    else:
-        print("Error:", response.status_code, response.text)
+    
+    response = requests.post(
+        url,
+        json=payload,
+        headers={"Authorization": f"Bearer {api_key}"}
+    )
+    
+    results = response.json().get('results', [])
+    for res in results:
+        score = res['relevance_score']
+        clean_text = res['document']['text'].replace("<Document>: ", "")
+        print(f"Score: {score:.4f} | Text: {clean_text}")
     ```
 
 ## Response
 
 ```json
 {
-  "model": "Qwen3-Reranker-4B",
-  "query": "What is the capital of the United States?",
+  "id": "rerank-8b37844a3beeecb7",
   "results": [
     {
-      "document": "Washington, D.C. is the capital of the United States.",
-      "score": 0.9876
+      "index": 0,
+      "relevance_score": 0.8835278153419495,
+      "document": {
+        "text": "<Document>: The capital of China is Beijing."
+      }
     },
     {
-      "document": "Carson City is the capital city of the American state of Nevada.",
-      "score": 0.4123
-    },
-    {
-      "document": "The Commonwealth of the Northern Mariana Islands is a group of islands in the Pacific Ocean. Its capital is Saipan.",
-      "score": 0.2541
+      "index": 1,
+      "relevance_score": 0.08649543672800064,
+      "document": {
+        "text": "<Document>: Gravity is a force that attracts two bodies towards each other..."
+      }
     }
-  ]
+  ],
+  "meta": null
 }
 ```

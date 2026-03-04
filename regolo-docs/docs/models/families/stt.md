@@ -41,7 +41,7 @@ The models have a timeout limit. It is recommended to split audio files into sma
     print(f"Transcription saved to: {OUTPUT_FILE}")
     ```
 
-=== "Python Client"
+=== "OpenAI Client"
 
     ```python
     import openai
@@ -72,6 +72,54 @@ The models have a timeout limit. It is recommended to split audio files into sma
         f.write(transcript)
 
     print(f"Transcription saved to: {OUTPUT_FILE}")
+    ```
+
+=== "Python"
+
+    ```python
+    import requests
+    from pathlib import Path
+
+    def main():
+        api_url = "https://api.regolo.ai/v1/audio/transcriptions"
+        api_key = "YOUR_REGOLO_KEY"
+
+        AUDIO_FILE = "/path/to/your/audio.ogg"
+
+        audio_path = Path(AUDIO_FILE)
+        if not audio_path.is_file():
+            print(f"Audio file does not exist: {audio_path}")
+            return
+
+        headers = {
+            # Don't set Content-Type here; requests will set correct multipart boundary
+            "Authorization": f"Bearer {api_key}",
+        }
+
+        with audio_path.open("rb") as audio_file:
+            files = {
+                "file": (audio_path.name, audio_file, "application/octet-stream")
+            }
+            data = {
+                "model": "faster-whisper-large-v3",
+                "language": "en",
+                "response_format": "text",
+            }
+
+            response = requests.post(api_url, headers=headers, data=data, files=files)
+
+        if response.status_code == 200:
+            transcript_text = response.text
+            print("=== Transcription ===")
+            print(transcript_text)
+            print("=====================")
+        else:
+            print("Failed transcription request:")
+            print("Status code:", response.status_code)
+            print("Response body:", response.text)
+
+    if __name__ == "__main__":
+        main()
     ```
 
 === "CURL"
