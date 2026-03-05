@@ -64,13 +64,6 @@ plugins:
   - open-in-new-tab:
       add_icon: true
 
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-
 extra:
   homepage: https://regolo.ai
   social:
@@ -88,3 +81,10 @@ extra:
 
 extra_css:
   - styles/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
