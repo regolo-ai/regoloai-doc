@@ -8,7 +8,6 @@ nav:
   - Models:
     - Families:
       - Completions and Chat: models/families/completions.md
-      - Vision models: models/families/vision.md
       - Images Generation: models/families/images.md
       - OCR: models/families/ocr.md
       - STT: models/families/stt.md
@@ -17,6 +16,8 @@ nav:
     - Features:
       - Thinking: models/features/thinking.md
       - Response Parameters: models/features/response-parameters.md
+      - Vision: models/features/vision.md
+      - Video Understanding: models/features/video-understanding.md
       - Function Calling: models/features/function-calling.md
     - Custom Models: models/custom-models.md
 
