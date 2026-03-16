@@ -2154,7 +2154,7 @@
                   "type": "null"
                 }
               ],
-              "title": "Litellm Model Id"
+              "title": "Regolo Model Id"
             }
           }
         ],
@@ -2216,7 +2216,7 @@
                   "type": "null"
                 }
               ],
-              "title": "Litellm Model Id"
+              "title": "Regolo Model Id"
             }
           }
         ],
