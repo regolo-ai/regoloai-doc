@@ -2069,7 +2069,7 @@
           "LLM utils"
         ],
         "summary": "Supported Openai Params",
-        "description": "Returns supported openai params for a given litellm model name \n\ne.g. `gpt-4` vs `gpt-3.5-turbo` \n\nExample curl: \n```\ncurl -X GET --location 'https://api.regolo.ai/utils/supported_openai_params?model=gpt-3.5-turbo-16k'         --header 'Authorization: Bearer sk-1234'\n```",
+        "description": "Returns supported openai params for a given regolo model name \n\ne.g. `gpt-4` vs `gpt-3.5-turbo` \n\nExample curl: \n```\ncurl -X GET --location 'https://api.regolo.ai/utils/supported_openai_params?model=gpt-3.5-turbo-16k'         --header 'Authorization: Bearer sk-1234'\n```",
         "operationId": "supported_openai_params_utils_supported_openai_params_get",
         "security": [
           {
@@ -2124,7 +2124,7 @@
           "Model management"
         ],
         "summary": "Model Info V1",
-        "description": "Provides more info about each model in /models\n\nParameters:\n    regolo_model_id: Optional[str] = None\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"litellm_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
+        "description": "Provides more info about each model in /models\n\nParameters:\n    regolo_model_id: Optional[str] = None\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"regolo_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
         "operationId": "model_info_v1_v1_model_info_get",
         "security": [
           {
@@ -2186,7 +2186,7 @@
           "Model management"
         ],
         "summary": "Model Info V1",
-        "description": "Provides more info about each model in /models\n\nParameters:\n    regolo_model_id: Optional[str] = None\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"litellm_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
+        "description": "Provides more info about each model in /models\n\nParameters:\n    regolo_model_id: Optional[str] = None\n\n    - When regolo_model_id is passed, it will return the info for that specific model\n    - When regolo_model_id is not passed, it will return the info for all models\n\nReturns:\n    Returns a dictionary containing information about each model.\n\nExample Response:\n```json\n{\n    \"data\": [\n                {\n                    \"model_name\": \"fake-openai-endpoint\",\n                    \"regolo_params\": {\n                        \"api_base\": \"https://exampleopenaiendpoint-production.up.railway.app/\",\n                        \"model\": \"openai/fake\"\n                    },\n                    \"model_info\": {\n                        \"id\": \"112f74fab24a7a5245d2ced3536dd8f5f9192c57ee6e332af0f0512e08bed5af\",\n                        \"db_model\": false\n                    }\n                }\n            ]\n}\n\n```",
         "operationId": "model_info_v1_model_info_get",
         "security": [
           {
