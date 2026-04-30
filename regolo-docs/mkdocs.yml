@@ -16,6 +16,7 @@ nav:
     - Features:
       - Thinking: models/features/thinking.md
       - Response Parameters: models/features/response-parameters.md
+      - FAQ: models/features/faq.md
       - Vision: models/features/vision.md
       - Video Understanding: models/features/video-understanding.md
       - Function Calling: models/features/function-calling.md
