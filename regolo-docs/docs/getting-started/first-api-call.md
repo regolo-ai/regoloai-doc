@@ -124,4 +124,4 @@ except requests.exceptions.RequestException as e:
 
 - Learn about [streaming responses](../models/families/completions.md#stream-chat-completions)
 - Explore [response parameters](../models/features/response-parameters.md)
-- Try [vision models](../models/families/vision.md) for image understanding
+- Try [vision models](../models/features/vision.md) for image understanding

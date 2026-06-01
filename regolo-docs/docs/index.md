@@ -2,7 +2,7 @@
 
 Regolo lets you run AI models with a cloud API, without having to understand machine learning or manage your own infrastructure.
 
-You can use [chat completions](models/families/completions.md), [vision models](models/families/vision.md), [image generation](models/families/images.md), and more.
+You can use [chat completions](models/families/completions.md), [vision models](models/features/vision.md), [image generation](models/families/images.md), and more.
 
 ## Get started
 
@@ -60,7 +60,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Image understanding and analysis.
 
-    [:octicons-arrow-right-24: Learn more](models/families/vision.md)
+    [:octicons-arrow-right-24: Learn more](models/features/vision.md)
 
 -   :material-image:{ .lg .middle } **Image Generation**
 
