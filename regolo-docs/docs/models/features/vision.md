@@ -22,14 +22,14 @@ This section demonstrates how to use a remote image URL directly with the vision
     import regolo
 
     regolo.default_key = "YOUR_REGOLO_KEY"
-    regolo.default_chat_model = "qwen3-vl-32b"
+    regolo.default_chat_model = "deepseek-ocr-2"
 
     print(regolo.static_chat_completions(messages=[{
         "role": "user",
         "content": [
             {
                 "type": "text",
-                "text": "Describe this image in detail."
+                "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
             },
             {
                 "type": "image_url",
@@ -48,14 +48,14 @@ This section demonstrates how to use a remote image URL directly with the vision
 
     url = "https://api.regolo.ai/v1/chat/completions"
     payload = {
-        "model": "qwen3-vl-32b",
+        "model": "deepseek-ocr-2",
         "messages": [
             {
                 "role": "user",
                 "content": [
                     {
                         "type": "text",
-                        "text": "Describe this image in detail."
+                        "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
                     },
                     {
                         "type": "image_url",
@@ -84,14 +84,14 @@ This section demonstrates how to use a remote image URL directly with the vision
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer YOUR_REGOLO_KEY" \
     -d '{
-        "model": "qwen3-vl-32b",
+        "model": "deepseek-ocr-2",
         "messages": [
             {
                 "role": "user",
                 "content": [
                     {
                         "type": "text",
-                        "text": "Describe this image in detail."
+                        "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
                     },
                     {
                         "type": "image_url",
@@ -117,7 +117,7 @@ This section demonstrates how to read a local image file from your filesystem, e
     from pathlib import Path
 
     regolo.default_key = "YOUR_REGOLO_KEY"
-    regolo.default_chat_model = "qwen3-vl-32b"
+    regolo.default_chat_model = "deepseek-ocr-2"
 
     IMAGE_PATH = Path("beagle-hound-dog.jpg")
 
@@ -135,7 +135,7 @@ This section demonstrates how to read a local image file from your filesystem, e
             "content": [
                 {
                     "type": "text",
-                    "text": "Describe this image in detail."
+                    "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
                 },
                 {
                     "type": "image_url",
@@ -163,7 +163,7 @@ This section demonstrates how to read a local image file from your filesystem, e
 
     API_URL = "https://api.regolo.ai/v1/chat/completions"
     API_KEY = "YOUR-API-KEY"
-    MODEL = "qwen3-vl-32b"
+    MODEL = "deepseek-ocr-2"
 
     IMAGE_PATH = Path("beagle-hound-dog.jpg")
 
@@ -181,7 +181,7 @@ This section demonstrates how to read a local image file from your filesystem, e
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": "Describe this image in detail."},
+                    {"type": "text", "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."},
                     {
                         "type": "image_url",
                         "image_url": {
@@ -226,14 +226,14 @@ This section demonstrates how to read a local image file from your filesystem, e
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer YOUR-API-KEY" \
     -d "{
-        \"model\": \"qwen3-vl-32b\",
+        \"model\": \"deepseek-ocr-2\",
         \"messages\": [
             {
                 \"role\": \"user\",
                 \"content\": [
                     {
                         \"type\": \"text\",
-                        \"text\": \"Describe this image in detail.\"
+                        \"text\": \"Extract all text from this image exactly as written. Preserve line breaks and punctuation.\"
                     },
                     {
                         \"type\": \"image_url\",
@@ -260,7 +260,7 @@ This section demonstrates how to download an image from a remote URL, encode it 
     import requests
 
     regolo.default_key = "YOUR_REGOLO_KEY"
-    regolo.default_chat_model = "qwen3-vl-32b"
+    regolo.default_chat_model = "deepseek-ocr-2"
 
     # Download image and convert to base64
     image_url = "https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"
@@ -273,7 +273,7 @@ This section demonstrates how to download an image from a remote URL, encode it 
             "content": [
                 {
                     "type": "text",
-                    "text": "Describe this image in detail."
+                    "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
                 },
                 {
                     "type": "image_url",
@@ -301,7 +301,7 @@ This section demonstrates how to download an image from a remote URL, encode it 
 
     # Regolo API credentials configuration
     api_key = "YOUR_API_KEY"
-    model = "qwen3-vl-32b"  # Vision-compatible model
+    model = "deepseek-ocr-2"  # Vision-compatible model
 
     # Download image and convert to base64
     image_url = "https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"
@@ -318,7 +318,7 @@ This section demonstrates how to download an image from a remote URL, encode it 
                 "content": [
                     {
                         "type": "text",
-                        "text": "Describe this image in detail."
+                        "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."
                     },
                     {
                         "type": "image_url",
@@ -367,14 +367,14 @@ This section demonstrates how to download an image from a remote URL, encode it 
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer YOUR_API_KEY" \
     -d "{
-        \"model\": \"qwen3-vl-32b\",
+        \"model\": \"deepseek-ocr-2\",
         \"messages\": [
             {
                 \"role\": \"user\",
                 \"content\": [
                     {
                         \"type\": \"text\",
-                        \"text\": \"Describe this image in detail.\"
+                        \"text\": \"Extract all text from this image exactly as written. Preserve line breaks and punctuation.\"
                     },
                     {
                         \"type\": \"image_url\",

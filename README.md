@@ -14,7 +14,7 @@ Welcome to the **Regolo AI Docs** for our project! This repository is structured
 
 ## Getting Started
 
-To work with this repository, you'll need to download or clone it from GitHub. Once you have it on your local machine, navigate to the `regolo-doc` directory which contains the `docs` folder. This is where you'll run all MkDocs commands.
+To work with this repository, you'll need to download or clone it from GitHub. Once you have it on your local machine, navigate to the `regolo-docs` directory which contains the `docs` folder. This is where you'll run all MkDocs commands.
 
 ## Installation
 
@@ -26,10 +26,10 @@ To set up your environment and install the necessary dependencies, please follow
    git clone git@github.com:regolo-ai/regoloai-doc.git
    ```
 
-2. **Navigate to the `regolo-doc` Directory:**
+2. **Navigate to the `regolo-docs` Directory:**
 
    ```bash
-   cd regoloai-doc/regolo-doc
+   cd regoloai-doc/regolo-docs
    ```
 
 3. **Install Requirements:**
@@ -37,7 +37,7 @@ To set up your environment and install the necessary dependencies, please follow
    It's recommended to use a virtual environment (as described below) before installing the requirements.
 
    ```bash
-   pip install -r requirements.txt
+   python -m pip install -r requirements.txt
    ```
 
    This will install MkDocs and the MkDocs Material theme.
@@ -49,22 +49,22 @@ To ensure a clean and isolated environment for your documentation work, it's bes
 1. **Create a Virtual Environment:**
 
    ```bash
-   python -m venv env
+   python -m venv .venv
    ```
 
 2. **Activate the Virtual Environment:**
 
    - On Windows:
 
-     ```bash
-     .\env\Scripts\activate
-     ```
+         ```bash
+         .\.venv\Scripts\activate
+         ```
 
    - On macOS and Linux:
 
-     ```bash
-     source env/bin/activate
-     ```
+         ```bash
+         source .venv/bin/activate
+         ```
 
 3. **Once activated**, you can proceed with installing the requirements as mentioned above.
 
