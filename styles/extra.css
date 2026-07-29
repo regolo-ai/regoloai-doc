@@ -42,7 +42,7 @@
   margin: 10px 10px;
   padding: 20px 20px;
   text-align: center;
-} 
+}
 
 [data-md-color-scheme="custom"] .md-typeset a {
   font-weight: 700;
@@ -52,7 +52,7 @@
   /* Background color */
   --md-background-primary: #0e0e0e;
   background-color: #0e0e0e;
-  
+
   /* Normal font color */
   --md-typeset-color: #ffffff;
   --md-typeset-a-color: #59e389!important;
@@ -137,7 +137,7 @@
 
 .md-nav .md-nav__title {
   box-shadow: none;
-  background: transparent;
+  background: #0e0e0e;
 }
 
 @media screen and (max-width: 76.2344em) {

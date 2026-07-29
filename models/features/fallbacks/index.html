@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/models/features/thinking/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/features/fallbacks/">
       
       
-        <link rel="prev" href="../../families/rerank/">
+        <link rel="prev" href="../function-calling/">
       
       
-        <link rel="next" href="../response-parameters/">
+        <link rel="next" href="../../custom-models/">
       
       
         
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Thinking - Regolo Docs</title>
+        <title>Fallbacks - Regolo Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#thinking" class="md-skip">
+        <a href="#fallbacks" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Thinking
+              Fallbacks
             
           </span>
         </div>
@@ -409,7 +409,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start (< 5 min)
+    Quick Start
   
 
     
@@ -493,7 +493,7 @@
   <span class="md-ellipsis">
     
   
-    Choose Your Language (Python | Node.js | cURL)
+    Choose Your Language
   
 
     
@@ -514,14 +514,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/sandbox/" class="md-nav__link">
+      <a href="../../../getting-started/playground/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Sandbox & Playground
+    Playground
   
 
     
@@ -629,6 +629,34 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -642,10 +670,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -663,8 +691,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -869,10 +897,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -890,8 +918,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -905,44 +933,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Thinking
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reasoning/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Thinking
+    Reasoning
   
 
     
@@ -951,87 +952,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameters
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reasoning_effort" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        reasoning_effort
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Benefits
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1052,34 +972,6 @@
     
   
     Response Parameters
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ
   
 
     
@@ -1177,6 +1069,125 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fallbacks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fallbacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-fallbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disabling fallbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-disable-fallbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to disable fallbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1200,6 +1211,34 @@
     
   
     Custom Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
   
 
     
@@ -1289,34 +1328,6 @@
     
   
     Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../catalog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Regolo Catalog
   
 
     
@@ -1491,10 +1502,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        How it works
       
     </span>
   </a>
@@ -1502,38 +1513,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
+  <a href="#disabling-fallbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parameters
+        Disabling fallbacks
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#reasoning_effort" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        reasoning_effort
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
+  <a href="#when-to-disable-fallbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Benefits
+        When to disable fallbacks
       
     </span>
   </a>
@@ -1560,70 +1554,49 @@
   
 
 
-<h1 id="thinking">Thinking</h1>
-<p>Thinking is a feature that allows models to reason through problems step by step, showing their internal thought process before providing a final answer.</p>
+<h1 id="fallbacks">Fallbacks</h1>
+<p>When a requested model is unavailable, Regolo can automatically fall back to a compatible alternative so your requests keep working without interruption.</p>
 <h2 id="overview">Overview</h2>
-<p>The thinking feature enables models to break down complex problems into smaller steps, making their reasoning process transparent and allowing for better understanding of how they arrive at their conclusions.</p>
-<h2 id="usage">Usage</h2>
-<p>To enable thinking, you can use the <code>thinking</code> parameter in your API requests.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
-<span class="p">}</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;What color was Napoleon&#39;s white horse?&quot;</span><span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">&quot;thinking&quot;</span><span class="p">:</span> <span class="kc">True</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-
-<span class="c1"># Extract main content and reasoning</span>
-<span class="n">message</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;choices&quot;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="p">{})</span>
-<span class="n">content</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">reasoning</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reasoning_content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">reasoning</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Reasoning ===&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">reasoning</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Final Answer ===&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="parameters">Parameters</h2>
-<h3 id="reasoning_effort"><code>reasoning_effort</code></h3>
-<p>Controls the depth and detail of the reasoning process. Available values:</p>
+<p>Model availability can change unexpectedly due to maintenance, capacity limits, or provider outages. By default, the Regolo API is designed for resilience: if the model you requested cannot be served, the request is transparently routed to a compatible model that can fulfill it.</p>
+<p>This behavior is ideal for production workloads where uptime matters more than pinning an exact model. If you need guaranteed model consistency instead, for example for reproducible evaluations or strict compliance, you can disable fallbacks and get a clear error in return.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>When a fallback occurs:</p>
 <ul>
-<li><code>low</code>: Minimal reasoning effort, faster responses with brief reasoning</li>
-<li><code>medium</code>: Balanced reasoning effort (default)</li>
-<li><code>high</code>: Maximum reasoning effort, more detailed and thorough reasoning</li>
+<li>The request is completed using a <strong>compatible alternative</strong> model.</li>
+<li>Your API call still succeeds, returning a standard response.</li>
+<li>This happens transparently, with no change required to your integration.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Solve this step by step: What is 15</span><span class="si">% o</span><span class="s2">f 240?&quot;</span><span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">&quot;thinking&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">&quot;reasoning_effort&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span>  <span class="c1"># low, medium, or high</span>
-<span class="p">}</span>
-</code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Standard Parameters</p>
-<p>Standard API parameters like <code>temperature</code>, <code>max_tokens</code>, <code>top_p</code>, <code>frequency_penalty</code>, and <code>presence_penalty</code> can also influence the thinking process. See <a href="../response-parameters/">Response Parameters</a> for detailed documentation.</p>
+<p class="admonition-title">Compatibility</p>
+<p>Fallback models are chosen to be compatible with the requested one, so request and response shapes remain consistent with the standard Chat Completions format.</p>
 </div>
-<h2 id="benefits">Benefits</h2>
+<h2 id="disabling-fallbacks">Disabling fallbacks</h2>
+<p>To turn off automatic fallbacks and receive an error when the requested model is unavailable, set <code>disable_fallbacks</code> to <code>true</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>When <code>disable_fallbacks</code> is <code>true</code>, requests will fail with an error if the selected model is unavailable. Use this when you need guaranteed model consistency.</p>
+</div>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
+<span class="s1">      {</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;List 5 important events in the 19th century&quot;</span>
+<span class="s1">      }</span>
+<span class="s1">    ],</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;disable_fallbacks&quot;: true</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<h2 id="when-to-disable-fallbacks">When to disable fallbacks</h2>
 <ul>
-<li><strong>Transparency</strong>: See how the model reasons through problems</li>
-<li><strong>Debugging</strong>: Understand where the model might make mistakes</li>
-<li><strong>Education</strong>: Learn problem-solving strategies from the model's reasoning</li>
-<li><strong>Quality</strong>: Better results for complex, multi-step problems</li>
+<li><strong>Reproducibility</strong>: evaluations, benchmarks, and tests where the exact model must be pinned.</li>
+<li><strong>Compliance</strong>: regulated workflows that require a specific, declared model.</li>
+<li><strong>Debugging</strong>: isolating issues to a single model without ambiguity.</li>
 </ul>
+<p>For most everyday and production traffic, leaving fallbacks enabled is recommended to maximize availability.</p>
 
 
 
@@ -1693,10 +1666,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       
