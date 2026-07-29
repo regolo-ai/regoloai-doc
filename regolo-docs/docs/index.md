@@ -8,27 +8,27 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
 <div class="grid cards" markdown>
 
--   :material-language-python:{ .lg .middle } **Run a model from Python**
+-   :material-language-python:{ .lg .middle } **Python**
 
     ---
 
-    The language of the machine learning world.
+    The Language of AI & Machine Learning.
 
     [:octicons-arrow-right-24: Quick Start](getting-started/quick-start.md)
 
--   :material-language-javascript:{ .lg .middle } **Run a model from Node.js**
+-   :material-language-javascript:{ .lg .middle } **Node.js**
 
     ---
 
-    Get started with a few lines of JavaScript.
+    The Standard JavaScript Engine for Real-Time Apps.
 
     [:octicons-arrow-right-24: Choose Language](getting-started/choose-language.md)
 
--   :material-console:{ .lg .middle } **Run a model from cURL**
+-   :material-console:{ .lg .middle } **cURL**
 
     ---
 
-    Test the API directly from your terminal.
+    Use the API directly from your terminal.
 
     [:octicons-arrow-right-24: First API Call](getting-started/first-api-call.md)
 
@@ -90,7 +90,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     ---
 
-    Reorder search results by relevance.
+    Reorder documents results by relevance.
 
     [:octicons-arrow-right-24: Learn more](models/families/rerank.md)
 
@@ -100,13 +100,13 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
 <div class="grid cards" markdown>
 
--   :material-brain:{ .lg .middle } **Thinking**
+-   :material-brain:{ .lg .middle } **Reasoning**
 
     ---
 
-    Enable reasoning capabilities in models.
+    Let models reason through hard problems, step by step.
 
-    [:octicons-arrow-right-24: Learn more](models/features/thinking.md)
+    [:octicons-arrow-right-24: Learn more](models/features/reasoning.md)
 
 -   :material-tune:{ .lg .middle } **Response Parameters**
 
@@ -136,13 +136,13 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Browse all available models.
 
-    [:octicons-arrow-right-24: Catalog](catalog.md)
+    [:octicons-arrow-right-24: Catalog](models/catalog.md)
 
 -   :material-chart-line:{ .lg .middle } **Observability**
 
     ---
 
-    Monitor your API usage and performance.
+    Monitor models status and performance.
 
     [:octicons-arrow-right-24: Status](https://obs.regolo.ai/)
 
@@ -152,6 +152,6 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Test models interactively in the browser.
 
-    [:octicons-arrow-right-24: Try it](getting-started/sandbox.md)
+    [:octicons-arrow-right-24: Try it](getting-started/playground.md)
 
 </div>

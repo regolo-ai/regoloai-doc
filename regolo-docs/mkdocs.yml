@@ -6,13 +6,14 @@ nav:
   - Home: index.md
   - Getting Started:
     - Welcome to Regolo: getting-started/welcome.md
-    - Quick Start (< 5 min): getting-started/quick-start.md
+    - Quick Start: getting-started/quick-start.md
     - Sign Up & API Keys: getting-started/sign-up.md
     - Your First API Call: getting-started/first-api-call.md
-    - Choose Your Language (Python | Node.js | cURL): getting-started/choose-language.md
-    - Sandbox & Playground: getting-started/sandbox.md
+    - Choose Your Language: getting-started/choose-language.md
+    - Playground: getting-started/playground.md
   - Endpoints Docs: https://docs.api.regolo.ai
   - Models:
+    - Model Catalog: models/catalog.md
     - Families:
       - Completions and Chat: models/families/completions.md
       - Images Generation: models/families/images.md
@@ -21,17 +22,17 @@ nav:
       - Embeddings: models/families/embedding.md
       - Rerank: models/families/rerank.md
     - Features:
-      - Thinking: models/features/thinking.md
+      - Reasoning: models/features/reasoning.md
       - Response Parameters: models/features/response-parameters.md
-      - FAQ: models/features/faq.md
       - Vision: models/features/vision.md
       - Video Understanding: models/features/video-understanding.md
       - Function Calling: models/features/function-calling.md
+      - Fallbacks: models/features/fallbacks.md
     - Custom Models: models/custom-models.md
+    - FAQ: models/features/faq.md
 
   - Status:
     - Observability: https://obs.regolo.ai/
-    - Regolo Catalog: catalog.md
 
   - Use Regolo:
       - Awesome Regolo: https://github.com/regolo-ai/awesome-regolo-ai

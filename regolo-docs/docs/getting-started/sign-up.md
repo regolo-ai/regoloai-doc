@@ -18,7 +18,7 @@ Once logged in, follow these steps to create your API key:
 3. Choose a name for your key (e.g., "Development", "Production")
 4. Select the scope:
     - **All models**: Access to all available models
-    - **Specific model**: Restrict access to a single model
+    - **Specific models**: Restrict access to a one or more spcific models
 5. Click **Generate**
 6. **Copy your key immediately** - it won't be shown again!
 

@@ -10,34 +10,9 @@ This page addresses frequently asked questions about API parameters, model limit
 
 ## Questions
 
-### How do I disable model fallbacks?
-
-By default, if the requested model is unavailable, the API automatically falls back to a compatible alternative. To disable this behavior and receive an error instead, set `disable_fallbacks` to `true`.
-
-!!! warning "Important"
-    When `disable_fallbacks` is `true`, requests will fail with an error if the selected model is unavailable. Use this when you need guaranteed model consistency.
-
-```bash
-curl -L -X POST 'https://api.regolo.ai/v1/chat/completions' \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer YOUR_API_KEY' \
-  -d '{
-    "messages": [
-      {
-        "role": "user",
-        "content": "List 5 important events in the 19th century"
-      }
-    ],
-    "model": "qwen3.5-122b",
-    "disable_fallbacks": true
-  }'
-```
-
----
-
 ### What is the maximum value for `max_tokens`?
 
-The maximum value for `max_tokens` varies by model. Setting a value higher than the model's limit will automatically bcrash the request.
+The maximum value for `max_tokens` varies by model. Setting a value higher than the model's limit will automatically cause the request to fail.
 
 ```bash
 curl -L -X POST 'https://api.regolo.ai/v1/chat/completions' \

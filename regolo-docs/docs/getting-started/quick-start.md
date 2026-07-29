@@ -1,4 +1,4 @@
-# Quick Start (< 5 min)
+# Quick Start
 
 Get up and running with Regolo AI in under 5 minutes.
 
