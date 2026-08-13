@@ -27,6 +27,7 @@ nav:
       - Vision: models/features/vision.md
       - Video Understanding: models/features/video-understanding.md
       - Function Calling: models/features/function-calling.md
+      - Structured Outputs: models/features/structured-outputs.md
       - Fallbacks: models/features/fallbacks.md
     - Custom Models: models/custom-models.md
     - FAQ: models/features/faq.md

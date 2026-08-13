@@ -86,6 +86,12 @@ So before you depend on any of this, check the model's official documentation fo
 !!! note "The usual parameters still apply"
     Standard parameters like `temperature`, `max_tokens`, `top_p`, `frequency_penalty`, and `presence_penalty` keep working alongside reasoning. See [Response Parameters](response-parameters.md) for the details.
 
+### The `thinking` parameter
+
+Some clients and models use a `thinking` flag instead of `reasoning_effort`. Regolo accepts `thinking: true` and normalizes it to `reasoning_effort` — the same normalization it uses to bring models like Gemma or Mistral onto the shared effort scale.
+
+It is an alias, not a separate mode. Reasoning stays on; `thinking` never disables it. You can combine it with `response_format` and the reasoning still flows freely — only the final answer is constrained to your schema. See [Structured Outputs](structured-outputs.md).
+
 ## When reasoning earns its cost
 
 - **Hard problems**: math, logic, and multi-step questions where the route to the answer matters

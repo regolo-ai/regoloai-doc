@@ -4,8 +4,9 @@ The embedding API allows you to get a vector representation of the input to be u
 
 ## API Call Parameters
 
-* `input`: A string describing the sentence, such as "A white cat resting in Rome."
-* `model`: The identifier for the model used in image generation, e.g., "gte-Qwen2."
+* `input`: A string (or list of strings) to embed, such as "A white cat resting in Rome."
+* `model`: The identifier for the embedding model, e.g., `gte-Qwen2` or `Qwen3-Embedding-8B`.
+* `dimensions`: The length of the vector to return, e.g. `1024`. Regolo passes this straight to the model with no server-side truncation or renormalization. Whether a reduced dimension is supported — and how MRL truncation is applied — is up to the model.
 
 === "Using Regolo Client"
 
@@ -59,6 +60,50 @@ The embedding API allows you to get a vector representation of the input to be u
         "input": "The quick brown fox jumps over the lazy dog"
     }'
     ```
+
+## Reduced dimensions
+
+Some embedding models can return shorter vectors directly, so you save storage and speed up similarity search without truncating on the client. Pass `dimensions` and the model does the work.
+
+`dimensions` is forwarded to the model as-is. Regolo does not truncate or renormalize the vector — if the model applies Matryoshka Representation Learning (MRL) and renormalizes, that happens inside the model. If the model does not support a reduced dimension, it ignores the value or returns an error.
+
+=== "Python"
+
+    ```python
+    import requests
+
+    url = 'https://api.regolo.ai/v1/embeddings'
+    headers = {
+        'Authorization': 'Bearer YOUR_REGOLO_KEY',
+        'Content-Type': 'application/json'
+    }
+
+    data = {
+        "model": "Qwen3-Embedding-8B",
+        "input": "A white cat resting in Rome",
+        "dimensions": 1024
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+    result = response.json()
+    print(len(result["data"][0]["embedding"]))  # 1024
+    ```
+
+=== "CURL"
+
+    ```bash
+    curl -X POST https://api.regolo.ai/v1/embeddings
+    -H "Content-Type: application/json"
+    -H "Authorization: Bearer YOUR_REGOLO_KEY"
+    -d '{
+        "model": "Qwen3-Embedding-8B",
+        "input": "A white cat resting in Rome",
+        "dimensions": 1024
+    }'
+    ```
+
+!!! note "Support is model-dependent"
+    Not every embedding model accepts `dimensions`. `Qwen3-Embedding-8B` does; `gte-Qwen2` returns its fixed native dimension. Check the model in the [catalog](../catalog.md) before relying on a specific length.
 
 For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
 

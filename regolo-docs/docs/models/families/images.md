@@ -7,7 +7,8 @@ The image generation API allows you to create images based on textual descriptio
 * `prompt`: A string describing the desired image, such as "A white cat resting in Rome."
 * `n`: An integer specifying the number of images to generate. Generating more images increases response time, so it's best to keep this number small for faster performance.
 * `model`: The identifier for the model used in image generation, e.g., "Qwen-Image."
-* `size`: A string defining the dimensions of the images. Supported sizes are "256x256," "512x512," and "1024x1024."
+* `size`: The image dimensions as a `WIDTHxHEIGHT` string, e.g. `"1024x1024"`. Regolo passes `size` through to the model; which sizes a given model actually honors is model-dependent.
+* `aspect_ratio`: The desired aspect ratio, e.g. `"16:9"`, `"1:1"`, or `"9:16"`. Like `size`, it is forwarded to the model. Support is model-dependent — not every model honors non-square ratios, and some accept `size` or `aspect_ratio` but not both.
 
 Larger images take longer to generate, so consider using smaller sizes for quicker results.
 
@@ -109,6 +110,28 @@ Larger images take longer to generate, so consider using smaller sizes for quick
         print('Failed to generate images:', response)
     "
     ```
+
+## Non-square and custom sizes
+
+Some image models accept an `aspect_ratio` or a custom `size` instead of the square presets. Both are passed straight to the model — what gets produced depends on the model.
+
+=== "cURL"
+
+    ```bash
+    curl --request POST \
+      --url 'https://api.regolo.ai/v1/images/generations' \
+      --header 'Authorization: Bearer YOUR_REGOLO_KEY' \
+      --header 'Content-Type: application/json' \
+      --data '{
+        "prompt": "A wide cinematic shot of a boat on the sea at sunset",
+        "n": 1,
+        "model": "Qwen-Image",
+        "aspect_ratio": "16:9"
+    }'
+    ```
+
+!!! tip "Check the model first"
+    Not every model honors `aspect_ratio` or arbitrary `size` values. If a model ignores the parameter it usually falls back to its default square output. Test in the [Playground](../../getting-started/playground.md) to see what a model actually produces.
 
 For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
 
