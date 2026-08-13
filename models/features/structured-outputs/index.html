@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.regolo.ai/models/features/fallbacks/">
+        <link rel="canonical" href="https://docs.regolo.ai/models/features/structured-outputs/">
       
       
-        <link rel="prev" href="../structured-outputs/">
+        <link rel="prev" href="../function-calling/">
       
       
-        <link rel="next" href="../../custom-models/">
+        <link rel="next" href="../fallbacks/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Fallbacks - Regolo Docs</title>
+        <title>Structured Outputs - Regolo Docs</title>
       
     
     
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fallbacks" class="md-skip">
+        <a href="#structured-outputs" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fallbacks
+              Structured Outputs
             
           </span>
         </div>
@@ -1073,34 +1073,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../structured-outputs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Structured Outputs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1120,7 +1092,7 @@
   <span class="md-ellipsis">
     
   
-    Fallbacks
+    Structured Outputs
   
 
     
@@ -1138,7 +1110,7 @@
   <span class="md-ellipsis">
     
   
-    Fallbacks
+    Structured Outputs
   
 
     
@@ -1164,17 +1136,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1183,13 +1144,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-json_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: json_schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json_object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: json_object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#disabling-fallbacks" class="md-nav__link">
+  <a href="#with-reasoning-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disabling fallbacks
+        With reasoning models
       
     </span>
   </a>
@@ -1197,10 +1186,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-disable-fallbacks" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to disable fallbacks
+        Notes
       
     </span>
   </a>
@@ -1211,6 +1200,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fallbacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fallbacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1519,17 +1536,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1538,13 +1544,41 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-json_schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: json_schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-json_object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: json_object
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#disabling-fallbacks" class="md-nav__link">
+  <a href="#with-reasoning-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disabling fallbacks
+        With reasoning models
       
     </span>
   </a>
@@ -1552,10 +1586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-disable-fallbacks" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to disable fallbacks
+        Notes
       
     </span>
   </a>
@@ -1582,49 +1616,172 @@
   
 
 
-<h1 id="fallbacks">Fallbacks</h1>
-<p>When a requested model is unavailable, Regolo can automatically fall back to a compatible alternative so your requests keep working without interruption.</p>
-<h2 id="overview">Overview</h2>
-<p>Model availability can change unexpectedly due to maintenance, capacity limits, or provider outages. By default, the Regolo API is designed for resilience: if the model you requested cannot be served, the request is transparently routed to a compatible model that can fulfill it.</p>
-<p>This behavior is ideal for production workloads where uptime matters more than pinning an exact model. If you need guaranteed model consistency instead, for example for reproducible evaluations or strict compliance, you can disable fallbacks and get a clear error in return.</p>
+<h1 id="structured-outputs">Structured Outputs</h1>
+<p>Structured outputs force the model to reply in a JSON shape you define, so you can parse the response programmatically without guessing the format. Regolo supports the OpenAI <code>response_format</code> parameter and passes it straight through to the underlying engine.</p>
 <h2 id="how-it-works">How it works</h2>
-<p>When a fallback occurs:</p>
+<p>Add <code>response_format</code> to any <code>/v1/chat/completions</code> request. Two shapes are supported:</p>
 <ul>
-<li>The request is completed using a <strong>compatible alternative</strong> model.</li>
-<li>Your API call still succeeds, returning a standard response.</li>
-<li>This happens transparently, with no change required to your integration.</li>
+<li><strong><code>json_schema</code></strong> — constrain the response to a JSON schema you provide. With <code>strict: true</code> this is a hard contract: the model must produce an object that validates against your schema.</li>
+<li><strong><code>json_object</code></strong> — a lighter constraint that only requires the output to be valid JSON. The shape is up to the model, so guide it from the prompt.</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Compatibility</p>
-<p>Fallback models are chosen to be compatible with the requested one, so request and response shapes remain consistent with the standard Chat Completions format.</p>
-</div>
-<h2 id="disabling-fallbacks">Disabling fallbacks</h2>
-<p>To turn off automatic fallbacks and receive an error when the requested model is unavailable, set <code>disable_fallbacks</code> to <code>true</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>When <code>disable_fallbacks</code> is <code>true</code>, requests will fail with an error if the selected model is unavailable. Use this when you need guaranteed model consistency.</p>
-</div>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;messages&quot;: [</span>
-<span class="s1">      {</span>
-<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
-<span class="s1">        &quot;content&quot;: &quot;List 5 important events in the 19th century&quot;</span>
-<span class="s1">      }</span>
-<span class="s1">    ],</span>
-<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
-<span class="s1">    &quot;disable_fallbacks&quot;: true</span>
-<span class="s1">  }&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;response_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;json_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;city_facts&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;strict&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;landlocked&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;population&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;landlocked&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id="when-to-disable-fallbacks">When to disable fallbacks</h2>
+<h3 id="example-json_schema">Example: <code>json_schema</code></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Give me key facts about Rome.&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;json_schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;city_facts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;strict&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;landlocked&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;landlocked&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">     &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">     &quot;messages&quot;: [</span>
+<span class="s1">        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Give me key facts about Rome.&quot;}</span>
+<span class="s1">     ],</span>
+<span class="s1">     &quot;response_format&quot;: {</span>
+<span class="s1">        &quot;type&quot;: &quot;json_schema&quot;,</span>
+<span class="s1">        &quot;json_schema&quot;: {</span>
+<span class="s1">            &quot;name&quot;: &quot;city_facts&quot;,</span>
+<span class="s1">            &quot;strict&quot;: true,</span>
+<span class="s1">            &quot;schema&quot;: {</span>
+<span class="s1">                &quot;type&quot;: &quot;object&quot;,</span>
+<span class="s1">                &quot;properties&quot;: {</span>
+<span class="s1">                    &quot;name&quot;: {&quot;type&quot;: &quot;string&quot;},</span>
+<span class="s1">                    &quot;population&quot;: {&quot;type&quot;: &quot;integer&quot;},</span>
+<span class="s1">                    &quot;landlocked&quot;: {&quot;type&quot;: &quot;boolean&quot;}</span>
+<span class="s1">                },</span>
+<span class="s1">                &quot;required&quot;: [&quot;name&quot;, &quot;population&quot;, &quot;landlocked&quot;],</span>
+<span class="s1">                &quot;additionalProperties&quot;: false</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+<span class="s1">     }</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="example-json_object">Example: <code>json_object</code></h3>
+<p>When you only need valid JSON and don't want to lock the shape, use <code>json_object</code>. Tell the model in the prompt what structure to produce — with <code>json_object</code> the schema is a suggestion, not a contract.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Return a JSON object with the name and population of Rome.&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_object&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">     &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">     &quot;messages&quot;: [</span>
+<span class="s1">        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Return a JSON object with the name and population of Rome.&quot;}</span>
+<span class="s1">     ],</span>
+<span class="s1">     &quot;response_format&quot;: {&quot;type&quot;: &quot;json_object&quot;}</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="with-reasoning-models">With reasoning models</h2>
+<p>Structured outputs and reasoning compose cleanly. When you send <code>response_format</code> to a reasoning model such as <code>gpt-oss-120b</code>, the model still reasons freely in the <code>reasoning_content</code> field — only the final answer in <code>content</code> is constrained to your schema.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Work out the area of a 7x5 rectangle and return it as JSON.&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;reasoning_effort&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;json_schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangle_area&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;strict&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">}</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Reasoning is not disabled</p>
+<p><code>response_format</code> constrains the final answer only. The model still emits reasoning tokens in <code>reasoning_content</code>, and those tokens are still billed as output. See <a href="../reasoning/">Reasoning</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">The <code>thinking</code> parameter</p>
+<p>If your client sends <code>thinking: true</code>, Regolo normalizes it to <code>reasoning_effort</code>. It is an alias, not a separate mode — reasoning stays on. See <a href="../reasoning/">Reasoning</a>.</p>
+</div>
+<h2 id="notes">Notes</h2>
 <ul>
-<li><strong>Reproducibility</strong>: evaluations, benchmarks, and tests where the exact model must be pinned.</li>
-<li><strong>Compliance</strong>: regulated workflows that require a specific, declared model.</li>
-<li><strong>Debugging</strong>: isolating issues to a single model without ambiguity.</li>
+<li><code>response_format</code> is passed through to the underlying engine. Schema enforcement depends on the model; most instruction-tuned models honor <code>json_schema</code> strictly, but a few only honor <code>json_object</code>.</li>
+<li>Set <code>strict: true</code> for a hard contract. Some models ignore <code>strict</code> and enforce the schema regardless.</li>
+<li>Keep the prompt and schema aligned. If they contradict each other, the model can still fail to satisfy the schema.</li>
 </ul>
-<p>For most everyday and production traffic, leaving fallbacks enabled is recommended to maximize availability.</p>
+<p>For the exhaustive API endpoint reference visit <a href="https://docs.api.regolo.ai">docs.api.regolo.ai</a>.</p>
 
 
 

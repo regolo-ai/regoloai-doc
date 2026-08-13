@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.7.4">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1040,6 +1040,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#the-thinking-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The thinking parameter
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1164,6 +1175,34 @@
     
   
     Function Calling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structured-outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Outputs
   
 
     
@@ -1552,6 +1591,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#the-thinking-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The thinking parameter
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1678,6 +1728,9 @@
 <p class="admonition-title">The usual parameters still apply</p>
 <p>Standard parameters like <code>temperature</code>, <code>max_tokens</code>, <code>top_p</code>, <code>frequency_penalty</code>, and <code>presence_penalty</code> keep working alongside reasoning. See <a href="../response-parameters/">Response Parameters</a> for the details.</p>
 </div>
+<h3 id="the-thinking-parameter">The <code>thinking</code> parameter</h3>
+<p>Some clients and models use a <code>thinking</code> flag instead of <code>reasoning_effort</code>. Regolo accepts <code>thinking: true</code> and normalizes it to <code>reasoning_effort</code> — the same normalization it uses to bring models like Gemma or Mistral onto the shared effort scale.</p>
+<p>It is an alias, not a separate mode. Reasoning stays on; <code>thinking</code> never disables it. You can combine it with <code>response_format</code> and the reasoning still flows freely — only the final answer is constrained to your schema. See <a href="../structured-outputs/">Structured Outputs</a>.</p>
 <h2 id="when-reasoning-earns-its-cost">When reasoning earns its cost</h2>
 <ul>
 <li><strong>Hard problems</strong>: math, logic, and multi-step questions where the route to the answer matters</li>
@@ -1754,10 +1807,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       

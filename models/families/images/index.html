@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.7.4">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -807,6 +807,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#non-square-and-custom-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-square and custom sizes
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1114,6 +1125,34 @@
     
   
     Function Calling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/structured-outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Outputs
   
 
     
@@ -1468,6 +1507,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#non-square-and-custom-sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-square and custom sizes
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1495,7 +1545,8 @@
 <li><code>prompt</code>: A string describing the desired image, such as "A white cat resting in Rome."</li>
 <li><code>n</code>: An integer specifying the number of images to generate. Generating more images increases response time, so it's best to keep this number small for faster performance.</li>
 <li><code>model</code>: The identifier for the model used in image generation, e.g., "Qwen-Image."</li>
-<li><code>size</code>: A string defining the dimensions of the images. Supported sizes are "256x256," "512x512," and "1024x1024."</li>
+<li><code>size</code>: The image dimensions as a <code>WIDTHxHEIGHT</code> string, e.g. <code>"1024x1024"</code>. Regolo passes <code>size</code> through to the model; which sizes a given model actually honors is model-dependent.</li>
+<li><code>aspect_ratio</code>: The desired aspect ratio, e.g. <code>"16:9"</code>, <code>"1:1"</code>, or <code>"9:16"</code>. Like <code>size</code>, it is forwarded to the model. Support is model-dependent — not every model honors non-square ratios, and some accept <code>size</code> or <code>aspect_ratio</code> but not both.</li>
 </ul>
 <p>Larger images take longer to generate, so consider using smaller sizes for quicker results.</p>
 <div class="admonition tip">
@@ -1595,6 +1646,29 @@
 </div>
 </div>
 </div>
+<h2 id="non-square-and-custom-sizes">Non-square and custom sizes</h2>
+<p>Some image models accept an <code>aspect_ratio</code> or a custom <code>size</code> instead of the square presets. Both are passed straight to the model — what gets produced depends on the model.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/images/generations&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_REGOLO_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;prompt&quot;: &quot;A wide cinematic shot of a boat on the sea at sunset&quot;,</span>
+<span class="s1">    &quot;n&quot;: 1,</span>
+<span class="s1">    &quot;model&quot;: &quot;Qwen-Image&quot;,</span>
+<span class="s1">    &quot;aspect_ratio&quot;: &quot;16:9&quot;</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Check the model first</p>
+<p>Not every model honors <code>aspect_ratio</code> or arbitrary <code>size</code> values. If a model ignores the parameter it usually falls back to its default square output. Test in the <a href="../../../getting-started/playground/">Playground</a> to see what a model actually produces.</p>
+</div>
 <p>For the exhaustive API's endpoints documentation visit <a href="https://docs.api.regolo.ai">docs.api.regolo.ai</a>.</p>
 
 
@@ -1665,10 +1739,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.7.4">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -891,6 +891,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reduced-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduced dimensions
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1114,6 +1125,34 @@
     
   
     Function Calling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/structured-outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Outputs
   
 
     
@@ -1468,6 +1507,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#reduced-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduced dimensions
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1492,8 +1542,9 @@
 <p>The embedding API allows you to get a vector representation of the input to be used from machine learning models or algorithms, leveraging models like <code>gte-Qwen2</code>.</p>
 <h2 id="api-call-parameters">API Call Parameters</h2>
 <ul>
-<li><code>input</code>: A string describing the sentence, such as "A white cat resting in Rome."</li>
-<li><code>model</code>: The identifier for the model used in image generation, e.g., "gte-Qwen2."</li>
+<li><code>input</code>: A string (or list of strings) to embed, such as "A white cat resting in Rome."</li>
+<li><code>model</code>: The identifier for the embedding model, e.g., <code>gte-Qwen2</code> or <code>Qwen3-Embedding-8B</code>.</li>
+<li><code>dimensions</code>: The length of the vector to return, e.g. <code>1024</code>. Regolo passes this straight to the model with no server-side truncation or renormalization. Whether a reduced dimension is supported — and how MRL truncation is applied — is up to the model.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Using Regolo Client</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">CURL</label></div>
 <div class="tabbed-content">
@@ -1544,6 +1595,48 @@
 </code></pre></div>
 </div>
 </div>
+</div>
+<h2 id="reduced-dimensions">Reduced dimensions</h2>
+<p>Some embedding models can return shorter vectors directly, so you save storage and speed up similarity search without truncating on the client. Pass <code>dimensions</code> and the model does the work.</p>
+<p><code>dimensions</code> is forwarded to the model as-is. Regolo does not truncate or renormalize the vector — if the model applies Matryoshka Representation Learning (MRL) and renormalizes, that happens inside the model. If the model does not support a reduced dimension, it ignores the value or returns an error.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.regolo.ai/v1/embeddings&#39;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer YOUR_REGOLO_KEY&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Qwen3-Embedding-8B&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;A white cat resting in Rome&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dimensions&quot;</span><span class="p">:</span> <span class="mi">1024</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;embedding&quot;</span><span class="p">]))</span>  <span class="c1"># 1024</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/embeddings
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;Qwen3-Embedding-8B&quot;,</span>
+<span class="s1">    &quot;input&quot;: &quot;A white cat resting in Rome&quot;,</span>
+<span class="s1">    &quot;dimensions&quot;: 1024</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Support is model-dependent</p>
+<p>Not every embedding model accepts <code>dimensions</code>. <code>Qwen3-Embedding-8B</code> does; <code>gte-Qwen2</code> returns its fixed native dimension. Check the model in the <a href="../../catalog/">catalog</a> before relying on a specific length.</p>
 </div>
 <p>For the exhaustive API's endpoints documentation visit <a href="https://docs.api.regolo.ai">docs.api.regolo.ai</a>.</p>
 
@@ -1615,10 +1708,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       
