@@ -2,6 +2,9 @@
 
 Regolo keeps every model it serves in a single catalog. You can query it from your code to see which models are available, what each one supports, how much it costs, and what its limits are.
 
+!!! tip "Model Hub dashboard"
+    The full, human-readable catalog — capabilities, pricing, token limits, quantization — is in the **Model Hub** dashboard inside your Regolo account. The endpoints below are the programmatic equivalent of that dashboard.
+
 Two endpoints cover this, each good for a different job:
 
 - **`GET /models`** is the lightweight, OpenAI-compatible list. It hands back the model IDs you can pass as `model`. Use it when you only need to know what to put in a request.
@@ -147,3 +150,13 @@ for m in reasoning_chat:
     price_per_m = m["output_cost_per_token"] * 1_000_000
     print(f'{m["model_group"]:<20} ${price_per_m:.2f} / 1M out tokens')
 ```
+
+## Model identity and deprecation
+
+Each model ID maps to a specific open-weight version of the model. The ID does not float: the same `model_group` always points at the same weights for as long as it is served.
+
+Quantization is fixed once a model is official. If it has to change, Regolo announces the change by email in advance, so you can validate behavior before it ships.
+
+When a model is retired, Regolo announces the removal by email ahead of time and routes requests through a [fallback](features/fallbacks.md) to a replacement model, so existing integrations keep working.
+
+For the exhaustive API endpoint reference visit [docs.api.regolo.ai](https://docs.api.regolo.ai).

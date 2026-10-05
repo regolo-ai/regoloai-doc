@@ -5,6 +5,9 @@ It is powered by models such as **`Qwen3‑Reranker‑4B`** and returns the top�
 
 **When to use it** – After you have retrieved a large set of candidate documents (e.g., with BM25, vector search, or another LLM), feed them to the Rerank endpoint to obtain a concise, high‑quality ranking that can be directly presented to users or passed to a downstream LLM for answer generation.
 
+!!! tip "Model Hub dashboard"
+    Max documents per call and typical latency are model-specific. Check the [catalog](../catalog.md) or open the **Model Hub** dashboard in your Regolo account for the limits that apply to each rerank model. For latency, test with the Playground.
+
 ---
 
 ## API Call Parameters
@@ -41,7 +44,7 @@ Modern LLM-based rerankers are trained using these semantic markers to improve *
 
     ```bash
       curl --request POST \
-        --url https://api.regolo.ai/rerank \
+        --url https://api.regolo.ai/v1/rerank \
         --header 'Authorization: Bearer REGOLO_API_KEY' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -61,7 +64,7 @@ Modern LLM-based rerankers are trained using these semantic markers to improve *
     import requests
     
     api_key = "REGOLO_API_KEY"
-    url = "https://api.regolo.ai/rerank"
+    url = "https://api.regolo.ai/v1/rerank"
     
     task = "Given a web search query, retrieve relevant passages that answer the query"
     query_text = "What is the capital of China?"
@@ -115,3 +118,5 @@ Modern LLM-based rerankers are trained using these semantic markers to improve *
   "meta": null
 }
 ```
+
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).

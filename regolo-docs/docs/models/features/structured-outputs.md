@@ -167,9 +167,15 @@ data = {
 !!! tip "The `thinking` parameter"
     If your client sends `thinking: true`, Regolo normalizes it to `reasoning_effort`. It is an alias, not a separate mode — reasoning stays on. See [Reasoning](reasoning.md).
 
+## How Regolo enforces schemas
+
+Regolo passes `response_format` through to the model's underlying engine. Schema enforcement is the engine's responsibility, not Regolo's. Most instruction-tuned models honor `json_schema` strictly, but a few only honor `json_object`.
+
+Schema feature support — `enum`, nested objects, arrays, optional fields, unions — depends on the model. Consult the model's own documentation for the schema features it supports.
+
 ## Notes
 
-- `response_format` is passed through to the underlying engine. Schema enforcement depends on the model; most instruction-tuned models honor `json_schema` strictly, but a few only honor `json_object`.
+- `response_format` is passed through to the underlying engine; see [How Regolo enforces schemas](#how-regolo-enforces-schemas) above.
 - Set `strict: true` for a hard contract. Some models ignore `strict` and enforce the schema regardless.
 - Keep the prompt and schema aligned. If they contradict each other, the model can still fail to satisfy the schema.
 

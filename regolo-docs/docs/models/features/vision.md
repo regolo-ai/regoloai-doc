@@ -2,8 +2,11 @@
 
 Vision completions enable the processing of images alongside text, allowing for a wide range of applications such as image description, object recognition, and data extraction from visual content. By sending a combination of text prompts and image URLs, the model can provide insightful responses based on the visual input.
 
+!!! tip "Model Hub dashboard"
+    To see which models support vision, check the `supports_vision` flag in the [catalog](../catalog.md) or open the **Model Hub** dashboard in your Regolo account. Image limits (size, count, formats) are model-specific and listed there.
+
 !!! warning
-    This API supports only images, PDF files are not supported.
+    This API is for multimodal chat with images. For text extraction from PDFs, use the [OCR](../families/ocr.md) model `deepseek-ocr-2`.
 
 ## Vision Completions
 

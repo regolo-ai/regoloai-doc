@@ -2,6 +2,9 @@
 
 The image generation API allows you to create images based on textual descriptions, leveraging models like `Qwen-Image`.
 
+!!! tip "Model Hub dashboard"
+    Generation time, safety filter behavior, and image retention policy are model-specific. Check the [catalog](../catalog.md) or open the **Model Hub** dashboard in your Regolo account for the values that apply to each image model.
+
 ## API Call Parameters
 
 * `prompt`: A string describing the desired image, such as "A white cat resting in Rome."

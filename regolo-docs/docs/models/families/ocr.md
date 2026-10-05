@@ -4,7 +4,10 @@ DeepSeek OCR is a powerful optical character recognition model that enables accu
 
 ## Deepseek-OCR Usage with Regolo API
 
-Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr"`
+Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr-2"`
+
+!!! tip "Model Hub dashboard"
+    Supported languages, maximum resolution, and 4K handling are model-specific. Check the [catalog](../catalog.md) or open the **Model Hub** dashboard in your Regolo account for the values that apply to the OCR model.
 
 ### Python Examples
 
@@ -15,7 +18,7 @@ Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr"`
 
     url = "https://api.regolo.ai/v1/chat/completions"
     payload = {
-        "model": "deepseek-ocr",
+        "model": "deepseek-ocr-2",
         "messages": [
             {
                 "role": "user",
@@ -54,7 +57,7 @@ Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr"`
 
     API_URL = "https://api.regolo.ai/v1/chat/completions"
     API_KEY = "YOUR-API-KEY"
-    MODEL = "deepseek-ocr"
+    MODEL = "deepseek-ocr-2"
 
     IMAGE_PATH = Path("document.png")
 
@@ -102,7 +105,7 @@ Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr"`
     import requests
 
     api_key = "YOUR_API_KEY"
-    model = "deepseek-ocr"
+    model = "deepseek-ocr-2"
 
     image_url = "https://example.com/document.png"
     response = requests.get(image_url)
@@ -150,7 +153,7 @@ Use DeepSeek OCR on the Regolo platform with model name: `"deepseek-ocr"`
 
 ## Prompt Examples
 
-```python
+```text
 
 DeepSeek OCR supports various prompt formats for different use cases:
 
@@ -185,7 +188,7 @@ from pathlib import Path
 
 API_URL = "https://api.regolo.ai/v1/chat/completions"
 API_KEY = "YOUR-API-KEY"
-MODEL = "deepseek-ocr"
+MODEL = "deepseek-ocr-2"
 
 PDF_PATH = Path("document.pdf")
 OUTPUT_PATH = PDF_PATH.with_suffix(".md")

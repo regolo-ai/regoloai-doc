@@ -2,6 +2,9 @@
 
 The embedding API allows you to get a vector representation of the input to be used from machine learning models or algorithms, leveraging models like `gte-Qwen2`.
 
+!!! tip "Model Hub dashboard"
+    Max batch size, max input tokens, normalization behavior, and batch pricing are model-specific. Check the [catalog](../catalog.md) or open the **Model Hub** dashboard in your Regolo account for the values that apply to each embedding model.
+
 ## API Call Parameters
 
 * `input`: A string (or list of strings) to embed, such as "A white cat resting in Rome."

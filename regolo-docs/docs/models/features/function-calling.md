@@ -2,6 +2,8 @@
 
 **Function calling** enables the language model to invoke external functions during a conversation, allowing it to retrieve real-time information or perform operations.
 
+All chat models on Regolo support function calling. To check whether a specific model supports parallel function calling, look at `supports_function_calling` and `supports_parallel_function_calling` in the [catalog](../catalog.md).
+
 ## Web Search Example
 
 Here's a complete example using DuckDuckGo web search with the Regolo API:
@@ -445,7 +447,7 @@ payload = {
 
 ### Allowed Tools
 
-Restrict the tool calls the model can make to a subset of the tools available. This is useful when you want to make only a subset of tools available across model requests without modifying the list of tools you pass in, maximizing savings from prompt caching.
+Restrict the tool calls the model can make to a subset of the tools available. This is useful when you want to make only a subset of tools available across model requests without modifying the list of tools you pass in.
 
 ```python
 payload = {
