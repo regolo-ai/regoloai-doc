@@ -1568,20 +1568,20 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"qwen3.5-122b"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;qwen3.5-122b&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-    <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-    <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-            <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Please provide a detailed summary of this video."</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Please provide a detailed summary of this video.&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"video_url"</span><span class="p">,</span>
-            <span class="s2">"video_url"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://your-public-video.url/video.mp4"</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;video_url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;video_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your-public-video.url/video.mp4&quot;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1591,21 +1591,21 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"qwen3.5-122b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;qwen3.5-122b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Please provide a detailed summary of this video."</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Please provide a detailed summary of this video.&quot;</span>
                 <span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"video_url"</span><span class="p">,</span>
-                    <span class="s2">"video_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://your-public-video.url/video.mp4"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;video_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;video_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://your-public-video.url/video.mp4&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -1613,8 +1613,8 @@
     <span class="p">]</span>
 <span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -1623,28 +1623,28 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "messages": [</span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">        {</span>
-<span class="s1">            "role": "user",</span>
-<span class="s1">            "content": [</span>
+<span class="s1">            &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">            &quot;content&quot;: [</span>
 <span class="s1">                {</span>
-<span class="s1">                    "type": "text",</span>
-<span class="s1">                    "text": "Provide a detailed summary of this video."</span>
+<span class="s1">                    &quot;type&quot;: &quot;text&quot;,</span>
+<span class="s1">                    &quot;text&quot;: &quot;Provide a detailed summary of this video.&quot;</span>
 <span class="s1">                },</span>
 <span class="s1">                {</span>
-<span class="s1">                    "type": "video_url",</span>
-<span class="s1">                    "video_url": {</span>
-<span class="s1">                        "url": "https://your-public-video.url/video.mp4"</span>
+<span class="s1">                    &quot;type&quot;: &quot;video_url&quot;,</span>
+<span class="s1">                    &quot;video_url&quot;: {</span>
+<span class="s1">                        &quot;url&quot;: &quot;https://your-public-video.url/video.mp4&quot;</span>
 <span class="s1">                    }</span>
 <span class="s1">                }</span>
 <span class="s1">            ]</span>
 <span class="s1">        }</span>
 <span class="s1">    ]</span>
-<span class="s1">}'</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>

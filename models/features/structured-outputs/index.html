@@ -1186,6 +1186,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-regolo-enforces-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Regolo enforces schemas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1586,6 +1597,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-regolo-enforces-schemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Regolo enforces schemas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1624,20 +1646,20 @@
 <li><strong><code>json_schema</code></strong> — constrain the response to a JSON schema you provide. With <code>strict: true</code> this is a hard contract: the model must produce an object that validates against your schema.</li>
 <li><strong><code>json_object</code></strong> — a lighter constraint that only requires the output to be valid JSON. The shape is up to the model, so guide it from the prompt.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nt">"response_format"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json_schema"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city_facts"</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"strict"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w"> </span><span class="p">},</span>
-<span class="w">                </span><span class="nt">"population"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="w"> </span><span class="p">},</span>
-<span class="w">                </span><span class="nt">"landlocked"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;response_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;json_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;city_facts&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;strict&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="nt">&quot;landlocked&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">},</span>
-<span class="w">            </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"population"</span><span class="p">,</span><span class="w"> </span><span class="s2">"landlocked"</span><span class="p">],</span>
-<span class="w">            </span><span class="nt">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">            </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;population&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;landlocked&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;additionalProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -1648,30 +1670,30 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span><span class="p">,</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Give me key facts about Rome."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Give me key facts about Rome.&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"response_format"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"json_schema"</span><span class="p">,</span>
-        <span class="s2">"json_schema"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"city_facts"</span><span class="p">,</span>
-            <span class="s2">"strict"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-            <span class="s2">"schema"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
-                <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">},</span>
-                    <span class="s2">"population"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"integer"</span><span class="p">},</span>
-                    <span class="s2">"landlocked"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"boolean"</span><span class="p">}</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;json_schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;city_facts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;strict&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;population&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;landlocked&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">}</span>
                 <span class="p">},</span>
-                <span class="s2">"required"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"population"</span><span class="p">,</span> <span class="s2">"landlocked"</span><span class="p">],</span>
-                <span class="s2">"additionalProperties"</span><span class="p">:</span> <span class="kc">False</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;landlocked&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1679,36 +1701,36 @@
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">     "model": "Llama-3.3-70B-Instruct",</span>
-<span class="s1">     "messages": [</span>
-<span class="s1">        {"role": "user", "content": "Give me key facts about Rome."}</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">     &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">     &quot;messages&quot;: [</span>
+<span class="s1">        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Give me key facts about Rome.&quot;}</span>
 <span class="s1">     ],</span>
-<span class="s1">     "response_format": {</span>
-<span class="s1">        "type": "json_schema",</span>
-<span class="s1">        "json_schema": {</span>
-<span class="s1">            "name": "city_facts",</span>
-<span class="s1">            "strict": true,</span>
-<span class="s1">            "schema": {</span>
-<span class="s1">                "type": "object",</span>
-<span class="s1">                "properties": {</span>
-<span class="s1">                    "name": {"type": "string"},</span>
-<span class="s1">                    "population": {"type": "integer"},</span>
-<span class="s1">                    "landlocked": {"type": "boolean"}</span>
+<span class="s1">     &quot;response_format&quot;: {</span>
+<span class="s1">        &quot;type&quot;: &quot;json_schema&quot;,</span>
+<span class="s1">        &quot;json_schema&quot;: {</span>
+<span class="s1">            &quot;name&quot;: &quot;city_facts&quot;,</span>
+<span class="s1">            &quot;strict&quot;: true,</span>
+<span class="s1">            &quot;schema&quot;: {</span>
+<span class="s1">                &quot;type&quot;: &quot;object&quot;,</span>
+<span class="s1">                &quot;properties&quot;: {</span>
+<span class="s1">                    &quot;name&quot;: {&quot;type&quot;: &quot;string&quot;},</span>
+<span class="s1">                    &quot;population&quot;: {&quot;type&quot;: &quot;integer&quot;},</span>
+<span class="s1">                    &quot;landlocked&quot;: {&quot;type&quot;: &quot;boolean&quot;}</span>
 <span class="s1">                },</span>
-<span class="s1">                "required": ["name", "population", "landlocked"],</span>
-<span class="s1">                "additionalProperties": false</span>
+<span class="s1">                &quot;required&quot;: [&quot;name&quot;, &quot;population&quot;, &quot;landlocked&quot;],</span>
+<span class="s1">                &quot;additionalProperties&quot;: false</span>
 <span class="s1">            }</span>
 <span class="s1">        }</span>
 <span class="s1">     }</span>
-<span class="s1">}'</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1719,25 +1741,25 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Return a JSON object with the name and population of Rome."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Return a JSON object with the name and population of Rome.&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"response_format"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"json_object"</span><span class="p">}</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_object&quot;</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">     "model": "Llama-3.3-70B-Instruct",</span>
-<span class="s1">     "messages": [</span>
-<span class="s1">        {"role": "user", "content": "Return a JSON object with the name and population of Rome."}</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">     &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">     &quot;messages&quot;: [</span>
+<span class="s1">        {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Return a JSON object with the name and population of Rome.&quot;}</span>
 <span class="s1">     ],</span>
-<span class="s1">     "response_format": {"type": "json_object"}</span>
-<span class="s1">}'</span>
+<span class="s1">     &quot;response_format&quot;: {&quot;type&quot;: &quot;json_object&quot;}</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1745,23 +1767,23 @@
 <h2 id="with-reasoning-models">With reasoning models</h2>
 <p>Structured outputs and reasoning compose cleanly. When you send <code>response_format</code> to a reasoning model such as <code>gpt-oss-120b</code>, the model still reasons freely in the <code>reasoning_content</code> field — only the final answer in <code>content</code> is constrained to your schema.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Work out the area of a 7x5 rectangle and return it as JSON."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Work out the area of a 7x5 rectangle and return it as JSON.&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"reasoning_effort"</span><span class="p">:</span> <span class="s2">"high"</span><span class="p">,</span>
-    <span class="s2">"response_format"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"json_schema"</span><span class="p">,</span>
-        <span class="s2">"json_schema"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"rectangle_area"</span><span class="p">,</span>
-            <span class="s2">"strict"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-            <span class="s2">"schema"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
-                <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"area"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"integer"</span><span class="p">}</span>
+    <span class="s2">&quot;reasoning_effort&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;json_schema&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;json_schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangle_area&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;strict&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;area&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">}</span>
                 <span class="p">},</span>
-                <span class="s2">"required"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"area"</span><span class="p">],</span>
-                <span class="s2">"additionalProperties"</span><span class="p">:</span> <span class="kc">False</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="kc">False</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1775,9 +1797,12 @@
 <p class="admonition-title">The <code>thinking</code> parameter</p>
 <p>If your client sends <code>thinking: true</code>, Regolo normalizes it to <code>reasoning_effort</code>. It is an alias, not a separate mode — reasoning stays on. See <a href="../reasoning/">Reasoning</a>.</p>
 </div>
+<h2 id="how-regolo-enforces-schemas">How Regolo enforces schemas</h2>
+<p>Regolo passes <code>response_format</code> through to the model's underlying engine. Schema enforcement is the engine's responsibility, not Regolo's. Most instruction-tuned models honor <code>json_schema</code> strictly, but a few only honor <code>json_object</code>.</p>
+<p>Schema feature support — <code>enum</code>, nested objects, arrays, optional fields, unions — depends on the model. Consult the model's own documentation for the schema features it supports.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li><code>response_format</code> is passed through to the underlying engine. Schema enforcement depends on the model; most instruction-tuned models honor <code>json_schema</code> strictly, but a few only honor <code>json_object</code>.</li>
+<li><code>response_format</code> is passed through to the underlying engine; see <a href="#how-regolo-enforces-schemas">How Regolo enforces schemas</a> above.</li>
 <li>Set <code>strict: true</code> for a hard contract. Some models ignore <code>strict</code> and enforce the schema regardless.</li>
 <li>Keep the prompt and schema aligned. If they contradict each other, the model can still fail to satisfy the schema.</li>
 </ul>

@@ -1625,12 +1625,12 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># Regolo configuration</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_audio_transcription_model</span> <span class="o">=</span> <span class="s2">"faster-whisper-large-v3"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_audio_transcription_model</span> <span class="o">=</span> <span class="s2">&quot;faster-whisper-large-v3&quot;</span>
 
 <span class="c1"># Audio file to transcribe</span>
-<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">"/path/to/your/audio"</span>
-<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">"/path/to/output/transcription.txt"</span>
+<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio&quot;</span>
+<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/output/transcription.txt&quot;</span>
 
 <span class="c1"># Transcribe the file</span>
 <span class="n">transcript</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_audio_transcription</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">AUDIO_FILE</span><span class="p">)</span>
@@ -1639,10 +1639,10 @@
 <span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span>
 <span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1650,30 +1650,30 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># OpenAI client configuration</span>
-<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">openai</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/"</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/&quot;</span>
 
 <span class="c1"># Audio file to transcribe</span>
-<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">"/path/to/your/audio"</span>
-<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">"/path/to/output/transcription.txt"</span>
+<span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio&quot;</span>
+<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/output/transcription.txt&quot;</span>
 
 <span class="c1"># Transcribe the file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUDIO_FILE</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUDIO_FILE</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
     <span class="n">transcript</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">transcriptions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="s2">"faster-whisper-large-v3"</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;faster-whisper-large-v3&quot;</span><span class="p">,</span>
         <span class="n">file</span><span class="o">=</span><span class="n">audio_file</span><span class="p">,</span>
-        <span class="n">language</span><span class="o">=</span><span class="s2">"en"</span><span class="p">,</span>
-        <span class="n">response_format</span><span class="o">=</span><span class="s2">"text"</span>
+        <span class="n">language</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+        <span class="n">response_format</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
     <span class="p">)</span>
 
 <span class="c1"># Save the transcription</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span>
 <span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">transcript</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transcription saved to: </span><span class="si">{</span><span class="n">OUTPUT_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1681,53 +1681,53 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/audio/transcriptions"</span>
-    <span class="n">api_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
+    <span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/audio/transcriptions&quot;</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
 
-    <span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">"/path/to/your/audio.ogg"</span>
+    <span class="n">AUDIO_FILE</span> <span class="o">=</span> <span class="s2">&quot;/path/to/your/audio.ogg&quot;</span>
 
     <span class="n">audio_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">AUDIO_FILE</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Audio file does not exist: </span><span class="si">{</span><span class="n">audio_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Audio file does not exist: </span><span class="si">{</span><span class="n">audio_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1"># Don't set Content-Type here; requests will set correct multipart boundary</span>
-        <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+        <span class="c1"># Don&#39;t set Content-Type here; requests will set correct multipart boundary</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="p">}</span>
 
-    <span class="k">with</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">audio_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">audio_file</span><span class="p">:</span>
         <span class="n">files</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"file"</span><span class="p">:</span> <span class="p">(</span><span class="n">audio_path</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">"application/octet-stream"</span><span class="p">)</span>
+            <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">audio_path</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">audio_file</span><span class="p">,</span> <span class="s2">&quot;application/octet-stream&quot;</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"faster-whisper-large-v3"</span><span class="p">,</span>
-            <span class="s2">"language"</span><span class="p">:</span> <span class="s2">"en"</span><span class="p">,</span>
-            <span class="s2">"response_format"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
+            <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;faster-whisper-large-v3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;response_format&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
         <span class="p">}</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
         <span class="n">transcript_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"=== Transcription ==="</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Transcription ===&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">transcript_text</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"====================="</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=====================&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Failed transcription request:"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Status code:"</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Response body:"</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed transcription request:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response body:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--url<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/audio/transcriptions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_REGOLO_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="s2">"file=@/path/to/your/audio"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-F<span class="w"> </span><span class="s2">"model=faster-whisper-large-v3"</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/audio/transcriptions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_REGOLO_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;file=@/path/to/your/audio&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;model=faster-whisper-large-v3&quot;</span>
 </code></pre></div>
 </div>
 </div>

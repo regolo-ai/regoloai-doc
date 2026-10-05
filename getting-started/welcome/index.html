@@ -1575,36 +1575,36 @@
 <div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR-API-KEY-HERE"</span>
-    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"Llama-3.3-70B-Instruct"</span>
+    <span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY-HERE&quot;</span>
+    <span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
 
     <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
 
-    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Regolo.ai Chat"</span><span class="p">)</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Regolo.ai Chat&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="s2">"messages"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;messages&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
         <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"role"</span><span class="p">]):</span>
-            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">"content"</span><span class="p">])</span>
+        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]):</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 
-    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">"Write a message..."</span><span class="p">)</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_input</span><span class="p">(</span><span class="s2">&quot;Write a message...&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">user_input</span><span class="p">:</span>
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_input</span><span class="p">})</span>
 
-        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">"user"</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">):</span>
             <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
 
-        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">"user"</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="p">:</span>
-            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">"role"</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">"content"</span><span class="p">])</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">add_prompt_to_chat</span><span class="p">(</span><span class="n">role</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">prompt</span><span class="o">=</span><span class="n">msg</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">()</span>
 
         <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span>
 
-        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"role"</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="n">role</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
 
         <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="n">role</span><span class="p">):</span>
             <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>

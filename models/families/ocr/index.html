@@ -1619,39 +1619,43 @@
 <h1 id="ocr">OCR</h1>
 <p>DeepSeek OCR is a powerful optical character recognition model that enables accurate text extraction from images and documents. It supports various modes including native and dynamic resolutions, making it suitable for different use cases from simple OCR to complex document parsing.</p>
 <h2 id="deepseek-ocr-usage-with-regolo-api">Deepseek-OCR Usage with Regolo API</h2>
-<p>Use DeepSeek OCR on the Regolo platform with model name: <code>"deepseek-ocr"</code></p>
+<p>Use DeepSeek OCR on the Regolo platform with model name: <code>"deepseek-ocr-2"</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Model Hub dashboard</p>
+<p>Supported languages, maximum resolution, and 4K handling are model-specific. Check the <a href="../../catalog/">catalog</a> or open the <strong>Model Hub</strong> dashboard in your Regolo account for the values that apply to the OCR model.</p>
+</div>
 <h3 id="python-examples">Python Examples</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Remote Image URL</label><label for="__tabbed_1_2">Base64 (Image from PATH)</label><label for="__tabbed_1_3">Base64 Encoding (Remote URL)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"deepseek-ocr"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Convert the document to markdown."</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Convert the document to markdown.&quot;</span>
                 <span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://cdn.britannica.com/86/22386-050-51E63D13/Silicon-silicon-symbol-square-Si-properties-some.jpg"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/png"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cdn.britannica.com/86/22386-050-51E63D13/Silicon-silicon-symbol-square-Si-properties-some.jpg&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"skip_special_tokens"</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="s2">&quot;skip_special_tokens&quot;</span><span class="p">:</span> <span class="kc">False</span>
 <span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -1663,46 +1667,46 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR-API-KEY"</span>
-<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">"deepseek-ocr"</span>
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY&quot;</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
-<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"document.png"</span><span class="p">)</span>
+<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;document.png&quot;</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">image_bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Convert the document to markdown."</span><span class="p">},</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Convert the document to markdown.&quot;</span><span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/png"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
-    <span class="s2">"skip_special_tokens"</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
+    <span class="s2">&quot;skip_special_tokens&quot;</span><span class="p">:</span> <span class="kc">False</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -1710,45 +1714,45 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY"</span>
-<span class="n">model</span> <span class="o">=</span> <span class="s2">"deepseek-ocr"</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
-<span class="n">image_url</span> <span class="o">=</span> <span class="s2">"https://example.com/document.png"</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s2">&quot;https://example.com/document.png&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Convert the document to markdown."</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Convert the document to markdown.&quot;</span>
                 <span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/png"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
-    <span class="s2">"skip_special_tokens"</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
+    <span class="s2">&quot;skip_special_tokens&quot;</span><span class="p">:</span> <span class="kc">False</span>
 <span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -1761,25 +1765,25 @@
 - <strong><code>skip_special_tokens=True</code></strong>: Removes special tokens. Use for clean text output only.</p>
 </div>
 <h2 id="prompt-examples">Prompt Examples</h2>
-<div class="highlight"><pre><span></span><code><span class="n">DeepSeek</span> <span class="n">OCR</span> <span class="n">supports</span> <span class="n">various</span> <span class="n">prompt</span> <span class="n">formats</span> <span class="k">for</span> <span class="n">different</span> <span class="n">use</span> <span class="n">cases</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>DeepSeek OCR supports various prompt formats for different use cases:
 
-<span class="c1"># Convert the document contents to markdown format</span>
-<span class="o">&lt;|</span><span class="n">grounding</span><span class="o">|&gt;</span><span class="n">Convert</span> <span class="n">the</span> <span class="n">document</span> <span class="n">to</span> <span class="n">markdown</span><span class="o">.</span>
+# Convert the document contents to markdown format
+&lt;|grounding|&gt;Convert the document to markdown.
 
-<span class="c1"># Perform text recognition on this image</span>
-<span class="o">&lt;|</span><span class="n">grounding</span><span class="o">|&gt;</span><span class="n">OCR</span> <span class="n">this</span> <span class="n">image</span><span class="o">.</span>
+# Perform text recognition on this image
+&lt;|grounding|&gt;OCR this image.
 
-<span class="c1"># Extract all text without layout consideration</span>
-<span class="n">Free</span> <span class="n">OCR</span><span class="o">.</span>
+# Extract all text without layout consideration
+Free OCR.
 
-<span class="c1"># Parse any figures or tables in the document</span>
-<span class="n">Parse</span> <span class="n">the</span> <span class="n">figure</span><span class="o">.</span>
+# Parse any figures or tables in the document
+Parse the figure.
 
-<span class="c1"># Provide a detailed description of the image content</span>
-<span class="n">Describe</span> <span class="n">this</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">detail</span><span class="o">.</span>
+# Provide a detailed description of the image content
+Describe this image in detail.
 
-<span class="c1"># Locate the position of &lt;|ref|&gt;xxxx&lt;|/ref|&gt; in the image</span>
-<span class="n">Locate</span> <span class="o">&lt;|</span><span class="n">ref</span><span class="o">|&gt;</span><span class="n">xxxx</span><span class="o">&lt;|/</span><span class="n">ref</span><span class="o">|&gt;</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">image</span><span class="o">.</span>
+# Locate the position of &lt;|ref|&gt;xxxx&lt;|/ref|&gt; in the image
+Locate &lt;|ref|&gt;xxxx&lt;|/ref|&gt; in the image.
 </code></pre></div>
 <h2 id="pdf-ocr-reader">PDF OCR Reader</h2>
 <p>This example demonstrates how to extract text from a PDF document by converting each page to an image and processing it through the OCR API. All extracted text is aggregated and saved to a markdown file.</p>
@@ -1788,12 +1792,12 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">fitz</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR-API-KEY"</span>
-<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">"deepseek-ocr"</span>
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY&quot;</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
-<span class="n">PDF_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"document.pdf"</span><span class="p">)</span>
-<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="n">PDF_PATH</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".md"</span><span class="p">)</span>
+<span class="n">PDF_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">)</span>
+<span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="n">PDF_PATH</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.md&quot;</span><span class="p">)</span>
 
 <span class="n">doc</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">PDF_PATH</span><span class="p">)</span>
 <span class="n">all_text</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1801,49 +1805,49 @@
 <span class="k">for</span> <span class="n">page_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">)):</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">page_num</span><span class="p">]</span>
     <span class="n">pix</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_pixmap</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">fitz</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="n">img_bytes</span> <span class="o">=</span> <span class="n">pix</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(</span><span class="s2">"png"</span><span class="p">)</span>
+    <span class="n">img_bytes</span> <span class="o">=</span> <span class="n">pix</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(</span><span class="s2">&quot;png&quot;</span><span class="p">)</span>
 
-    <span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+    <span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
     <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
-        <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Convert the document to markdown."</span><span class="p">},</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Convert the document to markdown.&quot;</span><span class="p">},</span>
                     <span class="p">{</span>
-                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                        <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                            <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/png"</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/png;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span>
                         <span class="p">}</span>
                     <span class="p">}</span>
                 <span class="p">]</span>
             <span class="p">}</span>
         <span class="p">],</span>
-        <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
-        <span class="s2">"skip_special_tokens"</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
+        <span class="s2">&quot;skip_special_tokens&quot;</span><span class="p">:</span> <span class="kc">False</span>
     <span class="p">}</span>
 
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-        <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">}</span>
 
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-    <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
 
-    <span class="n">all_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">--- Page </span><span class="si">{</span><span class="n">page_num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ---</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">all_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">--- Page </span><span class="si">{</span><span class="n">page_num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ---</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">all_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
 <span class="n">doc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_text</span><span class="p">))</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_text</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Completed : file saved in </span><span class="se">\"</span><span class="si">{</span><span class="n">OUTPUT_PATH</span><span class="si">}</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completed : file saved in </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">OUTPUT_PATH</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="resources">Resources</h2>
 <p><strong>Deepseek-OCR Links:</strong>

@@ -1644,19 +1644,19 @@
 <h2 id="questions">Questions</h2>
 <h3 id="what-is-the-maximum-value-for-max_tokens">What is the maximum value for <code>max_tokens</code>?</h3>
 <p>The maximum value for <code>max_tokens</code> varies by model. Setting a value higher than the model's limit will automatically cause the request to fail.</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/chat/completions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "messages": [</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">      {</span>
-<span class="s1">        "role": "user",</span>
-<span class="s1">        "content": "Write a long story"</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;Write a long story&quot;</span>
 <span class="s1">      }</span>
 <span class="s1">    ],</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "max_tokens": 120000</span>
-<span class="s1">  }'</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;max_tokens&quot;: 120000</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Cost Consideration</p>
@@ -1665,19 +1665,19 @@
 <hr />
 <h3 id="can-i-generate-multiple-completions-at-once">Can I generate multiple completions at once?</h3>
 <p>Yes, use the <code>n</code> parameter to generate multiple response variations in a single request.</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/chat/completions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "messages": [</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">      {</span>
-<span class="s1">        "role": "user",</span>
-<span class="s1">        "content": "Suggest a name for a new API product"</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;Suggest a name for a new API product&quot;</span>
 <span class="s1">      }</span>
 <span class="s1">    ],</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "n": 3</span>
-<span class="s1">  }'</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;n&quot;: 3</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 <p>The response will contain 3 different choices in the <code>choices</code> array.</p>
 <hr />
@@ -1706,38 +1706,38 @@
 </tbody>
 </table>
 <div class="highlight"><pre><span></span><code><span class="c1"># For factual answers</span>
-curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/chat/completions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "messages": [</span>
+curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">      {</span>
-<span class="s1">        "role": "user",</span>
-<span class="s1">        "content": "What year did WW2 end?"</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;What year did WW2 end?&quot;</span>
 <span class="s1">      }</span>
 <span class="s1">    ],</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "temperature": 0.2</span>
-<span class="s1">  }'</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;temperature&quot;: 0.2</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 <hr />
 <h3 id="how-do-i-reduce-repetition-in-model-outputs">How do I reduce repetition in model outputs?</h3>
 <p>Use <code>frequency_penalty</code> to reduce token repetition and <code>presence_penalty</code> to encourage new topics.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Reduce repetition</span>
-curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/chat/completions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "messages": [</span>
+curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">      {</span>
-<span class="s1">        "role": "user",</span>
-<span class="s1">        "content": "List 10 different programming languages"</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;List 10 different programming languages&quot;</span>
 <span class="s1">      }</span>
 <span class="s1">    ],</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "frequency_penalty": 0.5,</span>
-<span class="s1">    "presence_penalty": 0.4</span>
-<span class="s1">  }'</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;frequency_penalty&quot;: 0.5,</span>
+<span class="s1">    &quot;presence_penalty&quot;: 0.4</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 <table>
 <thead>

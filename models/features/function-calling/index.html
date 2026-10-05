@@ -1684,6 +1684,7 @@
 
 <h1 id="function-calling">Function Calling</h1>
 <p><strong>Function calling</strong> enables the language model to invoke external functions during a conversation, allowing it to retrieve real-time information or perform operations.</p>
+<p>All chat models on Regolo support function calling. To check whether a specific model supports parallel function calling, look at <code>supports_function_calling</code> and <code>supports_parallel_function_calling</code> in the <a href="../../catalog/">catalog</a>.</p>
 <h2 id="web-search-example">Web Search Example</h2>
 <p>Here's a complete example using DuckDuckGo web search with the Regolo API:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">ddgs</span><span class="w"> </span><span class="kn">import</span> <span class="n">DDGS</span>
@@ -1694,81 +1695,81 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">REGOLO_BASE_URL</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1"</span>
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"REGOLO_API_KEY"</span><span class="p">,</span> <span class="s2">"YOUR_REGOLO_KEY"</span><span class="p">)</span>
+<span class="n">REGOLO_BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;REGOLO_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">duckduckgo_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_results</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"wt-wt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">duckduckgo_search</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_results</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;wt-wt&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Search the web using DuckDuckGo and return formatted results.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        query: Search query string</span>
 <span class="sd">        max_results: Maximum number of results (default: 10)</span>
-<span class="sd">        region: Region code for localized results (default: "wt-wt" for worldwide)</span>
+<span class="sd">        region: Region code for localized results (default: &quot;wt-wt&quot; for worldwide)</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Formatted markdown string with search results</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DUCKDUCKGO: Searching for '</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">' (max_results=</span><span class="si">{</span><span class="n">max_results</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DUCKDUCKGO: Searching for &#39;</span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&#39; (max_results=</span><span class="si">{</span><span class="n">max_results</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">DDGS</span><span class="p">()</span> <span class="k">as</span> <span class="n">ddgs</span><span class="p">:</span>
-            <span class="c1"># ddgs package uses 'query' parameter</span>
+            <span class="c1"># ddgs package uses &#39;query&#39; parameter</span>
             <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ddgs</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">max_results</span><span class="o">=</span><span class="n">max_results</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">"No search results found."</span>
+            <span class="k">return</span> <span class="s2">&quot;No search results found.&quot;</span>
 
         <span class="c1"># Format results as markdown</span>
-        <span class="n">formatted</span> <span class="o">=</span> <span class="s2">"## Search Results</span><span class="se">\n\n</span><span class="s2">"</span>
+        <span class="n">formatted</span> <span class="o">=</span> <span class="s2">&quot;## Search Results</span><span class="se">\n\n</span><span class="s2">&quot;</span>
         <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-            <span class="n">title</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"title"</span><span class="p">,</span> <span class="s2">"No title"</span><span class="p">)</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"href"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-            <span class="n">body</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;No title&quot;</span><span class="p">)</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
-            <span class="n">formatted</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">"</span>
-            <span class="n">formatted</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">body</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">"</span>
+            <span class="n">formatted</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">](</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">formatted</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">body</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DUCKDUCKGO: Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results"</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DUCKDUCKGO: Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">formatted</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"DUCKDUCKGO: Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Error performing search: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DUCKDUCKGO: Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Error performing search: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
 
 
 <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"function"</span><span class="p">,</span>
-        <span class="s2">"function"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"duckduckgo_search"</span><span class="p">,</span>
-            <span class="s2">"description"</span><span class="p">:</span> <span class="p">(</span>
-                <span class="s2">"Search the web for current information using DuckDuckGo. "</span>
-                <span class="s2">"Use this when you need up-to-date information, news, facts, "</span>
-                <span class="s2">"or any information that may change over time."</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s2">&quot;Search the web for current information using DuckDuckGo. &quot;</span>
+                <span class="s2">&quot;Use this when you need up-to-date information, news, facts, &quot;</span>
+                <span class="s2">&quot;or any information that may change over time.&quot;</span>
             <span class="p">),</span>
-            <span class="s2">"parameters"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
-                <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-                        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"The search query string"</span>
+            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The search query string&quot;</span>
                     <span class="p">},</span>
-                    <span class="s2">"max_results"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"integer"</span><span class="p">,</span>
-                        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Maximum number of results to return (1-20)"</span><span class="p">,</span>
-                        <span class="s2">"minimum"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="s2">"maximum"</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-                        <span class="s2">"default"</span><span class="p">:</span> <span class="mi">10</span>
+                    <span class="s2">&quot;max_results&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum number of results to return (1-20)&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">10</span>
                     <span class="p">},</span>
-                    <span class="s2">"region"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
-                        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Region code for localized results (e.g., 'wt-wt' for worldwide, 'us-en' for US English)"</span><span class="p">,</span>
-                        <span class="s2">"default"</span><span class="p">:</span> <span class="s2">"wt-wt"</span>
+                    <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Region code for localized results (e.g., &#39;wt-wt&#39; for worldwide, &#39;us-en&#39; for US English)&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;wt-wt&quot;</span>
                     <span class="p">}</span>
                 <span class="p">},</span>
-                <span class="s2">"required"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"query"</span><span class="p">]</span>
+                <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;query&quot;</span><span class="p">]</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1782,90 +1783,90 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Create messages list</span>
 <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Find me some news about AI"</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Find me some news about AI&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 
 <span class="c1"># Initial request with tools</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"auto"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
     <span class="n">json</span><span class="o">=</span><span class="n">payload</span>
 <span class="p">)</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">]</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
 
 <span class="c1"># Handle function call</span>
-<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tool_calls"</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">"tool_calls"</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"duckduckgo_search"</span><span class="p">:</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"arguments"</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;arguments&quot;</span><span class="p">])</span>
             <span class="n">search_results</span> <span class="o">=</span> <span class="n">duckduckgo_search</span><span class="p">(</span>
-                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query"</span><span class="p">),</span>
-                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_results"</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"wt-wt"</span><span class="p">)</span>
+                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">),</span>
+                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_results&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;wt-wt&quot;</span><span class="p">)</span>
             <span class="p">)</span>
 
             <span class="c1"># Add assistant message with tool_calls and tool response</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"tool"</span><span class="p">,</span>
-                <span class="s2">"tool_call_id"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span>
-                <span class="s2">"name"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="n">search_results</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">search_results</span>
             <span class="p">})</span>
 
             <span class="c1"># Make follow-up call with updated messages</span>
             <span class="n">followup_payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-                <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span>
+                <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span>
             <span class="p">}</span>
 
             <span class="n">followup_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
                 <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                 <span class="n">json</span><span class="o">=</span><span class="n">followup_payload</span>
             <span class="p">)</span>
 
             <span class="n">followup_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-            <span class="n">final_answer</span> <span class="o">=</span> <span class="n">followup_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
+            <span class="n">final_answer</span> <span class="o">=</span> <span class="n">followup_response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">final_answer</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Create messages list</span>
 <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Find me some news about AI"</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Find me some news about AI&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 
 <span class="c1"># Initial request with tools</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"auto"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
     <span class="n">json</span><span class="o">=</span><span class="n">payload</span>
 <span class="p">)</span>
@@ -1873,36 +1874,36 @@
 <span class="c1"># Show full JSON response</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">]</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
 
 <span class="c1"># Handle function call</span>
-<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tool_calls"</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">"tool_calls"</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"duckduckgo_search"</span><span class="p">:</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"arguments"</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;arguments&quot;</span><span class="p">])</span>
             <span class="n">search_results</span> <span class="o">=</span> <span class="n">duckduckgo_search</span><span class="p">(</span>
-                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query"</span><span class="p">),</span>
-                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_results"</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"wt-wt"</span><span class="p">)</span>
+                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">),</span>
+                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_results&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;wt-wt&quot;</span><span class="p">)</span>
             <span class="p">)</span>
 
             <span class="c1"># Add assistant message with tool_calls and tool response</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"tool"</span><span class="p">,</span>
-                <span class="s2">"tool_call_id"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span>
-                <span class="s2">"name"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="n">search_results</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">search_results</span>
             <span class="p">})</span>
 
             <span class="c1"># Make follow-up call with updated messages</span>
             <span class="n">followup_payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-                <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span>
+                <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span>
             <span class="p">}</span>
 
             <span class="n">followup_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
                 <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                 <span class="n">json</span><span class="o">=</span><span class="n">followup_payload</span>
             <span class="p">)</span>
@@ -1911,7 +1912,7 @@
             <span class="c1"># Show full JSON response</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">followup_response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 </div>
@@ -1923,59 +1924,59 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Create messages list</span>
 <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Find me some news about AI"</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Find me some news about AI&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 
 <span class="c1"># Initial request with tools</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"auto"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
     <span class="n">json</span><span class="o">=</span><span class="n">payload</span>
 <span class="p">)</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">]</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
 
 <span class="c1"># Handle function call</span>
-<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tool_calls"</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">"tool_calls"</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"duckduckgo_search"</span><span class="p">:</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"arguments"</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;arguments&quot;</span><span class="p">])</span>
             <span class="n">search_results</span> <span class="o">=</span> <span class="n">duckduckgo_search</span><span class="p">(</span>
-                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query"</span><span class="p">),</span>
-                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_results"</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"wt-wt"</span><span class="p">)</span>
+                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">),</span>
+                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_results&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;wt-wt&quot;</span><span class="p">)</span>
             <span class="p">)</span>
 
             <span class="c1"># Add assistant message with tool_calls and tool response</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"tool"</span><span class="p">,</span>
-                <span class="s2">"tool_call_id"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span>
-                <span class="s2">"name"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="n">search_results</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">search_results</span>
             <span class="p">})</span>
 
             <span class="c1"># Make follow-up call with streaming enabled</span>
             <span class="n">followup_payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-                <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-                <span class="s2">"stream"</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+                <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="kc">True</span>
             <span class="p">}</span>
 
             <span class="n">followup_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
                 <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                 <span class="n">json</span><span class="o">=</span><span class="n">followup_payload</span><span class="p">,</span>
                 <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>
@@ -1984,45 +1985,45 @@
             <span class="c1"># Extract only content from streamed JSON</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">followup_response</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
-                    <span class="n">decoded_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">decoded_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'data: '</span><span class="p">):</span>
+                    <span class="n">decoded_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">decoded_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;data: &#39;</span><span class="p">):</span>
                         <span class="n">json_str</span> <span class="o">=</span> <span class="n">decoded_line</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
-                        <span class="k">if</span> <span class="n">json_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'[DONE]'</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">json_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;[DONE]&#39;</span><span class="p">:</span>
                             <span class="k">break</span>
                         <span class="k">try</span><span class="p">:</span>
                             <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
-                            <span class="k">if</span> <span class="s1">'choices'</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">:</span>
-                                <span class="n">delta</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">'choices'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'delta'</span><span class="p">,</span> <span class="p">{})</span>
-                                <span class="n">content</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="s1">&#39;choices&#39;</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">:</span>
+                                <span class="n">delta</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="p">{})</span>
+                                <span class="n">content</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
                                 <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
-                                    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                         <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
                             <span class="k">pass</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Create messages list</span>
 <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Find me some news about AI"</span><span class="p">}</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Find me some news about AI&quot;</span><span class="p">}</span>
 <span class="p">]</span>
 
 <span class="c1"># Initial request with tools</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"auto"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
     <span class="n">json</span><span class="o">=</span><span class="n">payload</span>
 <span class="p">)</span>
@@ -2030,37 +2031,37 @@
 <span class="c1"># Show full JSON response</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 
-<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">]</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
 
 <span class="c1"># Handle function call</span>
-<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tool_calls"</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">"tool_calls"</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"duckduckgo_search"</span><span class="p">:</span>
-            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"arguments"</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s2">&quot;tool_calls&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">:</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;arguments&quot;</span><span class="p">])</span>
             <span class="n">search_results</span> <span class="o">=</span> <span class="n">duckduckgo_search</span><span class="p">(</span>
-                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"query"</span><span class="p">),</span>
-                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_results"</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"wt-wt"</span><span class="p">)</span>
+                <span class="n">query</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">),</span>
+                <span class="n">max_results</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_results&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">region</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="s2">&quot;wt-wt&quot;</span><span class="p">)</span>
             <span class="p">)</span>
 
             <span class="c1"># Add assistant message with tool_calls and tool response</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
             <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"tool"</span><span class="p">,</span>
-                <span class="s2">"tool_call_id"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span>
-                <span class="s2">"name"</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">"function"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span>
-                <span class="s2">"content"</span><span class="p">:</span> <span class="n">search_results</span>
+                <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">search_results</span>
             <span class="p">})</span>
 
             <span class="c1"># Make follow-up call with streaming enabled</span>
             <span class="n">followup_payload</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-                <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-                <span class="s2">"stream"</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+                <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="kc">True</span>
             <span class="p">}</span>
 
             <span class="n">followup_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">REGOLO_BASE_URL</span><span class="si">}</span><span class="s2">/chat/completions&quot;</span><span class="p">,</span>
                 <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
                 <span class="n">json</span><span class="o">=</span><span class="n">followup_payload</span><span class="p">,</span>
                 <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>
@@ -2069,9 +2070,9 @@
             <span class="c1"># Show full JSON response</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">followup_response</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
                 <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 </div>
@@ -2084,44 +2085,44 @@
 <h3 id="auto-default">Auto (Default)</h3>
 <p>The model decides whether to call zero, one, or multiple functions:</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"auto"</span>  <span class="c1"># Default behavior</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>  <span class="c1"># Default behavior</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="required">Required</h3>
 <p>Force the model to call one or more functions:</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"required"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;required&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="forced-function">Forced Function</h3>
 <p>Force the model to call exactly one specific function:</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"function"</span><span class="p">,</span>
-        <span class="s2">"function"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"duckduckgo_search"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="allowed-tools">Allowed Tools</h3>
-<p>Restrict the tool calls the model can make to a subset of the tools available. This is useful when you want to make only a subset of tools available across model requests without modifying the list of tools you pass in, maximizing savings from prompt caching.</p>
+<p>Restrict the tool calls the model can make to a subset of the tools available. This is useful when you want to make only a subset of tools available across model requests without modifying the list of tools you pass in.</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>  <span class="c1"># All available tools</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"allowed_tools"</span><span class="p">,</span>
-        <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"auto"</span><span class="p">,</span>
-        <span class="s2">"tools"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"function"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"duckduckgo_search"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>  <span class="c1"># All available tools</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;allowed_tools&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;duckduckgo_search&quot;</span><span class="p">}</span>
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2129,10 +2130,10 @@
 <h3 id="none">None</h3>
 <p>Disable function calling entirely, imitating the behavior of passing no functions:</p>
 <div class="highlight"><pre><span></span><code><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
-    <span class="s2">"tools"</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
-    <span class="s2">"tool_choice"</span><span class="p">:</span> <span class="s2">"none"</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">,</span>
+    <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="n">tools</span><span class="p">,</span>
+    <span class="s2">&quot;tool_choice&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="further-reading">Further Reading</h2>

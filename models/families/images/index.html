@@ -1540,6 +1540,10 @@
 
 <h1 id="images-generation">Images Generation</h1>
 <p>The image generation API allows you to create images based on textual descriptions, leveraging models like <code>Qwen-Image</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Model Hub dashboard</p>
+<p>Generation time, safety filter behavior, and image retention policy are model-specific. Check the <a href="../../catalog/">catalog</a> or open the <strong>Model Hub</strong> dashboard in your Regolo account for the values that apply to each image model.</p>
+</div>
 <h2 id="api-call-parameters">API Call Parameters</h2>
 <ul>
 <li><code>prompt</code>: A string describing the desired image, such as "A white cat resting in Rome."</li>
@@ -1562,17 +1566,17 @@
 
 <span class="c1"># pip install regolo Pillow</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_image_generation_model</span> <span class="o">=</span> <span class="s2">"Qwen-Image"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_image_generation_model</span> <span class="o">=</span> <span class="s2">&quot;Qwen-Image&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
 
-<span class="n">img_bytes</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_image_create</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">"A Boat in the sea"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img_bytes</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_image_create</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;A Boat in the sea&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">img_bytes</span><span class="p">))</span>
 
 <span class="c1"># Save the Image</span>
-<span class="n">output_path</span> <span class="o">=</span> <span class="s2">"generated_image.png"</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;generated_image.png&quot;</span>
 <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Image saved to: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image saved to: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1582,17 +1586,17 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.regolo.ai/v1/images/generations'</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.regolo.ai/v1/images/generations&#39;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer YOUR_REGOLO_KEY'</span><span class="p">,</span>
-    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer YOUR_REGOLO_KEY&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
 <span class="p">}</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"A white cat resting in Rome"</span><span class="p">,</span>
-    <span class="s2">"n"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Qwen-Image"</span><span class="p">,</span>
-    <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"1024x1024"</span>
+    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;A white cat resting in Rome&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Qwen-Image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;1024x1024&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
@@ -1600,48 +1604,48 @@
 <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
     <span class="n">response_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">response_data</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]):</span>
-        <span class="n">b64_image</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">'b64_json'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">response_data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]):</span>
+        <span class="n">b64_image</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;b64_json&#39;</span><span class="p">]</span>
         <span class="n">image_data</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">b64_image</span><span class="p">)</span>
 
         <span class="n">image_stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
         <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_stream</span><span class="p">)</span>
 
         <span class="c1"># Save the Image</span>
-        <span class="n">output_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"generated_image_</span><span class="si">{</span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">.png"</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;generated_image_</span><span class="si">{</span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">.png&quot;</span>
         <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Image saved to: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image saved to: </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Failed to generate images:"</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to generate images:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--url<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/images/generations'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_REGOLO_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "prompt": "A Boat in the sea",</span>
-<span class="s1">    "n": 2,</span>
-<span class="s1">    "model": "Qwen-Image",</span>
-<span class="s1">    "size": "1024x1024"</span>
-<span class="s1">}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/images/generations&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_REGOLO_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;prompt&quot;: &quot;A Boat in the sea&quot;,</span>
+<span class="s1">    &quot;n&quot;: 2,</span>
+<span class="s1">    &quot;model&quot;: &quot;Qwen-Image&quot;,</span>
+<span class="s1">    &quot;size&quot;: &quot;1024x1024&quot;</span>
+<span class="s1">}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
 <span class="s2">import sys</span>
 <span class="s2">import json</span>
 <span class="s2">import base64</span>
 
 <span class="s2">response = json.load(sys.stdin)</span>
-<span class="s2">if 'data' in response:</span>
-<span class="s2">    for index, item in enumerate(response['data']):</span>
-<span class="s2">        b64_image = item['b64_json']</span>
+<span class="s2">if &#39;data&#39; in response:</span>
+<span class="s2">    for index, item in enumerate(response[&#39;data&#39;]):</span>
+<span class="s2">        b64_image = item[&#39;b64_json&#39;]</span>
 <span class="s2">        image_data = base64.b64decode(b64_image)</span>
-<span class="s2">        output_path = f'generated_image_{index + 1}.png'</span>
-<span class="s2">        with open(output_path, 'wb') as f:</span>
+<span class="s2">        output_path = f&#39;generated_image_{index + 1}.png&#39;</span>
+<span class="s2">        with open(output_path, &#39;wb&#39;) as f:</span>
 <span class="s2">            f.write(image_data)</span>
-<span class="s2">        print(f'Image saved to: {output_path}')</span>
+<span class="s2">        print(f&#39;Image saved to: {output_path}&#39;)</span>
 <span class="s2">else:</span>
-<span class="s2">    print('Failed to generate images:', response)</span>
-<span class="s2">"</span>
+<span class="s2">    print(&#39;Failed to generate images:&#39;, response)</span>
+<span class="s2">&quot;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1652,15 +1656,15 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--url<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/images/generations'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_REGOLO_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "prompt": "A wide cinematic shot of a boat on the sea at sunset",</span>
-<span class="s1">    "n": 1,</span>
-<span class="s1">    "model": "Qwen-Image",</span>
-<span class="s1">    "aspect_ratio": "16:9"</span>
-<span class="s1">}'</span>
+<span class="w">  </span>--url<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/images/generations&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_REGOLO_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;prompt&quot;: &quot;A wide cinematic shot of a boat on the sea at sunset&quot;,</span>
+<span class="s1">    &quot;n&quot;: 1,</span>
+<span class="s1">    &quot;model&quot;: &quot;Qwen-Image&quot;,</span>
+<span class="s1">    &quot;aspect_ratio&quot;: &quot;16:9&quot;</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>

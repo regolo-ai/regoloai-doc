@@ -1596,9 +1596,13 @@
 
 <h1 id="vision">Vision</h1>
 <p>Vision completions enable the processing of images alongside text, allowing for a wide range of applications such as image description, object recognition, and data extraction from visual content. By sending a combination of text prompts and image URLs, the model can provide insightful responses based on the visual input.</p>
+<div class="admonition tip">
+<p class="admonition-title">Model Hub dashboard</p>
+<p>To see which models support vision, check the <code>supports_vision</code> flag in the <a href="../../catalog/">catalog</a> or open the <strong>Model Hub</strong> dashboard in your Regolo account. Image limits (size, count, formats) are model-specific and listed there.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This API supports only images, PDF files are not supported.</p>
+<p>This API is for multimodal chat with images. For text extraction from PDFs, use the <a href="../../families/ocr/">OCR</a> model <code>deepseek-ocr-2</code>.</p>
 </div>
 <h2 id="vision-completions">Vision Completions</h2>
 <p>You can provide images in three ways:</p>
@@ -1614,21 +1618,21 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"deepseek-ocr-2"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-    <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-    <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-            <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-            <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"</span><span class="p">,</span>
-                <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1638,22 +1642,22 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"deepseek-ocr-2"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
                 <span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
@@ -1661,8 +1665,8 @@
     <span class="p">]</span>
 <span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -1671,29 +1675,29 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "model": "deepseek-ocr-2",</span>
-<span class="s1">    "messages": [</span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;deepseek-ocr-2&quot;,</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">        {</span>
-<span class="s1">            "role": "user",</span>
-<span class="s1">            "content": [</span>
+<span class="s1">            &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">            &quot;content&quot;: [</span>
 <span class="s1">                {</span>
-<span class="s1">                    "type": "text",</span>
-<span class="s1">                    "text": "Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+<span class="s1">                    &quot;type&quot;: &quot;text&quot;,</span>
+<span class="s1">                    &quot;text&quot;: &quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
 <span class="s1">                },</span>
 <span class="s1">                {</span>
-<span class="s1">                    "type": "image_url",</span>
-<span class="s1">                    "image_url": {</span>
-<span class="s1">                        "url": "https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg",</span>
-<span class="s1">                        "format": "image/jpeg"</span>
+<span class="s1">                    &quot;type&quot;: &quot;image_url&quot;,</span>
+<span class="s1">                    &quot;image_url&quot;: {</span>
+<span class="s1">                        &quot;url&quot;: &quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;,</span>
+<span class="s1">                        &quot;format&quot;: &quot;image/jpeg&quot;</span>
 <span class="s1">                    }</span>
 <span class="s1">                }</span>
 <span class="s1">            ]</span>
 <span class="s1">        }</span>
 <span class="s1">    ]</span>
-<span class="s1">}'</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1707,32 +1711,32 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"deepseek-ocr-2"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
-<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"beagle-hound-dog.jpg"</span><span class="p">)</span>
+<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;beagle-hound-dog.jpg&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Image not found: </span><span class="si">{</span><span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image not found: </span><span class="si">{</span><span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">image_bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span>
     <span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-        <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
             <span class="p">},</span>
             <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                    <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">]</span>
@@ -1741,8 +1745,8 @@
     <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Model response:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model response:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1751,59 +1755,59 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
-<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">"YOUR-API-KEY"</span>
-<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">"deepseek-ocr-2"</span>
+<span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY&quot;</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
-<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"beagle-hound-dog.jpg"</span><span class="p">)</span>
+<span class="n">IMAGE_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;beagle-hound-dog.jpg&quot;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Image not found: </span><span class="si">{</span><span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image not found: </span><span class="si">{</span><span class="n">IMAGE_PATH</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">IMAGE_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">image_bytes</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span><span class="p">},</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span><span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span>  <span class="c1"># Important: maintain a wide output token window to avoid issues</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">4096</span>  <span class="c1"># Important: maintain a wide output token window to avoid issues</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Sending request to Regolo AI API..."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending request to Regolo AI API...&quot;</span><span class="p">)</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
 
 <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Model response:"</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model response:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Unexpected response format:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected response format:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -1812,30 +1816,30 @@
 <span class="nv">IMAGE_B64</span><span class="o">=</span><span class="k">$(</span>base64<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>beagle-hound-dog.jpg<span class="k">)</span>
 
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR-API-KEY"</span><span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s2">"{</span>
-<span class="s2">    \"model\": \"deepseek-ocr-2\",</span>
-<span class="s2">    \"messages\": [</span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR-API-KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">    \&quot;model\&quot;: \&quot;deepseek-ocr-2\&quot;,</span>
+<span class="s2">    \&quot;messages\&quot;: [</span>
 <span class="s2">        {</span>
-<span class="s2">            \"role\": \"user\",</span>
-<span class="s2">            \"content\": [</span>
+<span class="s2">            \&quot;role\&quot;: \&quot;user\&quot;,</span>
+<span class="s2">            \&quot;content\&quot;: [</span>
 <span class="s2">                {</span>
-<span class="s2">                    \"type\": \"text\",</span>
-<span class="s2">                    \"text\": \"Extract all text from this image exactly as written. Preserve line breaks and punctuation.\"</span>
+<span class="s2">                    \&quot;type\&quot;: \&quot;text\&quot;,</span>
+<span class="s2">                    \&quot;text\&quot;: \&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.\&quot;</span>
 <span class="s2">                },</span>
 <span class="s2">                {</span>
-<span class="s2">                    \"type\": \"image_url\",</span>
-<span class="s2">                    \"image_url\": {</span>
-<span class="s2">                        \"url\": \"data:image/jpeg;base64,</span><span class="nv">$IMAGE_B64</span><span class="s2">\",</span>
-<span class="s2">                        \"format\": \"image/jpeg\"</span>
+<span class="s2">                    \&quot;type\&quot;: \&quot;image_url\&quot;,</span>
+<span class="s2">                    \&quot;image_url\&quot;: {</span>
+<span class="s2">                        \&quot;url\&quot;: \&quot;data:image/jpeg;base64,</span><span class="nv">$IMAGE_B64</span><span class="s2">\&quot;,</span>
+<span class="s2">                        \&quot;format\&quot;: \&quot;image/jpeg\&quot;</span>
 <span class="s2">                    }</span>
 <span class="s2">                }</span>
 <span class="s2">            ]</span>
 <span class="s2">        }</span>
 <span class="s2">    ],</span>
-<span class="s2">    \"max_tokens\": 4096  # Important: maintain a wide output token window to avoid issues</span>
-<span class="s2">}"</span>
+<span class="s2">    \&quot;max_tokens\&quot;: 4096  # Important: maintain a wide output token window to avoid issues</span>
+<span class="s2">}&quot;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1849,27 +1853,27 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"YOUR_REGOLO_KEY"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"deepseek-ocr-2"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>
 
 <span class="c1"># Download image and convert to base64</span>
-<span class="n">image_url</span> <span class="o">=</span> <span class="s2">"https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s2">&quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span>
     <span class="n">messages</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-        <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
             <span class="p">},</span>
             <span class="p">{</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                    <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">]</span>
@@ -1879,8 +1883,8 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
     <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Model response:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model response:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1889,94 +1893,94 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="c1"># Regolo API credentials configuration</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">"YOUR_API_KEY"</span>
-<span class="n">model</span> <span class="o">=</span> <span class="s2">"deepseek-ocr-2"</span>  <span class="c1"># Vision-compatible model</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;YOUR_API_KEY&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;deepseek-ocr-2&quot;</span>  <span class="c1"># Vision-compatible model</span>
 
 <span class="c1"># Download image and convert to base64</span>
-<span class="n">image_url</span> <span class="o">=</span> <span class="s2">"https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s2">&quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
-<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<span class="n">image_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
 <span class="c1"># Direct API call for multimodal messages</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span>
-                    <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Extract all text from this image exactly as written. Preserve line breaks and punctuation."</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.&quot;</span>
                 <span class="p">},</span>
                 <span class="p">{</span>
-                    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image_url"</span><span class="p">,</span>
-                    <span class="s2">"image_url"</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s2">"url"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-                        <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"image/jpeg"</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/jpeg;base64,</span><span class="si">{</span><span class="n">image_b64</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;image/jpeg&quot;</span>
                     <span class="p">}</span>
                 <span class="p">}</span>
             <span class="p">]</span>
         <span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span>  <span class="c1"># Important: maintain a wide output token window to avoid issues</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">4096</span>  <span class="c1"># Important: maintain a wide output token window to avoid issues</span>
 <span class="p">}</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Sending request to Regolo AI API..."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending request to Regolo AI API...&quot;</span><span class="p">)</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Model response:"</span><span class="p">)</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model response:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"KeyError: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Response structure:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KeyError: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response structure:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># First, download the image and encode it to base64</span>
 <span class="c1"># This example assumes you have the image URL</span>
-<span class="nv">IMAGE_URL</span><span class="o">=</span><span class="s2">"https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg"</span>
-<span class="nv">IMAGE_B64</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">"</span><span class="nv">$IMAGE_URL</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="k">)</span>
+<span class="nv">IMAGE_URL</span><span class="o">=</span><span class="s2">&quot;https://cdn.britannica.com/16/234216-050-C66F8665/beagle-hound-dog.jpg&quot;</span>
+<span class="nv">IMAGE_B64</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$IMAGE_URL</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="k">)</span>
 
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
--H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_API_KEY"</span><span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span><span class="s2">"{</span>
-<span class="s2">    \"model\": \"deepseek-ocr-2\",</span>
-<span class="s2">    \"messages\": [</span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_API_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">    \&quot;model\&quot;: \&quot;deepseek-ocr-2\&quot;,</span>
+<span class="s2">    \&quot;messages\&quot;: [</span>
 <span class="s2">        {</span>
-<span class="s2">            \"role\": \"user\",</span>
-<span class="s2">            \"content\": [</span>
+<span class="s2">            \&quot;role\&quot;: \&quot;user\&quot;,</span>
+<span class="s2">            \&quot;content\&quot;: [</span>
 <span class="s2">                {</span>
-<span class="s2">                    \"type\": \"text\",</span>
-<span class="s2">                    \"text\": \"Extract all text from this image exactly as written. Preserve line breaks and punctuation.\"</span>
+<span class="s2">                    \&quot;type\&quot;: \&quot;text\&quot;,</span>
+<span class="s2">                    \&quot;text\&quot;: \&quot;Extract all text from this image exactly as written. Preserve line breaks and punctuation.\&quot;</span>
 <span class="s2">                },</span>
 <span class="s2">                {</span>
-<span class="s2">                    \"type\": \"image_url\",</span>
-<span class="s2">                    \"image_url\": {</span>
-<span class="s2">                        \"url\": \"data:image/jpeg;base64,</span><span class="nv">$IMAGE_B64</span><span class="s2">\",</span>
-<span class="s2">                        \"format\": \"image/jpeg\"</span>
+<span class="s2">                    \&quot;type\&quot;: \&quot;image_url\&quot;,</span>
+<span class="s2">                    \&quot;image_url\&quot;: {</span>
+<span class="s2">                        \&quot;url\&quot;: \&quot;data:image/jpeg;base64,</span><span class="nv">$IMAGE_B64</span><span class="s2">\&quot;,</span>
+<span class="s2">                        \&quot;format\&quot;: \&quot;image/jpeg\&quot;</span>
 <span class="s2">                    }</span>
 <span class="s2">                }</span>
 <span class="s2">            ]</span>
 <span class="s2">        }</span>
 <span class="s2">    ],</span>
-<span class="s2">    \"temperature\": 0.2,</span>
-<span class="s2">    \"max_tokens\": 4096  # Important: maintain a wide output token window to avoid issues</span>
-<span class="s2">}"</span>
+<span class="s2">    \&quot;temperature\&quot;: 0.2,</span>
+<span class="s2">    \&quot;max_tokens\&quot;: 4096  # Important: maintain a wide output token window to avoid issues</span>
+<span class="s2">}&quot;</span>
 </code></pre></div>
 </div>
 </div>

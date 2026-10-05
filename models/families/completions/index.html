@@ -1568,24 +1568,24 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_REGOLO_KEY&gt;"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"Llama-3.3-70B-Instruct"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tell me something about rome"</span><span class="p">}]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_chat_completions</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about rome&quot;</span><span class="p">}]))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tell me something about Rome."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
 
@@ -1595,17 +1595,17 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/chat/completions<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">     "model": "Llama-3.3-70B-Instruct",</span>
-<span class="s1">     "messages": [</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">     &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">     &quot;messages&quot;: [</span>
 <span class="s1">        {</span>
-<span class="s1">            "role": "user",</span>
-<span class="s1">            "content": "Tell me something about Rome."</span>
+<span class="s1">            &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">            &quot;content&quot;: &quot;Tell me something about Rome.&quot;</span>
 <span class="s1">        }</span>
 <span class="s1">    ]</span>
-<span class="s1">}'</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1618,12 +1618,12 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_REGOLO_KEY&gt;"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"Llama-3.3-70B-Instruct"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">(</span>
-    <span class="n">user_prompt</span><span class="o">=</span><span class="s2">"Tell me something about Rome."</span><span class="p">,</span>
+    <span class="n">user_prompt</span><span class="o">=</span><span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">,</span>
     <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
@@ -1632,14 +1632,14 @@
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">chunk</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-        <span class="c1"># Extract content from delta if it's a dict</span>
+        <span class="c1"># Extract content from delta if it&#39;s a dict</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-            <span class="n">content</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'choices'</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'delta'</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;choices&#39;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># If it's already a string, print it directly</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># If it&#39;s already a string, print it directly</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
         <span class="k">break</span>
 </code></pre></div>
@@ -1647,12 +1647,12 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_REGOLO_KEY&gt;"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"Llama-3.3-70B-Instruct"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">RegoloClient</span><span class="p">()</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">run_chat</span><span class="p">(</span>
-    <span class="n">user_prompt</span><span class="o">=</span><span class="s2">"Tell me something about Rome."</span><span class="p">,</span>
+    <span class="n">user_prompt</span><span class="o">=</span><span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">,</span>
     <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
@@ -1670,17 +1670,17 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tell me something about Rome."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"stream"</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1688,18 +1688,18 @@
 <span class="c1"># Extract only content from streamed JSON</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
-        <span class="n">decoded_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">decoded_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'data: '</span><span class="p">):</span>
+        <span class="n">decoded_line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">decoded_line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;data: &#39;</span><span class="p">):</span>
             <span class="n">json_str</span> <span class="o">=</span> <span class="n">decoded_line</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
-            <span class="k">if</span> <span class="n">json_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'[DONE]'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">json_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;[DONE]&#39;</span><span class="p">:</span>
                 <span class="k">break</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
-                <span class="k">if</span> <span class="s1">'choices'</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">:</span>
-                    <span class="n">delta</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">'choices'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'delta'</span><span class="p">,</span> <span class="p">{})</span>
-                    <span class="n">content</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s1">&#39;choices&#39;</span> <span class="ow">in</span> <span class="n">json_data</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delta&#39;</span><span class="p">,</span> <span class="p">{})</span>
+                    <span class="n">content</span> <span class="o">=</span> <span class="n">delta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
                 <span class="k">pass</span>
 </code></pre></div>
@@ -1707,17 +1707,17 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tell me something about Rome."</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"stream"</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1725,7 +1725,7 @@
 <span class="c1"># Show full JSON response</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">line</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 </div>
@@ -1741,24 +1741,24 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_REGOLO_KEY&gt;"</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">"Llama-3.3-70B-Instruct"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_chat_model</span> <span class="o">=</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_completions</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">"Tell me something about Rome."</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">regolo</span><span class="o">.</span><span class="n">static_completions</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Llama-3.3-70B-Instruct"</span><span class="p">,</span>
-    <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"Tell me something about Rome."</span><span class="p">,</span>
-    <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.7</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Llama-3.3-70B-Instruct&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me something about Rome.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.7</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -1767,13 +1767,13 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/completions<span class="w"> </span>
--H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>
--H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span><span class="w"> </span>
--d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "model": "Llama-3.3-70B-Instruct",</span>
-<span class="s1">    "prompt": "Tell me something about Rome.",</span>
-<span class="s1">    "temperature": 0.7</span>
-<span class="s1">}'</span>
+-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>
+-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span><span class="w"> </span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;Llama-3.3-70B-Instruct&quot;,</span>
+<span class="s1">    &quot;prompt&quot;: &quot;Tell me something about Rome.&quot;,</span>
+<span class="s1">    &quot;temperature&quot;: 0.7</span>
+<span class="s1">}&#39;</span>
 </code></pre></div>
 </div>
 </div>

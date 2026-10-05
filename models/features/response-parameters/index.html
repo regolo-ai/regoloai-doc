@@ -1784,11 +1784,11 @@
 </ul>
 <p>Lower values (e.g., 0.2) make the output more deterministic and focused, while higher values (e.g., 0.8) increase creativity and variability.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Tell me a story"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Tell me a story&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.7</span>  <span class="c1"># Balanced creativity</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.7</span>  <span class="c1"># Balanced creativity</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="max_tokens"><code>max_tokens</code></h3>
@@ -1799,11 +1799,11 @@
 </ul>
 <p>Higher values allow for longer responses but may increase latency and costs. Lower values provide more concise outputs.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Explain quantum computing"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Explain quantum computing&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">1000</span>  <span class="c1"># Limit response length</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">1000</span>  <span class="c1"># Limit response length</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="top_p"><code>top_p</code></h3>
@@ -1815,11 +1815,11 @@
 </ul>
 <p>Lower values make the model more focused on likely tokens, while higher values allow more diverse choices.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Write a creative poem"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Write a creative poem&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"top_p"</span><span class="p">:</span> <span class="mf">0.9</span>  <span class="c1"># Allow more diverse word choices</span>
+    <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="mf">0.9</span>  <span class="c1"># Allow more diverse word choices</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="frequency_penalty"><code>frequency_penalty</code></h3>
@@ -1831,11 +1831,11 @@
 </ul>
 <p>Positive values reduce repetition, while negative values increase it. Useful for avoiding repetitive phrases.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"List 10 different ideas"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;List 10 different ideas&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"frequency_penalty"</span><span class="p">:</span> <span class="mf">0.5</span>  <span class="c1"># Reduce repetition</span>
+    <span class="s2">&quot;frequency_penalty&quot;</span><span class="p">:</span> <span class="mf">0.5</span>  <span class="c1"># Reduce repetition</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="presence_penalty"><code>presence_penalty</code></h3>
@@ -1847,11 +1847,11 @@
 </ul>
 <p>Positive values encourage the model to use new tokens and explore different approaches.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Generate diverse solutions"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Generate diverse solutions&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"presence_penalty"</span><span class="p">:</span> <span class="mf">0.6</span>  <span class="c1"># Encourage new approaches</span>
+    <span class="s2">&quot;presence_penalty&quot;</span><span class="p">:</span> <span class="mf">0.6</span>  <span class="c1"># Encourage new approaches</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="stop"><code>stop</code></h3>
@@ -1862,11 +1862,11 @@
 </ul>
 <p>Useful for controlling where the response ends or preventing certain phrases.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Count to 10"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Count to 10&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"stop"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"11"</span><span class="p">,</span> <span class="s2">"twelve"</span><span class="p">]</span>  <span class="c1"># Stop at these sequences</span>
+    <span class="s2">&quot;stop&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;twelve&quot;</span><span class="p">]</span>  <span class="c1"># Stop at these sequences</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="n"><code>n</code></h3>
@@ -1877,11 +1877,11 @@
 </ul>
 <p>Generates multiple response variations.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Suggest a name"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Suggest a name&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"n"</span><span class="p">:</span> <span class="mi">3</span>  <span class="c1"># Generate 3 different suggestions</span>
+    <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">3</span>  <span class="c1"># Generate 3 different suggestions</span>
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="seed"><code>seed</code></h3>
@@ -1892,36 +1892,36 @@
 </ul>
 <p>When set, the model will produce more deterministic outputs, useful for testing and reproducibility.</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Generate a random number"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Generate a random number&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"seed"</span><span class="p">:</span> <span class="mi">42</span>  <span class="c1"># Reproducible output</span>
+    <span class="s2">&quot;seed&quot;</span><span class="p">:</span> <span class="mi">42</span>  <span class="c1"># Reproducible output</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="complete-example">Complete Example</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">"https://api.regolo.ai/v1/chat/completions"</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://api.regolo.ai/v1/chat/completions&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
-    <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer YOUR_REGOLO_KEY"</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer YOUR_REGOLO_KEY&quot;</span>
 <span class="p">}</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gpt-oss-120b"</span><span class="p">,</span>
-    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Write a creative story"</span><span class="p">}</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-oss-120b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Write a creative story&quot;</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
-    <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
-    <span class="s2">"top_p"</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
-    <span class="s2">"frequency_penalty"</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
-    <span class="s2">"presence_penalty"</span><span class="p">:</span> <span class="mf">0.4</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">&quot;top_p&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="s2">&quot;frequency_penalty&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="s2">&quot;presence_penalty&quot;</span><span class="p">:</span> <span class="mf">0.4</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"message"</span><span class="p">][</span><span class="s2">"content"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;choices&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;message&quot;</span><span class="p">][</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="best-practices">Best Practices</h2>
 <ul>

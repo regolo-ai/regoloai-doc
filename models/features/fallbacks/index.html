@@ -1604,19 +1604,19 @@
 <p class="admonition-title">Important</p>
 <p>When <code>disable_fallbacks</code> is <code>true</code>, requests will fail with an error if the selected model is unavailable. Use this when you need guaranteed model consistency.</p>
 </div>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">'https://api.regolo.ai/v1/chat/completions'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">'Authorization: Bearer YOUR_API_KEY'</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "messages": [</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s1">&#39;https://api.regolo.ai/v1/chat/completions&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer YOUR_API_KEY&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;messages&quot;: [</span>
 <span class="s1">      {</span>
-<span class="s1">        "role": "user",</span>
-<span class="s1">        "content": "List 5 important events in the 19th century"</span>
+<span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<span class="s1">        &quot;content&quot;: &quot;List 5 important events in the 19th century&quot;</span>
 <span class="s1">      }</span>
 <span class="s1">    ],</span>
-<span class="s1">    "model": "qwen3.5-122b",</span>
-<span class="s1">    "disable_fallbacks": true</span>
-<span class="s1">  }'</span>
+<span class="s1">    &quot;model&quot;: &quot;qwen3.5-122b&quot;,</span>
+<span class="s1">    &quot;disable_fallbacks&quot;: true</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 <h2 id="when-to-disable-fallbacks">When to disable fallbacks</h2>
 <ul>
