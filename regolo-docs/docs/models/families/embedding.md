@@ -1,3 +1,7 @@
+---
+description: "Generate high-dimensional vector embeddings for RAG, search, and clustering with top open embedding models on Regolo's fast, GDPR-compliant inference API."
+---
+
 # Embedding
 
 The embedding API allows you to get a vector representation of the input to be used from machine learning models or algorithms, leveraging models like `gte-Qwen2`.

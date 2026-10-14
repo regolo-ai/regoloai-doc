@@ -1,3 +1,7 @@
+---
+description: "Stream chat completions with open LLMs via Regolo's OpenAI-compatible endpoint. Features full parameter tuning, token usage metrics, and zero data retention."
+---
+
 # Completions and Chat
 
 ## Static Chat Completions

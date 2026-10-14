@@ -1,3 +1,7 @@
+---
+description: "Run open-source AI models with an OpenAI-compatible cloud API. Access LLMs, vision, embeddings, OCR, and rerankers on EU infrastructure with zero data retention."
+---
+
 # Documentation
 
 Regolo lets you run AI models with a cloud API, without having to understand machine learning or manage your own infrastructure.

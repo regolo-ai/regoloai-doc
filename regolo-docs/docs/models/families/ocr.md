@@ -1,3 +1,7 @@
+---
+description: "Extract text and tables from complex documents, PDFs, and images using DeepSeek OCR on Regolo. High-accuracy document parsing with European data sovereignty."
+---
+
 # OCR
 
 DeepSeek OCR is a powerful optical character recognition model that enables accurate text extraction from images and documents. It supports various modes including native and dynamic resolutions, making it suitable for different use cases from simple OCR to complex document parsing.

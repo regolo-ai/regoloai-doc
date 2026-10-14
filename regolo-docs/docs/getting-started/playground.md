@@ -1,3 +1,7 @@
+---
+description: "Test and compare open-weights AI models interactively in the Regolo Playground. Adjust temperature, top-p, and system prompts without writing a line of code."
+---
+
 # Playground
 
 Explore Regolo AI models interactively, without writing a single line of code.

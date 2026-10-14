@@ -13,6 +13,9 @@ COPY regolo-api.json /app/regolo-api.json
 COPY favicon-32x32.png /usr/share/nginx/html/favicon-32x32.png
 COPY favicon-16x16.png /usr/share/nginx/html/favicon-16x16.png
 
+# Inject SEO meta description into Swagger UI index.html
+RUN sed -i 's|<head>|<head>\n  <meta name="description" content="Interactive OpenAPI reference and API explorer for Regolo'\''s European AI inference endpoints. Test chat, vision, and embeddings live.">|' /usr/share/nginx/html/index.html
+
 # Expose port 8080
 EXPOSE 8080
 

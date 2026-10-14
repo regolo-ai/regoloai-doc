@@ -1,3 +1,7 @@
+---
+description: "Re-order search passages and RAG context with Qwen3-Reranker on Regolo. Boost retrieval relevance and precision across 100+ languages with minimal latency."
+---
+
 # Rerank
 
 The **Rerank** API lets you re‑order a list of documents (or passages) according to their relevance to a given query.  

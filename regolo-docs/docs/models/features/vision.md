@@ -1,3 +1,7 @@
+---
+description: "Process visual inputs alongside text prompts using multimodal vision models on Regolo. Ideal for visual QA, document analysis, and automated inspection."
+---
+
 # Vision
 
 Vision completions enable the processing of images alongside text, allowing for a wide range of applications such as image description, object recognition, and data extraction from visual content. By sending a combination of text prompts and image URLs, the model can provide insightful responses based on the visual input.

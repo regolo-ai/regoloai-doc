@@ -1,3 +1,7 @@
+---
+description: "Find answers to common questions about Regolo API integration, OpenAI SDK compatibility, rate limits, European data residency, and zero data retention policies."
+---
+
 # FAQ
 
 Common questions and answers about using the Regolo API.

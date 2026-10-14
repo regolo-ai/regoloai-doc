@@ -1,3 +1,7 @@
+---
+description: "Explore the complete Regolo model catalog: Qwen, Mistral, Llama, DeepSeek, and specialized models for chat, vision, embeddings, OCR, and semantic routing."
+---
+
 # Model Catalog
 
 Regolo keeps every model it serves in a single catalog. You can query it from your code to see which models are available, what each one supports, how much it costs, and what its limits are.

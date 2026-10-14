@@ -1,3 +1,7 @@
+---
+description: "Guarantee 100% valid JSON responses from LLMs with structured outputs on Regolo. Enforce strict JSON Schema validation for robust production integrations."
+---
+
 # Structured Outputs
 
 Structured outputs force the model to reply in a JSON shape you define, so you can parse the response programmatically without guessing the format. Regolo supports the OpenAI `response_format` parameter and passes it straight through to the underlying engine.

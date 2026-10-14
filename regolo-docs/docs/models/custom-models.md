@@ -1,3 +1,7 @@
+---
+description: "Deploy custom open-weights models from Hugging Face onto dedicated Regolo GPU instances. Enjoy full resource control, vLLM acceleration, and EU data privacy."
+---
+
 # Custom Models
 
 Regolo’s **Custom Models** functionality allows you to upload and deploy your own AI models from Hugging Face onto dedicated infrastructure. You maintain full control over the GPU resources, ensuring consistent performance for your specific use cases.

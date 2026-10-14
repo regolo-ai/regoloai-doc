@@ -1,3 +1,7 @@
+---
+description: "Get started with Regolo.ai. Learn how to create your account, configure API access, and deploy open-weights AI models on European sovereign infrastructure."
+---
+
 # Welcome to Regolo
 
 To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](https://dashboard.regolo.ai).

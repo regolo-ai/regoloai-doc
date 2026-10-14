@@ -1,3 +1,7 @@
+---
+description: "Transcribe and translate multi-lingual audio files with Faster-Whisper Large-v3 on Regolo. High-speed speech-to-text inference running on EU infrastructure."
+---
+
 # Speech To Text
 
 The Speech to Text (STT) API enables you to extract and transcribe text from audio files using models such as `faster-whisper-large-v3`.  

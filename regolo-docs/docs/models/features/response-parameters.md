@@ -1,3 +1,7 @@
+---
+description: "Configure OpenAI-compatible response parameters on Regolo: control temperature, max tokens, frequency penalty, stop sequences, and streaming configurations."
+---
+
 # Response Parameters
 
 The Regolo API follows the OpenAI Chat Completions API specification and supports standard parameters that control the behavior and quality of model responses.

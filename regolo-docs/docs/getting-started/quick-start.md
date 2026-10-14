@@ -1,3 +1,7 @@
+---
+description: "Get up and running with Regolo AI in under 5 minutes. Quickstart guide for setting up Python, Node.js, or cURL requests to EU-hosted open LLM inference APIs."
+---
+
 # Quick Start
 
 Get up and running with Regolo AI in under 5 minutes.
