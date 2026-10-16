@@ -1,3 +1,7 @@
+---
+description: "Generate high-resolution visual assets from text prompts using open image generation models like Qwen-Image on Regolo's fast, European GPU infrastructure."
+---
+
 # Images Generation
 
 The image generation API allows you to create images based on textual descriptions, leveraging models like `Qwen-Image`.

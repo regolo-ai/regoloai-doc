@@ -1,3 +1,7 @@
+---
+description: "Integrate Regolo AI in Python, JavaScript/Node.js, Go, or cURL. Drop-in OpenAI client compatibility with custom base URL and European zero-retention inference."
+---
+
 # Choose Your Language
 
 Regolo AI is fully compatible with the OpenAI API, so you can use any OpenAI-compatible client library. Below are setup instructions for the most popular options.

@@ -1,3 +1,7 @@
+---
+description: "Enable AI agents to invoke external tools and APIs with native function calling on Regolo. Build reliable agentic workflows with structured tool execution."
+---
+
 # Function Calling
 
 **Function calling** enables the language model to invoke external functions during a conversation, allowing it to retrieve real-time information or perform operations.

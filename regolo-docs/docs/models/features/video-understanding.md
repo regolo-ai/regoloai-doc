@@ -1,3 +1,7 @@
+---
+description: "Analyze video content and temporal dynamics with multimodal models on Regolo. Extract scene summaries, transcribe visual events, and answer video queries."
+---
+
 # Video Understanding
 
 Video understanding enables the processing of video content alongside text, allowing for a wide range of applications such as video summarization, content analysis, action recognition, and information extraction from visual and audio content. By sending a combination of text prompts and video URLs, the model can provide insightful responses based on the video input.

@@ -1,3 +1,7 @@
+---
+description: "Ensure 99.9% uptime with automated model fallbacks on Regolo. Seamlessly route requests to backup models when primary endpoints experience load spikes."
+---
+
 # Fallbacks
 
 When a requested model is unavailable, Regolo can automatically fall back to a compatible alternative so your requests keep working without interruption.

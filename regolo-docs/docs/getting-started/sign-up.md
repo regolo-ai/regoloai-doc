@@ -1,3 +1,7 @@
+---
+description: "Create your Regolo account and generate secure API keys in minutes. Manage access permissions and start integrating EU-hosted LLM endpoints into your apps."
+---
+
 # Sign Up & API Keys
 
 Learn how to sign up for Regolo AI and generate your API keys.

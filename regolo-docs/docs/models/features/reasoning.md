@@ -1,3 +1,7 @@
+---
+description: "Harness deep chain-of-thought reasoning models on Regolo. Inspect thinking tokens, solve complex logic problems, and deploy autonomous engineering agents."
+---
+
 # Reasoning
 
 Reasoning models work through a problem in steps before they answer. While they think they emit reasoning tokens, and Regolo returns that reasoning so you can follow how the model reached its conclusion.

@@ -1,3 +1,7 @@
+---
+description: "Make your first API call to Regolo using cURL or Python. Test open-source chat completions with OpenAI-compatible headers and verify zero data retention setup."
+---
+
 # Your First API Call
 
 Make your first API call to Regolo AI.
