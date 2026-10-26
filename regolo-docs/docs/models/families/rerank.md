@@ -123,4 +123,4 @@ Modern LLM-based rerankers are trained using these semantic markers to improve *
 }
 ```
 
-For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).

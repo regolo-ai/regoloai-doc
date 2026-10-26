@@ -8,7 +8,7 @@ Learn how to sign up for Regolo AI and generate your API keys.
 
 ## Create Your Account
 
-1. Visit [dashboard.regolo.ai](https://dashboard.regolo.ai)
+1. Visit [dashboard.regolo.ai](https://dashboard.regolo.ai/)
 2. Click **Sign Up** and complete the registration form
 3. Verify your email address
 4. Log in to your new account

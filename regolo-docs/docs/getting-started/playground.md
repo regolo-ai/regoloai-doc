@@ -40,7 +40,7 @@ Provide concise answers with code examples when relevant.
 
 Prefer to test the API directly? Head over to the interactive API documentation:
 
-[**API Reference →**](https://docs.api.regolo.ai)
+[**API Reference →**](https://docs.api.regolo.ai/)
 
 ## Tips for Experimentation
 

@@ -140,5 +140,5 @@ Some image models accept an `aspect_ratio` or a custom `size` instead of the squ
 !!! tip "Check the model first"
     Not every model honors `aspect_ratio` or arbitrary `size` values. If a model ignores the parameter it usually falls back to its default square output. Test in the [Playground](../../getting-started/playground.md) to see what a model actually produces.
 
-For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).
 

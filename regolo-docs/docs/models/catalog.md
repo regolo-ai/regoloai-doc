@@ -163,4 +163,4 @@ Quantization is fixed once a model is official. If it has to change, Regolo anno
 
 When a model is retired, Regolo announces the removal by email ahead of time and routes requests through a [fallback](features/fallbacks.md) to a replacement model, so existing integrations keep working.
 
-For the exhaustive API endpoint reference visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API endpoint reference visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).

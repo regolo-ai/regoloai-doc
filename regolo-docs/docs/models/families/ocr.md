@@ -255,4 +255,4 @@ print(f"Completed : file saved in \"{OUTPUT_PATH}\"")
 - [Hugging Face](https://huggingface.co/deepseek-ai/DeepSeek-OCR)
 - [Arxiv Paper](https://arxiv.org/abs/2510.18234)
 
-For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).

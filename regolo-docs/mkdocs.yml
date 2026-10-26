@@ -12,7 +12,7 @@ nav:
     - Your First API Call: getting-started/first-api-call.md
     - Choose Your Language: getting-started/choose-language.md
     - Playground: getting-started/playground.md
-  - Endpoints Docs: https://docs.api.regolo.ai
+  - Endpoints Docs: https://docs.api.regolo.ai/
   - Models:
     - Model Catalog: models/catalog.md
     - Families:
