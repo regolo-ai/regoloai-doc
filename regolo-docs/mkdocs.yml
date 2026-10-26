@@ -76,8 +76,6 @@ theme:
 
 plugins:
   - search
-  - open-in-new-tab:
-      add_icon: true
 
 markdown_extensions:
   - md_in_html
@@ -108,3 +106,6 @@ extra:
 
 extra_css:
   - styles/extra.css
+
+extra_javascript:
+  - js/open_in_new_tab.min.js
