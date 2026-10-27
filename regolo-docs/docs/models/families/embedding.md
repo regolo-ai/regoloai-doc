@@ -112,5 +112,5 @@ Some embedding models can return shorter vectors directly, so you save storage a
 !!! note "Support is model-dependent"
     Not every embedding model accepts `dimensions`. `Qwen3-Embedding-8B` does; `gte-Qwen2` returns its fixed native dimension. Check the model in the [catalog](../catalog.md) before relying on a specific length.
 
-For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).
 

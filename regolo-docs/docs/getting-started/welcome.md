@@ -4,7 +4,7 @@ description: "Get started with Regolo.ai. Learn how to create your account, conf
 
 # Welcome to Regolo
 
-To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](https://dashboard.regolo.ai).
+To get started with Regolo.ai, sign up for an account at [dashboard.regolo.ai](https://dashboard.regolo.ai/).
 
 ## Generate an API Key
 

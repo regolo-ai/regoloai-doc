@@ -12,7 +12,7 @@ nav:
     - Your First API Call: getting-started/first-api-call.md
     - Choose Your Language: getting-started/choose-language.md
     - Playground: getting-started/playground.md
-  - Endpoints Docs: https://docs.api.regolo.ai
+  - Endpoints Docs: https://docs.api.regolo.ai/
   - Models:
     - Model Catalog: models/catalog.md
     - Families:
@@ -76,8 +76,6 @@ theme:
 
 plugins:
   - search
-  - open-in-new-tab:
-      add_icon: true
 
 markdown_extensions:
   - md_in_html
@@ -108,3 +106,6 @@ extra:
 
 extra_css:
   - styles/extra.css
+
+extra_javascript:
+  - js/open_in_new_tab.min.js

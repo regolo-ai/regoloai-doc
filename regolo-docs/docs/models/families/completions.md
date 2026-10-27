@@ -234,5 +234,5 @@ Static completions allow you to generate text responses based on a given prompt 
 
 
 
-For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API's endpoints documentation visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).
 

@@ -8,7 +8,7 @@ Get up and running with Regolo AI in under 5 minutes.
 
 ## 1. Get Your API Key
 
-Sign up at [dashboard.regolo.ai](https://dashboard.regolo.ai) and create a new API key in the **Virtual Keys** section.
+Sign up at [dashboard.regolo.ai](https://dashboard.regolo.ai/) and create a new API key in the **Virtual Keys** section.
 
 ## 2. Install the Client
 
@@ -73,4 +73,4 @@ Sign up at [dashboard.regolo.ai](https://dashboard.regolo.ai) and create a new A
 
 - Explore [available models](../models/families/completions.md)
 - Learn about [response parameters](../models/features/response-parameters.md)
-- Check the [API documentation](https://docs.api.regolo.ai)
+- Check the [API documentation](https://docs.api.regolo.ai/)

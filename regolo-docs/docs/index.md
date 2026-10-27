@@ -132,7 +132,7 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     Complete API documentation with Swagger UI.
 
-    [:octicons-arrow-right-24: API Docs](https://docs.api.regolo.ai)
+    [:octicons-arrow-right-24: API Docs](https://docs.api.regolo.ai/)
 
 -   :material-view-list:{ .lg .middle } **Model Catalog**
 

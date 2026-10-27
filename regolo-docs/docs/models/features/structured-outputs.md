@@ -183,4 +183,4 @@ Schema feature support — `enum`, nested objects, arrays, optional fields, unio
 - Set `strict: true` for a hard contract. Some models ignore `strict` and enforce the schema regardless.
 - Keep the prompt and schema aligned. If they contradict each other, the model can still fail to satisfy the schema.
 
-For the exhaustive API endpoint reference visit [docs.api.regolo.ai](https://docs.api.regolo.ai).
+For the exhaustive API endpoint reference visit [docs.api.regolo.ai](https://docs.api.regolo.ai/).

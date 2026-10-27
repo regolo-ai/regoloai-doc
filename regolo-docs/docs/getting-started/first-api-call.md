@@ -8,7 +8,7 @@ Make your first API call to Regolo AI.
 
 ## Prerequisites
 
-- A Regolo AI account ([sign up here](https://dashboard.regolo.ai))
+- A Regolo AI account ([sign up here](https://dashboard.regolo.ai/))
 - An API key ([learn how to create one](sign-up.md))
 
 ## Chat Completions API
