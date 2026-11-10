@@ -98,6 +98,14 @@ You can use [chat completions](models/families/completions.md), [vision models](
 
     [:octicons-arrow-right-24: Learn more](models/families/rerank.md)
 
+-   :material-directions-fork:{ .lg .middle } **Decision Models**
+
+    ---
+
+    Classify inputs and make decisions with probabilities.
+
+    [:octicons-arrow-right-24: Learn more](models/families/decision.md)
+
 </div>
 
 ## Features

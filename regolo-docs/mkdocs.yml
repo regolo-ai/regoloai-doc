@@ -22,6 +22,7 @@ nav:
       - STT: models/families/stt.md
       - Embeddings: models/families/embedding.md
       - Rerank: models/families/rerank.md
+      - Decision Models: models/families/decision.md
     - Features:
       - Reasoning: models/features/reasoning.md
       - Response Parameters: models/features/response-parameters.md
