@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -939,6 +939,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decision Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1555,11 +1583,11 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">regolo</span>
 
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_REGOLO_KEY&gt;&quot;</span>
-<span class="n">regolo</span><span class="o">.</span><span class="n">default_embedder_model</span> <span class="o">=</span> <span class="s2">&quot;gte-Qwen2&quot;</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_key</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_REGOLO_KEY&gt;"</span>
+<span class="n">regolo</span><span class="o">.</span><span class="n">default_embedder_model</span> <span class="o">=</span> <span class="s2">"gte-Qwen2"</span>
 
 
-<span class="n">embeddings</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_embeddings</span><span class="p">(</span><span class="n">input_text</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A white cat resting in Rome&quot;</span><span class="p">,</span> <span class="s2">&quot;A white cat resting in Paris&quot;</span><span class="p">])</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">regolo</span><span class="o">.</span><span class="n">static_embeddings</span><span class="p">(</span><span class="n">input_text</span><span class="o">=</span><span class="p">[</span><span class="s2">"A white cat resting in Rome"</span><span class="p">,</span> <span class="s2">"A white cat resting in Paris"</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
 </code></pre></div>
@@ -1568,34 +1596,34 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.regolo.ai/v1/embeddings&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.regolo.ai/v1/embeddings'</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer YOUR_REGOLO_KEY&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer YOUR_REGOLO_KEY'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
 <span class="p">}</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;A white cat resting in Rome&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gte-Qwen2&quot;</span><span class="p">,</span>
+    <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"A white cat resting in Rome"</span><span class="p">,</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"gte-Qwen2"</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
 <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./embedding.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"./embedding.json"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">_file</span><span class="p">:</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">(),</span> <span class="n">_file</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed embedding request:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Failed embedding request:"</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/embeddings
--H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
--H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span>
--d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;model&quot;: &quot;gte-Qwen2&quot;,</span>
-<span class="s1">    &quot;input&quot;: &quot;The quick brown fox jumps over the lazy dog&quot;</span>
-<span class="s1">}&#39;</span>
+-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span>
+-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span>
+-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "model": "gte-Qwen2",</span>
+<span class="s1">    "input": "The quick brown fox jumps over the lazy dog"</span>
+<span class="s1">}'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1608,32 +1636,32 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.regolo.ai/v1/embeddings&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://api.regolo.ai/v1/embeddings'</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer YOUR_REGOLO_KEY&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+    <span class="s1">'Authorization'</span><span class="p">:</span> <span class="s1">'Bearer YOUR_REGOLO_KEY'</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
 <span class="p">}</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;Qwen3-Embedding-8B&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;A white cat resting in Rome&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;dimensions&quot;</span><span class="p">:</span> <span class="mi">1024</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"Qwen3-Embedding-8B"</span><span class="p">,</span>
+    <span class="s2">"input"</span><span class="p">:</span> <span class="s2">"A white cat resting in Rome"</span><span class="p">,</span>
+    <span class="s2">"dimensions"</span><span class="p">:</span> <span class="mi">1024</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;embedding&quot;</span><span class="p">]))</span>  <span class="c1"># 1024</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"data"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"embedding"</span><span class="p">]))</span>  <span class="c1"># 1024</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/embeddings
--H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
--H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_REGOLO_KEY&quot;</span>
--d<span class="w"> </span><span class="s1">&#39;{</span>
-<span class="s1">    &quot;model&quot;: &quot;Qwen3-Embedding-8B&quot;,</span>
-<span class="s1">    &quot;input&quot;: &quot;A white cat resting in Rome&quot;,</span>
-<span class="s1">    &quot;dimensions&quot;: 1024</span>
-<span class="s1">}&#39;</span>
+-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span>
+-H<span class="w"> </span><span class="s2">"Authorization: Bearer YOUR_REGOLO_KEY"</span>
+-d<span class="w"> </span><span class="s1">'{</span>
+<span class="s1">    "model": "Qwen3-Embedding-8B",</span>
+<span class="s1">    "input": "A white cat resting in Rome",</span>
+<span class="s1">    "dimensions": 1024</span>
+<span class="s1">}'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1715,10 +1743,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.code.select", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.min.js"></script>
       
