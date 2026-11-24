@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Run open-source AI models with an OpenAI-compatible cloud API. Access LLMs, vision, embeddings, OCR, and rerankers on EU infrastructure with zero data retention.">
+        <meta name="description" content="Classify text and images, evaluate conditions, and score content with calibrated probabilities using decision models on Regolo's Zero Data Retention API.">
       
       
       
@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.7.4">
     
     
       
@@ -987,6 +987,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#decisions-over-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisions over Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-clear-questions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1625,6 +1636,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#decisions-over-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisions over Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-clear-questions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1673,6 +1695,7 @@
 <div class="admonition note">
 <p class="admonition-title">A dedicated decision endpoint</p>
 <p>Send <code>state</code> and <code>questions</code> to <code>/v1/systemone</code> to obtain decisions over the options you define. Use direct HTTP requests, as shown below, rather than a chat completion call with <code>messages</code> or <code>response_format</code>.</p>
+<p>Decisions and System One are two names for the same API: Regolo serves it at <code>/v1/systemone</code>, which keeps the <code>systemone</code> name in the path.</p>
 </div>
 <hr />
 <h2 id="api-call-parameters">API Call Parameters</h2>
@@ -1699,6 +1722,11 @@
 <td><code>questions</code></td>
 <td><code>object</code> (required)</td>
 <td>Questions keyed by an ID you choose, such as <code>department</code> or <code>outage</code>. Each ID also identifies its answer in the response.</td>
+</tr>
+<tr>
+<td><code>assets</code></td>
+<td><code>object</code> (optional)</td>
+<td>Images to evaluate, keyed by an ID you choose, such as <code>img_1</code>. Mention the ID in <code>state</code> and send the image as a Base64 string. See <a href="#decisions-over-images">Decisions over Images</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1767,7 +1795,7 @@
 <li><strong><code>priority</code></strong> rates how soon the ticket needs attention.</li>
 </ul>
 <p>Set your API key in the terminal before running either example:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">REGOLO_API_KEY</span><span class="o">=</span><span class="s2">"YOUR_REGOLO_KEY"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">REGOLO_API_KEY</span><span class="o">=</span><span class="s2">&quot;YOUR_REGOLO_KEY&quot;</span>
 </code></pre></div>
 <p>The Python example uses <code>requests</code>, which you can install with <code>python3 -m pip install requests</code>. Save the example as <code>decision.py</code>, then run <code>python3 decision.py</code> from the same terminal where you set the API key.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">cURL</label><label for="__tabbed_1_2">Python</label></div>
@@ -1776,38 +1804,38 @@
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--request<span class="w"> </span>POST<span class="w"> </span>https://api.regolo.ai/v1/systemone<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--fail-with-body<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--max-time<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$REGOLO_API_KEY</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--header<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
-<span class="s1">    "model": "clef-flash",</span>
-<span class="s1">    "state": {</span>
-<span class="s1">      "ticket": "Our checkout is returning errors. Customers cannot complete purchases. Please help today."</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$REGOLO_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;model&quot;: &quot;clef-flash&quot;,</span>
+<span class="s1">    &quot;state&quot;: {</span>
+<span class="s1">      &quot;ticket&quot;: &quot;Our checkout is returning errors. Customers cannot complete purchases. Please help today.&quot;</span>
 <span class="s1">    },</span>
-<span class="s1">    "questions": {</span>
-<span class="s1">      "department": {</span>
-<span class="s1">        "type": "choice",</span>
-<span class="s1">        "instructions": "Which team should handle this ticket?",</span>
-<span class="s1">        "criteria": {</span>
-<span class="s1">          "billing": "Questions about charges, invoices, or refunds.",</span>
-<span class="s1">          "technical": "Product errors, broken integrations, or service outages.",</span>
-<span class="s1">          "sales": "Questions about buying a product or choosing a plan."</span>
+<span class="s1">    &quot;questions&quot;: {</span>
+<span class="s1">      &quot;department&quot;: {</span>
+<span class="s1">        &quot;type&quot;: &quot;choice&quot;,</span>
+<span class="s1">        &quot;instructions&quot;: &quot;Which team should handle this ticket?&quot;,</span>
+<span class="s1">        &quot;criteria&quot;: {</span>
+<span class="s1">          &quot;billing&quot;: &quot;Questions about charges, invoices, or refunds.&quot;,</span>
+<span class="s1">          &quot;technical&quot;: &quot;Product errors, broken integrations, or service outages.&quot;,</span>
+<span class="s1">          &quot;sales&quot;: &quot;Questions about buying a product or choosing a plan.&quot;</span>
 <span class="s1">        }</span>
 <span class="s1">      },</span>
-<span class="s1">      "outage": {</span>
-<span class="s1">        "type": "noul",</span>
-<span class="s1">        "instructions": "Does the ticket say customers are currently unable to complete purchases?"</span>
+<span class="s1">      &quot;outage&quot;: {</span>
+<span class="s1">        &quot;type&quot;: &quot;noul&quot;,</span>
+<span class="s1">        &quot;instructions&quot;: &quot;Does the ticket say customers are currently unable to complete purchases?&quot;</span>
 <span class="s1">      },</span>
-<span class="s1">      "priority": {</span>
-<span class="s1">        "type": "score",</span>
-<span class="s1">        "instructions": "How soon does this ticket need attention?",</span>
-<span class="s1">        "criteria": [</span>
-<span class="s1">          "Low: a general question that can wait.",</span>
-<span class="s1">          "Medium: a problem with a workaround, to address this week.",</span>
-<span class="s1">          "High: a service is blocked and needs attention today."</span>
+<span class="s1">      &quot;priority&quot;: {</span>
+<span class="s1">        &quot;type&quot;: &quot;score&quot;,</span>
+<span class="s1">        &quot;instructions&quot;: &quot;How soon does this ticket need attention?&quot;,</span>
+<span class="s1">        &quot;criteria&quot;: [</span>
+<span class="s1">          &quot;Low: a general question that can wait.&quot;,</span>
+<span class="s1">          &quot;Medium: a problem with a workaround, to address this week.&quot;,</span>
+<span class="s1">          &quot;High: a service is blocked and needs attention today.&quot;</span>
 <span class="s1">        ]</span>
 <span class="s1">      }</span>
 <span class="s1">    }</span>
-<span class="s1">  }'</span>
+<span class="s1">  }&#39;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1816,50 +1844,50 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"model"</span><span class="p">:</span> <span class="s2">"clef-flash"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"ticket"</span><span class="p">:</span> <span class="s2">"Our checkout is returning errors. Customers cannot complete purchases. Please help today."</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;clef-flash&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ticket&quot;</span><span class="p">:</span> <span class="s2">&quot;Our checkout is returning errors. Customers cannot complete purchases. Please help today.&quot;</span>
     <span class="p">},</span>
-    <span class="s2">"questions"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"department"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"choice"</span><span class="p">,</span>
-            <span class="s2">"instructions"</span><span class="p">:</span> <span class="s2">"Which team should handle this ticket?"</span><span class="p">,</span>
-            <span class="s2">"criteria"</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">"billing"</span><span class="p">:</span> <span class="s2">"Questions about charges, invoices, or refunds."</span><span class="p">,</span>
-                <span class="s2">"technical"</span><span class="p">:</span> <span class="s2">"Product errors, broken integrations, or service outages."</span><span class="p">,</span>
-                <span class="s2">"sales"</span><span class="p">:</span> <span class="s2">"Questions about buying a product or choosing a plan."</span><span class="p">,</span>
+    <span class="s2">&quot;questions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="s2">&quot;Which team should handle this ticket?&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;criteria&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;billing&quot;</span><span class="p">:</span> <span class="s2">&quot;Questions about charges, invoices, or refunds.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;technical&quot;</span><span class="p">:</span> <span class="s2">&quot;Product errors, broken integrations, or service outages.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sales&quot;</span><span class="p">:</span> <span class="s2">&quot;Questions about buying a product or choosing a plan.&quot;</span><span class="p">,</span>
             <span class="p">},</span>
         <span class="p">},</span>
-        <span class="s2">"outage"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"noul"</span><span class="p">,</span>
-            <span class="s2">"instructions"</span><span class="p">:</span> <span class="s2">"Does the ticket say customers are currently unable to complete purchases?"</span><span class="p">,</span>
+        <span class="s2">&quot;outage&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;noul&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="s2">&quot;Does the ticket say customers are currently unable to complete purchases?&quot;</span><span class="p">,</span>
         <span class="p">},</span>
-        <span class="s2">"priority"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"score"</span><span class="p">,</span>
-            <span class="s2">"instructions"</span><span class="p">:</span> <span class="s2">"How soon does this ticket need attention?"</span><span class="p">,</span>
-            <span class="s2">"criteria"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="s2">"Low: a general question that can wait."</span><span class="p">,</span>
-                <span class="s2">"Medium: a problem with a workaround, to address this week."</span><span class="p">,</span>
-                <span class="s2">"High: a service is blocked and needs attention today."</span><span class="p">,</span>
+        <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;score&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="s2">&quot;How soon does this ticket need attention?&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;criteria&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Low: a general question that can wait.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Medium: a problem with a workaround, to address this week.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;High: a service is blocked and needs attention today.&quot;</span><span class="p">,</span>
             <span class="p">],</span>
         <span class="p">},</span>
     <span class="p">},</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-    <span class="s2">"https://api.regolo.ai/v1/systemone"</span><span class="p">,</span>
-    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'REGOLO_API_KEY'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
+    <span class="s2">&quot;https://api.regolo.ai/v1/systemone&quot;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;REGOLO_API_KEY&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span>
     <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span>
     <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">answers</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"answers"</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Team:"</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">"department"</span><span class="p">][</span><span class="s2">"choice"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Team confidence:"</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">"department"</span><span class="p">][</span><span class="s2">"confidence"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Outage probability:"</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">"outage"</span><span class="p">][</span><span class="s2">"noul"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Priority (0 to 2):"</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">"priority"</span><span class="p">][</span><span class="s2">"score"</span><span class="p">])</span>
+<span class="n">answers</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;answers&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Team:&quot;</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">][</span><span class="s2">&quot;choice&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Team confidence:&quot;</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">][</span><span class="s2">&quot;confidence&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outage probability:&quot;</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">&quot;outage&quot;</span><span class="p">][</span><span class="s2">&quot;noul&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Priority (0 to 2):&quot;</span><span class="p">,</span> <span class="n">answers</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">][</span><span class="s2">&quot;score&quot;</span><span class="p">])</span>
 </code></pre></div>
 </div>
 </div>
@@ -1867,44 +1895,44 @@
 <h2 id="response">Response</h2>
 <p>Answers are keyed by the same IDs you sent in <code>questions</code>. The following response was returned by Regolo with <strong>HTTP 200</strong> for the cURL request above using <code>clef-flash</code>. Exact values can vary between models and requests.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clef-flash"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"answers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"department"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"choice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"technical"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.999999999964877</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"billing"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2256069247280297e-11</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"technical"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999765847</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"sales"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1159278039439907e-11</span>
+<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clef-flash&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;answers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;department&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;choice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;technical&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.999999999964877</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;probabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;billing&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2256069247280297e-11</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;technical&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999765847</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sales&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1159278039439907e-11</span>
 <span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"x_label_mass"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9699117895992838</span>
+<span class="w">      </span><span class="nt">&quot;x_label_mass&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9699117895992838</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"outage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"noul"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"noul"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999998701</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"x_label_mass"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7104499497215855</span>
+<span class="w">    </span><span class="nt">&quot;outage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noul&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;noul&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999998701</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;x_label_mass&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7104499497215855</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.9999999999999405</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999999104</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">"legend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"0"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Low: a general question that can wait."</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium: a problem with a workaround, to address this week."</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High: a service is blocked and needs attention today."</span>
+<span class="w">    </span><span class="nt">&quot;priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;score&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.9999999999999405</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999999104</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;legend&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Low: a general question that can wait.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Medium: a problem with a workaround, to address this week.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;High: a service is blocked and needs attention today.&quot;</span>
 <span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"probabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"0"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1663308147704977e-16</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.948063307252533e-14</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">"2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999999405</span>
+<span class="w">      </span><span class="nt">&quot;probabilities&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1663308147704977e-16</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.948063307252533e-14</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999999999999405</span>
 <span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">"x_label_mass"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9985959006521702</span>
+<span class="w">      </span><span class="nt">&quot;x_label_mass&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9985959006521702</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">"input_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">248</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"output_tokens"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;input_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">248</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;output_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1916,6 +1944,37 @@
 <p class="admonition-title">Choose thresholds using your own examples</p>
 <p>Test the decisions against examples you have labeled before choosing a confidence threshold for automatic routing. Confidence is a model signal, not a guarantee that the decision is correct. A threshold such as <code>0.8</code> is a starting point to evaluate, not a universal rule.</p>
 </div>
+<h2 id="decisions-over-images">Decisions over Images</h2>
+<p>Decision models can evaluate images as well as text — for example, to check whether a photograph contains any form of advertisement.</p>
+<div class="admonition tip">
+<p class="admonition-title">Model Hub dashboard</p>
+<p>Image support and image limits (size, formats) are model-specific. Open the <strong>Model Hub</strong> dashboard in your Regolo account for the values that apply to your decision model.</p>
+</div>
+<p>You can't just pass an image URL: the image must be sent as a Base64-encoded string, because we never download files to our servers (Zero Data Retention policy). The image also needs to be referenced both in the <code>state</code> field and in the <code>assets</code> section of the payload.</p>
+<p>Below is a minimal example you can adapt with your own image (the Base64 data has been truncated for brevity):</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clef-flash&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Check img_1 and tell me if it contains any form of advertisement&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;assets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;img_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jpeg&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;data_base64&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUFBQoH...&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;questions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;filter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;instructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Is img_1 an advertisement?&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;criteria&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;true&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;It is some sort of ad&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;false&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is not an ad&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Replace the <code>data_base64</code> value with the full Base64 string of your image. The <code>state</code> text can be any prompt you like, as long as it mentions the asset name (here <code>img_1</code>).</p>
 <h2 id="writing-clear-questions">Writing Clear Questions</h2>
 <ul>
 <li>Keep the information to evaluate in <code>state</code>, and describe the decision in <code>instructions</code>.</li>
@@ -1934,6 +1993,9 @@
 
 
 
+
+  
+  
 
 
 
