@@ -1,3 +1,7 @@
+---
+description: "Classify text and images, evaluate conditions, and score content with calibrated probabilities using decision models on Regolo's Zero Data Retention API."
+---
+
 # Decision Models
 
 The Decision Models API lets you classify information, evaluate conditions, and assign scores. You provide the information to evaluate and the questions to answer, together with their allowed options. The API returns structured decisions and probabilities that your application can use directly.
@@ -9,6 +13,8 @@ Send requests to **`POST https://api.regolo.ai/v1/systemone`** with a [Regolo AP
 !!! note "A dedicated decision endpoint"
     Send `state` and `questions` to `/v1/systemone` to obtain decisions over the options you define. Use direct HTTP requests, as shown below, rather than a chat completion call with `messages` or `response_format`.
 
+    Decisions and System One are two names for the same API: Regolo serves it at `/v1/systemone`, which keeps the `systemone` name in the path.
+
 ---
 
 ## API Call Parameters
@@ -18,6 +24,7 @@ Send requests to **`POST https://api.regolo.ai/v1/systemone`** with a [Regolo AP
 | `model` | `string` (required) | ID of the decision model to use. Check available models and their capabilities in the [Model Catalog](../catalog.md). |
 | `state` | String or JSON value (required) | The information the model should evaluate, such as a customer message or a JSON object containing a ticket and relevant context. |
 | `questions` | `object` (required) | Questions keyed by an ID you choose, such as `department` or `outage`. Each ID also identifies its answer in the response. |
+| `assets` | `object` (optional) | Images to evaluate, keyed by an ID you choose, such as `img_1`. Mention the ID in `state` and send the image as a Base64 string. See [Decisions over Images](#decisions-over-images). |
 
 Each question contains:
 
@@ -209,6 +216,43 @@ For a `choice` question, the probabilities show how the model distributes its pr
 
 !!! tip "Choose thresholds using your own examples"
     Test the decisions against examples you have labeled before choosing a confidence threshold for automatic routing. Confidence is a model signal, not a guarantee that the decision is correct. A threshold such as `0.8` is a starting point to evaluate, not a universal rule.
+
+## Decisions over Images
+
+Decision models can evaluate images as well as text — for example, to check whether a photograph contains any form of advertisement.
+
+!!! tip "Model Hub dashboard"
+    Image support and image limits (size, formats) are model-specific. Open the **Model Hub** dashboard in your Regolo account for the values that apply to your decision model.
+
+You can't just pass an image URL: the image must be sent as a Base64-encoded string, because we never download files to our servers (Zero Data Retention policy). The image also needs to be referenced both in the `state` field and in the `assets` section of the payload.
+
+Below is a minimal example you can adapt with your own image (the Base64 data has been truncated for brevity):
+
+```json
+{
+  "model": "clef-flash",
+  "state": "Check img_1 and tell me if it contains any form of advertisement",
+  "assets": {
+    "img_1": {
+      "type": "image",
+      "format": "jpeg",
+      "data_base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUFBQoH..."
+    }
+  },
+  "questions": {
+    "filter": {
+      "type": "choice",
+      "instructions": "Is img_1 an advertisement?",
+      "criteria": {
+        "true": "It is some sort of ad",
+        "false": "This is not an ad"
+      }
+    }
+  }
+}
+```
+
+Replace the `data_base64` value with the full Base64 string of your image. The `state` text can be any prompt you like, as long as it mentions the asset name (here `img_1`).
 
 ## Writing Clear Questions
 
